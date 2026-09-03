@@ -1,0 +1,14 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# Env files (each subproject has its own; this is a belt-and-braces catch-all)
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*

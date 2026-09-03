@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Poppins', 'Segoe UI', sans-serif;
+
+  --color-white: #ffffff;
+  --color-pink-50: #fdf1f5;
+  --color-pink-100: #fbe2ea;
+  --color-pink-200: #f6c6d6;
+  --color-pink-300: #f0a8c0;
+  --color-pink-500: #e685a9;
+  --color-pink-600: #d4638e;
+  --color-pink-700: #b34a72;
+  --color-plum-900: #3a2530;
+  --color-text: #4a3a42;
+  --color-text-light: #8a747c;
+  --color-gold: #c9a05c;
+  --color-gold-light: #f4e9d6;
+
+  --shadow-soft: 0 4px 14px rgba(180, 80, 120, 0.08);
+  --shadow-mid: 0 10px 30px rgba(180, 80, 120, 0.14);
+  --shadow-lg: 0 20px 50px rgba(120, 40, 70, 0.18);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background: var(--color-white);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-plum-900);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold text-sm border-2 border-transparent transition-all duration-200 cursor-pointer whitespace-nowrap;
+  }
+  .btn:hover {
+    @apply -translate-y-0.5;
+  }
+  .btn-primary {
+    @apply text-white;
+    background: linear-gradient(135deg, var(--color-pink-500), var(--color-pink-700));
+    box-shadow: var(--shadow-soft);
+  }
+  .btn-primary:hover {
+    box-shadow: var(--shadow-mid);
+  }
+  .btn-outline {
+    @apply bg-transparent;
+    border-color: var(--color-pink-500);
+    color: var(--color-pink-700);
+  }
+  .btn-outline:hover {
+    background: var(--color-pink-500);
+    @apply text-white;
+  }
+  .btn-light {
+    @apply bg-white;
+    color: var(--color-pink-700);
+  }
+  .btn-gold {
+    @apply text-white;
+    background: linear-gradient(135deg, var(--color-gold), #a97f37);
+  }
+  .btn-sm {
+    @apply px-5 py-2.5 text-[13px];
+  }
+  .btn-block {
+    @apply w-full justify-center;
+  }
+
+  .card {
+    @apply bg-white rounded-[18px] overflow-hidden transition-all duration-250;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--color-pink-100);
+  }
+  .card:hover {
+    @apply -translate-y-1.5;
+    box-shadow: var(--shadow-mid);
+  }
+
+  .eyebrow {
+    @apply inline-block text-[13px] tracking-[3px] uppercase font-semibold mb-3.5;
+    color: var(--color-pink-600);
+  }
+
+  .field label {
+    @apply block text-[13px] font-semibold mb-1.5;
+    color: var(--color-plum-900);
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    @apply w-full rounded-[10px] px-4 py-3.5 text-sm transition-colors duration-200 outline-none;
+    border: 1.5px solid var(--color-pink-200);
+    background: var(--color-pink-50);
+    color: var(--color-text);
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-color: var(--color-pink-500);
+    background: var(--color-white);
+  }
+
+  .call-float {
+    display: none;
+  }
+  @media (max-width: 640px) {
+    .call-float {
+      display: flex;
+    }
+  }
+}
