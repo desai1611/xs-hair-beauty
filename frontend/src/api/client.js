@@ -31,3 +31,13 @@ export default api;
 export function extractErrorMessage(err, fallback = 'Something went wrong. Please try again.') {
   return err?.response?.data?.message || err?.message || fallback;
 }
+
+// Uploads an image file (admin-only) and returns its public URL.
+export async function uploadImage(file) {
+  const formData = new FormData();
+  formData.append('image', file);
+  const res = await api.post('/uploads', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  });
+  return res.data.url;
+}

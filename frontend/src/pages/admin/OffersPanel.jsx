@@ -4,7 +4,7 @@ const fields = [
   { name: 'tag', label: 'Tag (e.g. "New Client", "This Month")' },
   { name: 'title', label: 'Title', required: true },
   { name: 'description', label: 'Description', type: 'textarea' },
-  { name: 'image', label: 'Image URL' },
+  { name: 'image', label: 'Photo', type: 'image' },
   { name: 'expiresAt', label: 'Expires On (optional)', type: 'date' },
   { name: 'order', label: 'Display Order', type: 'number' },
   { name: 'isActive', label: 'Active', type: 'checkbox', checkboxLabel: 'Visible on the public site' },

@@ -9,6 +9,8 @@ export default function Home() {
   const { data: offers, loading: offersLoading } = useFetch('/offers');
   const { data: reviews, loading: reviewsLoading } = useFetch('/reviews');
   const { data: gallery } = useFetch('/gallery?page=home');
+  const { data: siteContent } = useFetch('/site-content');
+  const heroImage = siteContent?.home_hero_image?.value;
 
   return (
     <>
@@ -35,11 +37,15 @@ export default function Home() {
             </div>
           </div>
           <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-lg max-w-[420px] mx-auto w-full">
-            <div className="w-full h-full flex flex-col items-center justify-center text-center text-white font-display text-xl p-5"
-              style={{ background: 'linear-gradient(150deg, var(--color-pink-300), var(--color-pink-700))' }}>
-              Salon Interior Photo
-              <small className="block font-sans text-xs opacity-85 mt-2">Replace with real photography</small>
-            </div>
+            {heroImage ? (
+              <img src={heroImage} alt="XS Hair & Beauty salon interior" className="w-full h-full object-cover" />
+            ) : (
+              <div className="w-full h-full flex flex-col items-center justify-center text-center text-white font-display text-xl p-5"
+                style={{ background: 'linear-gradient(150deg, var(--color-pink-300), var(--color-pink-700))' }}>
+                Salon Interior Photo
+                <small className="block font-sans text-xs opacity-85 mt-2">Replace with real photography</small>
+              </div>
+            )}
             <div className="absolute bottom-5 left-5 bg-white px-4.5 py-3.5 rounded-[18px] shadow-mid flex items-center gap-2.5">
               <div className="text-gold text-sm">★★★★★</div>
               <div><strong className="block text-sm">4.9 / 5</strong><span className="text-xs text-text-light">from local reviews</span></div>

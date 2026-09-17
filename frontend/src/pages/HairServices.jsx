@@ -5,6 +5,7 @@ import FaqAccordion from '../components/FaqAccordion';
 import Loader, { ErrorMessage } from '../components/Loader';
 import PageHeader from '../components/PageHeader';
 import CtaBand from '../components/CtaBand';
+import VideoEmbed from '../components/VideoEmbed';
 
 const filters = ['all', 'colour', 'cuts', 'treatments'];
 
@@ -18,6 +19,8 @@ const faqs = [
 export default function HairServices() {
   const { data: services, loading, error } = useFetch('/services?category=hair');
   const { data: gallery } = useFetch('/gallery?page=hair');
+  const { data: siteContent } = useFetch('/site-content');
+  const promoVideo = siteContent?.hair_promo_video?.value;
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('all');
 
@@ -104,11 +107,7 @@ export default function HairServices() {
             <span className="eyebrow">Watch</span>
             <h2 className="text-3xl">This month's hair promotion</h2>
           </div>
-          <div className="rounded-3xl overflow-hidden aspect-video relative flex items-center justify-center shadow-mid"
-            style={{ background: 'linear-gradient(150deg, var(--color-plum-900), var(--color-pink-700))' }}>
-            <div className="w-18.5 h-18.5 rounded-full bg-white/92 text-pink-700 flex items-center justify-center text-2xl shadow-mid">▶</div>
-            <span className="absolute bottom-4.5 left-5.5 text-white text-[13px] tracking-wide">Promo video placeholder — embed salon video here</span>
-          </div>
+          <VideoEmbed url={promoVideo} placeholderLabel="Promo video placeholder — embed salon video here" />
         </div>
       </section>
 

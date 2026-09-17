@@ -6,7 +6,7 @@ const fields = [
   { name: 'description', label: 'Description', type: 'textarea' },
   { name: 'price', label: 'Price (NZD, leave blank for "on consultation")', type: 'number' },
   { name: 'priceNote', label: 'Price Note (e.g. "From")' },
-  { name: 'image', label: 'Image URL' },
+  { name: 'image', label: 'Photo', type: 'image' },
   { name: 'order', label: 'Display Order', type: 'number' },
   { name: 'isFeatured', label: 'Featured', type: 'checkbox', checkboxLabel: 'Highlight this service' },
   { name: 'isActive', label: 'Active', type: 'checkbox', checkboxLabel: 'Visible on the public site' },

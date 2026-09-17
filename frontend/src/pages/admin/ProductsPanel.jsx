@@ -6,7 +6,7 @@ const fields = [
   { name: 'category', label: 'Category (e.g. Hair Care, Styling, Skin Care)' },
   { name: 'description', label: 'Description', type: 'textarea' },
   { name: 'price', label: 'Price (NZD)', type: 'number', required: true },
-  { name: 'image', label: 'Image URL' },
+  { name: 'image', label: 'Photo', type: 'image' },
   { name: 'order', label: 'Display Order', type: 'number' },
   { name: 'inStock', label: 'In Stock', type: 'checkbox', checkboxLabel: 'Currently available' },
   { name: 'isActive', label: 'Active', type: 'checkbox', checkboxLabel: 'Visible on the public site' },

@@ -20,6 +20,7 @@ import ProductsPanel from './pages/admin/ProductsPanel';
 import GalleryPanel from './pages/admin/GalleryPanel';
 import OffersPanel from './pages/admin/OffersPanel';
 import ReviewsPanel from './pages/admin/ReviewsPanel';
+import SiteMediaPanel from './pages/admin/SiteMediaPanel';
 
 export default function App() {
   return (
@@ -51,6 +52,7 @@ export default function App() {
         <Route path="gallery" element={<GalleryPanel />} />
         <Route path="offers" element={<OffersPanel />} />
         <Route path="reviews" element={<ReviewsPanel />} />
+        <Route path="media" element={<SiteMediaPanel />} />
       </Route>
     </Routes>
   );

@@ -14,8 +14,14 @@ const galleryRoutes = require('./routes/galleryRoutes');
 const offerRoutes = require('./routes/offerRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
 const uploadRoutes = require('./routes/uploadRoutes');
+const siteContentRoutes = require('./routes/siteContentRoutes');
 
 const app = express();
+
+// Railway (and most PaaS) terminate TLS at a proxy and forward plain HTTP;
+// without this, req.protocol reports "http" even on a live https:// request,
+// which would make upload URLs come back as insecure http:// links.
+app.set('trust proxy', 1);
 
 app.use(helmet({ crossOriginResourcePolicy: false }));
 
@@ -54,6 +60,7 @@ app.use('/api/gallery', galleryRoutes);
 app.use('/api/offers', offerRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/uploads', uploadRoutes);
+app.use('/api/site-content', siteContentRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

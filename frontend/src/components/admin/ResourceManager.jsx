@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import api, { extractErrorMessage } from '../../api/client';
 import Loader, { ErrorMessage } from '../Loader';
+import ImageUploadField from './ImageUploadField';
 
 export default function ResourceManager({ title, description, apiBase, columns, fields, emptyItem }) {
   const [items, setItems] = useState([]);
@@ -178,6 +179,13 @@ export default function ResourceManager({ title, description, apiBase, columns, 
                       />
                       {f.checkboxLabel || 'Yes'}
                     </label>
+                  ) : f.type === 'image' ? (
+                    <ImageUploadField
+                      id={f.name}
+                      value={form[f.name]}
+                      onChange={(url) => updateField(f.name, url)}
+                      required={f.required}
+                    />
                   ) : (
                     <input
                       id={f.name}

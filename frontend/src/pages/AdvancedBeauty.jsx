@@ -9,6 +9,9 @@ import { waLink } from '../config/salon';
 export default function AdvancedBeauty() {
   const { data: services, loading, error } = useFetch('/services?category=advanced');
   const { data: gallery } = useFetch('/gallery?page=advanced');
+  const { data: siteContent } = useFetch('/site-content');
+  const bridalImage = siteContent?.advanced_bridal_image?.value;
+  const partyImage = siteContent?.advanced_party_image?.value;
 
   return (
     <>
@@ -51,9 +54,15 @@ export default function AdvancedBeauty() {
       {/* BRIDAL */}
       <section className="py-20 bg-pink-50 px-6">
         <div className="max-w-[1180px] mx-auto grid lg:grid-cols-2 gap-11 items-center">
-          <div className="rounded-3xl aspect-[4/3] flex flex-col items-center justify-center text-white text-center font-display text-xl p-5 shadow-mid"
-            style={{ background: 'linear-gradient(150deg, var(--color-pink-300), var(--color-pink-700))' }}>
-            Bridal Photo<small className="block font-sans text-xs opacity-85 mt-2">Replace with real photography</small>
+          <div className="rounded-3xl aspect-[4/3] overflow-hidden shadow-mid">
+            {bridalImage ? (
+              <img src={bridalImage} alt="Bridal package" className="w-full h-full object-cover" />
+            ) : (
+              <div className="w-full h-full flex flex-col items-center justify-center text-center text-white font-display text-xl p-5"
+                style={{ background: 'linear-gradient(150deg, var(--color-pink-300), var(--color-pink-700))' }}>
+                Bridal Photo<small className="block font-sans text-xs opacity-85 mt-2">Replace with real photography</small>
+              </div>
+            )}
           </div>
           <div>
             <span className="eyebrow">Bridal</span>
@@ -83,9 +92,15 @@ export default function AdvancedBeauty() {
             </ul>
             <a href={waLink('Hi! I would like to enquire about a party package.')} target="_blank" rel="noopener noreferrer" className="btn btn-gold">Enquire About Party Packages</a>
           </div>
-          <div className="lg:order-1 rounded-3xl aspect-[4/3] flex flex-col items-center justify-center text-white text-center font-display text-xl p-5 shadow-mid"
-            style={{ background: 'linear-gradient(150deg, var(--color-gold), var(--color-pink-700))' }}>
-            Party Look Photo<small className="block font-sans text-xs opacity-85 mt-2">Replace with real photography</small>
+          <div className="lg:order-1 rounded-3xl aspect-[4/3] overflow-hidden shadow-mid">
+            {partyImage ? (
+              <img src={partyImage} alt="Party package" className="w-full h-full object-cover" />
+            ) : (
+              <div className="w-full h-full flex flex-col items-center justify-center text-center text-white font-display text-xl p-5"
+                style={{ background: 'linear-gradient(150deg, var(--color-gold), var(--color-pink-700))' }}>
+                Party Look Photo<small className="block font-sans text-xs opacity-85 mt-2">Replace with real photography</small>
+              </div>
+            )}
           </div>
         </div>
       </section>

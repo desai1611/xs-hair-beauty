@@ -9,6 +9,7 @@ const links = [
   { to: '/admin/gallery', label: 'Gallery' },
   { to: '/admin/offers', label: 'Offers' },
   { to: '/admin/reviews', label: 'Reviews' },
+  { to: '/admin/media', label: 'Site Media' },
 ];
 
 export default function AdminLayout() {

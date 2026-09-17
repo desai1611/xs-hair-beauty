@@ -4,7 +4,7 @@ const fields = [
   { name: 'title', label: 'Title', required: true },
   { name: 'page', label: 'Page', type: 'select', options: ['home', 'hair', 'beauty', 'advanced', 'reviews'] },
   { name: 'category', label: 'Filter Category (e.g. colour, cuts, treatments)' },
-  { name: 'image', label: 'Image URL', required: true },
+  { name: 'image', label: 'Photo', type: 'image', required: true },
   { name: 'type', label: 'Type', type: 'select', options: ['single', 'before', 'after'] },
   { name: 'pairKey', label: 'Before/After Pair Key (optional)' },
   { name: 'order', label: 'Display Order', type: 'number' },
