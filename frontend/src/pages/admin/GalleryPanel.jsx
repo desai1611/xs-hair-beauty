@@ -2,20 +2,10 @@ import ResourceManager from '../../components/admin/ResourceManager';
 
 const fields = [
   { name: 'title', label: 'Title', required: true },
-  { name: 'description', label: 'Caption (optional — shown under Before/After pairs on the Reviews page)', type: 'textarea' },
-  { name: 'page', label: 'Page', type: 'select', options: ['home', 'hair', 'beauty', 'advanced', 'reviews'] },
-  { name: 'category', label: 'Filter Category (e.g. colour, cuts, treatments — ignored on the Reviews page)' },
+  { name: 'description', label: 'Caption (optional)', type: 'textarea' },
+  { name: 'page', label: 'Page', type: 'select', options: ['home', 'hair', 'beauty', 'advanced'] },
+  { name: 'category', label: 'Filter Category (e.g. colour, cuts, treatments)' },
   { name: 'image', label: 'Photo', type: 'image', required: true },
-  {
-    name: 'type',
-    label: 'Type — set to "single" for a normal gallery photo, or "before"/"after" for a Reviews page transformation',
-    type: 'select',
-    options: ['single', 'before', 'after'],
-  },
-  {
-    name: 'pairKey',
-    label: 'Pair Key — only for Before/After: give the "before" and "after" entries the exact same key (e.g. "client1") to link them',
-  },
   { name: 'order', label: 'Display Order', type: 'number' },
   { name: 'isActive', label: 'Active', type: 'checkbox', checkboxLabel: 'Visible on the public site' },
 ];
@@ -35,11 +25,7 @@ export default function GalleryPanel() {
   return (
     <ResourceManager
       title="Gallery"
-      description={
-        'Manage gallery images across the site. To edit the "Before & After" section on the Reviews page: ' +
-        'delete an existing pair with Delete, or add a new one by creating two entries with Page="reviews", ' +
-        'matching Pair Key, and Type set to "before" and "after".'
-      }
+      description='Manage gallery photos for the Hair, Beauty, Advanced Beauty, and Home pages. To edit the "Before & After" transformations on the Reviews page, use the Transformations section instead.'
       apiBase="/gallery"
       columns={columns}
       fields={fields}

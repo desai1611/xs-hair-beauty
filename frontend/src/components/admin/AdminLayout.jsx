@@ -7,6 +7,7 @@ const links = [
   { to: '/admin/services', label: 'Services' },
   { to: '/admin/products', label: 'Products' },
   { to: '/admin/gallery', label: 'Gallery' },
+  { to: '/admin/transformations', label: 'Transformations' },
   { to: '/admin/offers', label: 'Offers' },
   { to: '/admin/reviews', label: 'Reviews' },
   { to: '/admin/media', label: 'Site Media' },

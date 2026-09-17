@@ -19,6 +19,7 @@ import BookingsPanel from './pages/admin/BookingsPanel';
 import ServicesPanel from './pages/admin/ServicesPanel';
 import ProductsPanel from './pages/admin/ProductsPanel';
 import GalleryPanel from './pages/admin/GalleryPanel';
+import TransformationsPanel from './pages/admin/TransformationsPanel';
 import OffersPanel from './pages/admin/OffersPanel';
 import ReviewsPanel from './pages/admin/ReviewsPanel';
 import SiteMediaPanel from './pages/admin/SiteMediaPanel';
@@ -53,6 +54,7 @@ export default function App() {
           <Route path="services" element={<ServicesPanel />} />
           <Route path="products" element={<ProductsPanel />} />
           <Route path="gallery" element={<GalleryPanel />} />
+          <Route path="transformations" element={<TransformationsPanel />} />
           <Route path="offers" element={<OffersPanel />} />
           <Route path="reviews" element={<ReviewsPanel />} />
           <Route path="media" element={<SiteMediaPanel />} />
