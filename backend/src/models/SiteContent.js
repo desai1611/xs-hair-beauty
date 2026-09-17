@@ -4,7 +4,7 @@ const siteContentSchema = new mongoose.Schema(
   {
     key: { type: String, required: true, unique: true },
     label: { type: String, required: true },
-    type: { type: String, enum: ['image', 'video'], default: 'image' },
+    type: { type: String, enum: ['image', 'video', 'text'], default: 'image' },
     value: { type: String, default: '' },
   },
   { timestamps: true }

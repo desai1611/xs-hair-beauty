@@ -9,7 +9,9 @@ async function ensureDefaults() {
   const existingKeys = new Set(existing.map((s) => s.key));
   const missing = DEFAULT_SLOTS.filter((s) => !existingKeys.has(s.key));
   if (missing.length) {
-    await SiteContent.insertMany(missing.map((s) => ({ ...s, value: '' })));
+    await SiteContent.insertMany(
+      missing.map((s) => ({ key: s.key, label: s.label, type: s.type, value: s.defaultValue || '' }))
+    );
   }
 }
 

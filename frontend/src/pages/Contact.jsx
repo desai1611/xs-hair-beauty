@@ -1,14 +1,31 @@
 import { useState } from 'react';
 import PageHeader from '../components/PageHeader';
 import api, { extractErrorMessage } from '../api/client';
+import useFetch from '../hooks/useFetch';
 import { SALON, waLink, telLink, mapsEmbedSrc, mapsDirectionsLink } from '../config/salon';
 
 const initialForm = { name: '', phone: '', email: '', service: 'Hair Services', message: '' };
+
+const DEFAULT_HOURS = [
+  'Monday: Closed',
+  'Tuesday: 9:30 AM – 6:00 PM',
+  'Wednesday: 9:30 AM – 6:00 PM',
+  'Thursday: 9:30 AM – 6:00 PM',
+  'Friday: 9:30 AM – 6:00 PM',
+  'Saturday: 9:30 AM – 6:00 PM',
+  'Sunday: 10:00 AM – 6:00 PM',
+];
 
 export default function Contact() {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errorMsg, setErrorMsg] = useState('');
+  const [whatsappLink, setWhatsappLink] = useState('');
+  const { data: siteContent } = useFetch('/site-content');
+
+  const hoursLines = siteContent?.opening_hours?.value
+    ? siteContent.opening_hours.value.split('\n').filter(Boolean)
+    : DEFAULT_HOURS;
 
   function handleChange(e) {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
@@ -21,6 +38,17 @@ export default function Contact() {
     try {
       await api.post('/bookings', form);
       setStatus('success');
+
+      // Hand off to WhatsApp with the enquiry pre-filled, so it also reaches
+      // the salon's WhatsApp directly — the customer just needs to hit send.
+      const summary = `Hi! I just submitted a booking enquiry on your website.\n\nName: ${form.name}\nService: ${form.service}${form.message ? `\nMessage: ${form.message}` : ''}`;
+      const link = waLink(summary);
+      setWhatsappLink(link);
+      // Best-effort auto-open — browsers may block this since it fires after
+      // an awaited network call, so the success message below always shows a
+      // manual button too as a guaranteed fallback.
+      window.open(link, '_blank', 'noopener,noreferrer');
+
       setForm(initialForm);
     } catch (err) {
       setStatus('error');
@@ -42,7 +70,9 @@ export default function Contact() {
               <InfoRow icon="💬" label="WhatsApp"><a href={waLink()} target="_blank" rel="noopener noreferrer" className="font-semibold text-pink-700">Message us on WhatsApp</a></InfoRow>
               <InfoRow icon="✉️" label="Email"><p className="mb-0">hello@xshairandbeauty.co.nz <span className="text-[11px] text-text-light">(placeholder — to be confirmed)</span></p></InfoRow>
               <InfoRow icon="🕒" label="Opening Hours" last>
-                <p className="mb-0">Mon–Sat: 9:00 AM – 6:00 PM<br />Sun: Closed <span className="text-[11px] text-text-light">(to be confirmed)</span></p>
+                {hoursLines.map((line) => (
+                  <p key={line} className="mb-0.5">{line}</p>
+                ))}
               </InfoRow>
               <div className="flex gap-2.5 mt-5.5">
                 <a href={SALON.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 rounded-full bg-pink-50 border border-pink-200 flex items-center justify-center text-pink-700 hover:bg-pink-600 hover:text-white transition-colors">f</a>
@@ -56,7 +86,7 @@ export default function Contact() {
             <a href={mapsDirectionsLink()} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-block mt-4">Get Directions</a>
 
             <div className="bg-pink-50 border border-dashed border-pink-300 rounded-[10px] px-4.5 py-3.5 text-[13px] text-text-light mt-4.5">
-              Placeholder content: phone/WhatsApp number, email, and opening hours above are demo values and should be confirmed with the client before launch.
+              Placeholder content: phone/WhatsApp number and email above are demo values and should be confirmed with the client before launch.
             </div>
           </div>
 
@@ -67,8 +97,11 @@ export default function Contact() {
               <p className="mb-6.5">Fill out the form and our team will get back to you to confirm your appointment.</p>
 
               {status === 'success' && (
-                <div className="bg-pink-50 border border-pink-200 text-pink-700 px-4.5 py-3.5 rounded-[10px] text-sm font-semibold mb-4.5">
-                  Thanks! Your enquiry has been received — we'll be in touch shortly to confirm your appointment.
+                <div className="bg-pink-50 border border-pink-200 text-pink-700 px-4.5 py-3.5 rounded-[10px] text-sm mb-4.5">
+                  <p className="font-semibold mb-2">Thanks! Your enquiry has been received — we'll be in touch shortly to confirm your appointment. Check your email for a confirmation.</p>
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn btn-gold btn-sm">
+                    💬 Also message us on WhatsApp
+                  </a>
                 </div>
               )}
               {status === 'error' && (

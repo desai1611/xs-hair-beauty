@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import FloatingButtons from './FloatingButtons';
+import ChatWidget from './ChatWidget';
 
 export default function PublicLayout() {
   return (
@@ -12,6 +13,7 @@ export default function PublicLayout() {
       </main>
       <Footer />
       <FloatingButtons />
+      <ChatWidget />
     </div>
   );
 }

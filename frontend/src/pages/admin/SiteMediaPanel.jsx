@@ -64,6 +64,8 @@ export default function SiteMediaPanel() {
             <p className="text-xs text-text-light mb-4">
               {item.type === 'video'
                 ? 'Paste a YouTube link or a direct video file URL (.mp4).'
+                : item.type === 'text'
+                ? 'One line per entry — this is shown exactly as typed, line by line.'
                 : 'Paste an image URL, or upload a photo from your computer.'}
             </p>
 
@@ -74,6 +76,15 @@ export default function SiteMediaPanel() {
                   value={item.value}
                   onChange={(e) => updateLocal(key, e.target.value)}
                   placeholder="https://www.youtube.com/watch?v=... or https://.../video.mp4"
+                />
+              </div>
+            ) : item.type === 'text' ? (
+              <div className="field">
+                <textarea
+                  rows={7}
+                  value={item.value}
+                  onChange={(e) => updateLocal(key, e.target.value)}
+                  placeholder="Monday: Closed&#10;Tuesday: 9:30 AM – 6:00 PM"
                 />
               </div>
             ) : (

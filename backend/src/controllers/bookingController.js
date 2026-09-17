@@ -1,6 +1,6 @@
 const Booking = require('../models/Booking');
 const asyncHandler = require('../utils/asyncHandler');
-const { sendBookingNotification } = require('../utils/mailer');
+const { sendBookingNotification, sendCustomerConfirmation } = require('../utils/mailer');
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -24,14 +24,20 @@ const createBooking = asyncHandler(async (req, res) => {
 
   try {
     const sent = await sendBookingNotification(booking);
-    if (sent) {
-      booking.emailSent = true;
-      await booking.save();
-    }
+    if (sent) booking.emailSent = true;
   } catch (err) {
     // Booking is already saved — surface the failure in logs but don't fail the request
     console.error('Failed to send booking notification email:', err.message);
   }
+
+  try {
+    const sent = await sendCustomerConfirmation(booking);
+    if (sent) booking.customerEmailSent = true;
+  } catch (err) {
+    console.error('Failed to send customer confirmation email:', err.message);
+  }
+
+  if (booking.isModified()) await booking.save();
 
   res.status(201).json({
     message: 'Thanks! Your enquiry has been received — we will be in touch shortly.',

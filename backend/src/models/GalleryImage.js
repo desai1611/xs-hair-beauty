@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const galleryImageSchema = new mongoose.Schema(
   {
     title: { type: String, required: true, trim: true },
+    description: { type: String, default: '' },
     page: { type: String, enum: ['home', 'hair', 'beauty', 'advanced', 'reviews'], required: true },
     category: { type: String, default: 'general' }, // used for filter buttons, e.g. "colour", "cuts"
     image: { type: String, default: '' },

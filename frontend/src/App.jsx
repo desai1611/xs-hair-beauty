@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import PublicLayout from './components/PublicLayout';
 import ProtectedRoute from './components/ProtectedRoute';
 import AdminLayout from './components/admin/AdminLayout';
@@ -24,36 +25,39 @@ import SiteMediaPanel from './pages/admin/SiteMediaPanel';
 
 export default function App() {
   return (
-    <Routes>
-      <Route element={<PublicLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/hair-services" element={<HairServices />} />
-        <Route path="/beauty-services" element={<BeautyServices />} />
-        <Route path="/advanced-beauty" element={<AdvancedBeauty />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/reviews" element={<Reviews />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/hair-services" element={<HairServices />} />
+          <Route path="/beauty-services" element={<BeautyServices />} />
+          <Route path="/advanced-beauty" element={<AdvancedBeauty />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
 
-      <Route path="/admin/login" element={<Login />} />
-      <Route
-        path="/admin"
-        element={
-          <ProtectedRoute>
-            <AdminLayout />
-          </ProtectedRoute>
-        }
-      >
-        <Route index element={<Overview />} />
-        <Route path="bookings" element={<BookingsPanel />} />
-        <Route path="services" element={<ServicesPanel />} />
-        <Route path="products" element={<ProductsPanel />} />
-        <Route path="gallery" element={<GalleryPanel />} />
-        <Route path="offers" element={<OffersPanel />} />
-        <Route path="reviews" element={<ReviewsPanel />} />
-        <Route path="media" element={<SiteMediaPanel />} />
-      </Route>
-    </Routes>
+        <Route path="/admin/login" element={<Login />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<Overview />} />
+          <Route path="bookings" element={<BookingsPanel />} />
+          <Route path="services" element={<ServicesPanel />} />
+          <Route path="products" element={<ProductsPanel />} />
+          <Route path="gallery" element={<GalleryPanel />} />
+          <Route path="offers" element={<OffersPanel />} />
+          <Route path="reviews" element={<ReviewsPanel />} />
+          <Route path="media" element={<SiteMediaPanel />} />
+        </Route>
+      </Routes>
+    </>
   );
 }

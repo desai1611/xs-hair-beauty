@@ -43,7 +43,6 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3 flex-shrink-0">
-          <Link to="/contact" className="btn btn-outline btn-sm hidden xl:inline-flex">Get in touch</Link>
           <Link to="/contact#booking-form" className="btn btn-primary btn-sm">Book Now</Link>
           <button
             className="lg:hidden flex flex-col gap-1.5 p-1.5"

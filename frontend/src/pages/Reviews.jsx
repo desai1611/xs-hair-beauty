@@ -4,15 +4,33 @@ import Loader, { ErrorMessage } from '../components/Loader';
 import PageHeader from '../components/PageHeader';
 import CtaBand from '../components/CtaBand';
 
-const beforeAfter = [
-  { title: 'Balayage Colour Transformation', desc: 'From flat single-tone to a sun-kissed balayage finish.' },
-  { title: 'Keratin Smoothing Result', desc: 'Frizzy, dry hair transformed into smooth, glossy strands.' },
-  { title: 'Brow Threading Reshape', desc: 'Cleaner, more defined brow shape in under 15 minutes.' },
-  { title: 'Bridal Glow Facial', desc: 'Refreshed, radiant skin ahead of the big day.' },
+// Shown only until the salon has added real before/after photos via Admin → Gallery.
+const placeholderBeforeAfter = [
+  { title: 'Balayage Colour Transformation', description: 'From flat single-tone to a sun-kissed balayage finish.' },
+  { title: 'Keratin Smoothing Result', description: 'Frizzy, dry hair transformed into smooth, glossy strands.' },
+  { title: 'Brow Threading Reshape', description: 'Cleaner, more defined brow shape in under 15 minutes.' },
+  { title: 'Bridal Glow Facial', description: 'Refreshed, radiant skin ahead of the big day.' },
 ];
+
+// Groups flat GalleryImage rows (type: 'before' | 'after', linked by pairKey)
+// into { before, after, title, description } pairs for rendering.
+function groupBeforeAfterPairs(images) {
+  const map = {};
+  (images || []).forEach((img) => {
+    const key = img.pairKey || img._id;
+    if (!map[key]) map[key] = { title: img.title, description: img.description };
+    if (img.type === 'before') map[key].before = img;
+    if (img.type === 'after') map[key].after = img;
+    if (!map[key].description && img.description) map[key].description = img.description;
+  });
+  return Object.values(map).filter((pair) => pair.before || pair.after);
+}
 
 export default function Reviews() {
   const { data: reviews, loading, error } = useFetch('/reviews');
+  const { data: gallery } = useFetch('/gallery?page=reviews');
+  const realPairs = groupBeforeAfterPairs(gallery);
+  const beforeAfter = realPairs.length > 0 ? realPairs : placeholderBeforeAfter;
 
   const avg = reviews && reviews.length ? (reviews.reduce((s, r) => s + r.rating, 0) / reviews.length).toFixed(1) : '4.9';
   const counts = [5, 4, 3, 2, 1].map((star) => ({
@@ -62,13 +80,21 @@ export default function Reviews() {
         <div className="max-w-[1180px] mx-auto">
           <div className="text-center mb-11"><span className="eyebrow">Transformations</span><h2 className="text-3xl">Before &amp; after</h2><p className="text-text-light mt-2">A few of our favourite results — shown with client permission.</p></div>
           <div className="grid sm:grid-cols-2 gap-7">
-            {beforeAfter.map((ba) => (
-              <div key={ba.title} className="grid grid-cols-2 rounded-[18px] overflow-hidden shadow-soft border border-pink-100">
-                <div className="aspect-[3/4] flex items-center justify-center text-white text-[13px]" style={{ background: 'linear-gradient(150deg, #c9b3ba, #7d6570)' }}>Before</div>
-                <div className="aspect-[3/4] flex items-center justify-center text-white text-[13px]" style={{ background: 'linear-gradient(150deg, var(--color-pink-300), var(--color-pink-600))' }}>After</div>
+            {beforeAfter.map((ba, i) => (
+              <div key={ba.title || i} className="grid grid-cols-2 rounded-[18px] overflow-hidden shadow-soft border border-pink-100">
+                {ba.before?.image ? (
+                  <img src={ba.before.image} alt={`${ba.title} — before`} className="aspect-[3/4] w-full object-cover" />
+                ) : (
+                  <div className="aspect-[3/4] flex items-center justify-center text-white text-[13px]" style={{ background: 'linear-gradient(150deg, #c9b3ba, #7d6570)' }}>Before</div>
+                )}
+                {ba.after?.image ? (
+                  <img src={ba.after.image} alt={`${ba.title} — after`} className="aspect-[3/4] w-full object-cover" />
+                ) : (
+                  <div className="aspect-[3/4] flex items-center justify-center text-white text-[13px]" style={{ background: 'linear-gradient(150deg, var(--color-pink-300), var(--color-pink-600))' }}>After</div>
+                )}
                 <div className="col-span-2 bg-white px-4.5 py-3.5">
                   <strong className="block text-sm">{ba.title}</strong>
-                  <p className="text-[13px] text-text-light mt-1 mb-0">{ba.desc}</p>
+                  <p className="text-[13px] text-text-light mt-1 mb-0">{ba.description}</p>
                 </div>
               </div>
             ))}

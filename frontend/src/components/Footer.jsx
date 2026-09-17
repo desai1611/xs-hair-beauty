@@ -55,7 +55,7 @@ export default function Footer() {
 
         <div className="pt-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2.5 text-[13px]">
           <span>© {new Date().getFullYear()} XS Hair &amp; Beauty. All rights reserved.</span>
-          <span>Site by Dhruvraj Desai — <Link to="/contact" className="text-pink-300">Get in touch</Link></span>
+          <span>Site by Dhruvraj Desai — <a href="mailto:dhruvraj.d1611@gmail.com" className="text-pink-300">Get in touch</a></span>
         </div>
       </div>
     </footer>

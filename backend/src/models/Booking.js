@@ -9,6 +9,7 @@ const bookingSchema = new mongoose.Schema(
     message: { type: String, default: '' },
     status: { type: String, enum: ['new', 'contacted', 'completed'], default: 'new' },
     emailSent: { type: Boolean, default: false },
+    customerEmailSent: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
