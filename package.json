@@ -1,0 +1,13 @@
+{
+  "name": "xs-hair-beauty",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Monorepo root — exists so Railway (and other zero-config builders) can detect and build the backend without needing a manually configured root directory. Local development still runs from backend/ and frontend/ directly (see README.md).",
+  "scripts": {
+    "build": "cd backend && npm ci",
+    "start": "cd backend && npm start"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
