@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import PublicLayout from './components/PublicLayout';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -7,10 +7,10 @@ import AdminLayout from './components/admin/AdminLayout';
 import Home from './pages/Home';
 import HairServices from './pages/HairServices';
 import BeautyServices from './pages/BeautyServices';
-import AdvancedBeauty from './pages/AdvancedBeauty';
 import Products from './pages/Products';
 import Reviews from './pages/Reviews';
 import Contact from './pages/Contact';
+import TermsConditions from './pages/TermsConditions';
 import NotFound from './pages/NotFound';
 
 import Login from './pages/admin/Login';
@@ -33,10 +33,11 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/hair-services" element={<HairServices />} />
           <Route path="/beauty-services" element={<BeautyServices />} />
-          <Route path="/advanced-beauty" element={<AdvancedBeauty />} />
+          <Route path="/advanced-beauty" element={<Navigate to="/beauty-services" replace />} />
           <Route path="/products" element={<Products />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/terms-and-conditions" element={<TermsConditions />} />
           <Route path="*" element={<NotFound />} />
         </Route>
 

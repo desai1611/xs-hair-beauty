@@ -58,12 +58,11 @@ export default function Home() {
       <section className="py-22 px-6">
         <div className="max-w-[1180px] mx-auto">
           <SectionHeading eyebrow="What We Offer" title="Services for every occasion"
-            subtitle="Three simple categories, one trusted team — explore hair, beauty, and our premium advanced treatments." />
-          <div className="grid sm:grid-cols-3 gap-7">
+            subtitle="Two simple categories, one trusted team — explore hair, and beauty & advanced treatments." />
+          <div className="grid sm:grid-cols-2 gap-7 max-w-2xl mx-auto">
             {[
               { icon: '✂️', title: 'Hair Services', desc: 'Cuts, colour, highlights, keratin, nanoplastia and treatments for every hair type.', to: '/hair-services' },
-              { icon: '💆‍♀️', title: 'Beauty Services', desc: 'Eyebrow & facial threading, waxing, and gentle facials for a fresh, clean look.', to: '/beauty-services' },
-              { icon: '✨', title: 'Advanced Beauty', desc: 'Advanced facials, skin & glow treatments, plus bridal and party packages.', to: '/advanced-beauty' },
+              { icon: '💆‍♀️', title: 'Beauty & Advanced', desc: 'Threading, waxing, gentle facials, advanced skin treatments, plus bridal and party packages.', to: '/beauty-services' },
             ].map((s) => (
               <div key={s.title} className="card text-center px-6.5 py-8.5">
                 <div className="w-15.5 h-15.5 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center text-2xl mx-auto mb-4.5">{s.icon}</div>

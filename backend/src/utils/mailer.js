@@ -59,7 +59,7 @@ async function sendCustomerConfirmation(booking) {
 
   const phone = process.env.SALON_PHONE_DISPLAY || '0022 342 3964';
   const whatsapp = process.env.SALON_WHATSAPP || '223423964';
-  const address = process.env.SALON_ADDRESS || '23 Chartwell Avenue, Glenfield, Auckland 0629, New Zealand';
+  const address = process.env.SALON_ADDRESS || '25 Chartwell Avenue, Glenfield, Auckland 0629, New Zealand';
 
   const html = `
     <div style="font-family:sans-serif; max-width:520px;">

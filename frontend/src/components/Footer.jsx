@@ -7,11 +7,12 @@ export default function Footer() {
       <div className="max-w-[1180px] mx-auto px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-white/10">
           <div>
-            <div className="flex items-center gap-2.5 font-display text-xl font-bold text-white mb-3.5">
+            <div className="flex items-center gap-2.5 mb-1">
               <span className="w-9 h-9 rounded-full flex items-center justify-center text-white text-base font-bold flex-shrink-0"
                 style={{ background: 'linear-gradient(135deg, var(--color-pink-300), var(--color-pink-600))' }}>XS</span>
-              XS Hair &amp; Beauty
+              <span className="font-display text-xl font-bold text-white">XS Hair &amp; Beauty</span>
             </div>
+            <p className="text-[11px] tracking-wide uppercase text-pink-300 font-semibold mb-3.5">{SALON.tagline}</p>
             <p className="text-white/60 text-sm">
               A modern hair &amp; beauty salon in Glenfield, Auckland — haircuts, colour, threading, waxing, facials, and bridal &amp; party packages.
             </p>
@@ -28,7 +29,6 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li><Link to="/hair-services" className="hover:text-pink-300 transition-colors">Hair Services</Link></li>
               <li><Link to="/beauty-services" className="hover:text-pink-300 transition-colors">Beauty Services</Link></li>
-              <li><Link to="/advanced-beauty" className="hover:text-pink-300 transition-colors">Advanced Beauty</Link></li>
               <li><Link to="/products" className="hover:text-pink-300 transition-colors">Products</Link></li>
               <li><Link to="/reviews" className="hover:text-pink-300 transition-colors">Reviews</Link></li>
             </ul>
@@ -40,6 +40,7 @@ export default function Footer() {
               <li><Link to="/" className="hover:text-pink-300 transition-colors">Home</Link></li>
               <li><Link to="/contact" className="hover:text-pink-300 transition-colors">Contact</Link></li>
               <li><Link to="/contact#booking-form" className="hover:text-pink-300 transition-colors">Book Now</Link></li>
+              <li><Link to="/terms-and-conditions" className="hover:text-pink-300 transition-colors">Terms &amp; Conditions</Link></li>
               <li><Link to="/admin/login" className="hover:text-pink-300 transition-colors">Admin Login</Link></li>
             </ul>
           </div>
