@@ -88,9 +88,13 @@ export default function Home() {
               {(offers || []).map((offer) => (
                 <div key={offer._id} className="relative rounded-3xl overflow-hidden text-white p-8.5 min-h-[230px] flex flex-col justify-end shadow-mid"
                   style={{ background: 'linear-gradient(160deg, var(--color-pink-600), var(--color-plum-900))' }}>
-                  {offer.tag && <span className="absolute top-5 left-5 bg-white text-pink-700 text-[11px] font-bold tracking-wide px-3 py-1.5 rounded-full uppercase">{offer.tag}</span>}
-                  <h3 className="text-white text-[22px] mb-1.5">{offer.title}</h3>
-                  <p className="text-white/85 text-sm mb-0">{offer.description}</p>
+                  {offer.image && (
+                    <img src={offer.image} alt={offer.title} className="absolute inset-0 w-full h-full object-cover" />
+                  )}
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(50,10,35,0.15) 0%, rgba(50,10,35,0.85) 85%)' }} />
+                  {offer.tag && <span className="relative z-10 self-start bg-white text-pink-700 text-[11px] font-bold tracking-wide px-3 py-1.5 rounded-full uppercase mb-auto">{offer.tag}</span>}
+                  <h3 className="relative z-10 text-white text-[22px] mb-1.5">{offer.title}</h3>
+                  <p className="relative z-10 text-white/85 text-sm mb-0">{offer.description}</p>
                 </div>
               ))}
               {!offersLoading && (offers || []).length === 0 && (
