@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { SALON } from '../config/salon';
+import logo from '../assets/logo.jpg';
 
 const links = [
   { to: '/', label: 'Home' },
@@ -17,15 +17,8 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-[100] bg-white/92 backdrop-blur-md border-b border-pink-100">
       <div className="max-w-[1180px] mx-auto px-6 flex items-center justify-between gap-4 py-4">
-        <Link to="/" className="flex items-center gap-2.5 flex-shrink-0 whitespace-nowrap">
-          <span className="w-9 h-9 rounded-full flex items-center justify-center text-white text-base font-bold flex-shrink-0"
-            style={{ background: 'linear-gradient(135deg, var(--color-pink-300), var(--color-pink-600))' }}>
-            XS
-          </span>
-          <span className="leading-tight">
-            <span className="block font-display text-xl lg:text-2xl font-bold text-plum-900">XS Hair &amp; Beauty</span>
-            <span className="hidden sm:block text-[10px] tracking-wide uppercase text-pink-600 font-semibold">{SALON.tagline}</span>
-          </span>
+        <Link to="/" className="flex items-center flex-shrink-0 whitespace-nowrap" aria-label="XS Hair & Beauty — home">
+          <img src={logo} alt="XS Hair & Beauty Salon — Your Look, Our Art" className="h-12 lg:h-14 w-auto object-contain" />
         </Link>
 
         <nav className={`nav-links ${open ? 'flex' : 'hidden'} lg:flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-6 flex-shrink-0
