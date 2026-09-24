@@ -60,14 +60,16 @@ async function sendCustomerConfirmation(booking) {
   const phone = process.env.SALON_PHONE_DISPLAY || '0022 342 3964';
   const whatsapp = process.env.SALON_WHATSAPP || '223423964';
   const address = process.env.SALON_ADDRESS || '25 Chartwell Avenue, Glenfield, Auckland 0629, New Zealand';
+  const salonEmail = process.env.SALON_EMAIL || 'xshairbeautysalon@gmail.com';
 
   const html = `
     <div style="font-family:sans-serif; max-width:520px;">
-      <h2 style="color:#b34a72;">Thanks for reaching out, ${escapeHtml(booking.name)}!</h2>
-      <p>We've received your enquiry for <strong>${escapeHtml(booking.service)}</strong> and XS Hair &amp; Beauty will contact you soon to confirm your appointment.</p>
+      <h2 style="color:#b34a72;">Thank you for your enquiry, ${escapeHtml(booking.name)}!</h2>
+      <p>We have received your enquiry for <strong>${escapeHtml(booking.service)}</strong> and we will get back to you soon.</p>
       <p>Need us sooner, or have a question in the meantime? Reach us directly:</p>
       <table style="width:100%; border-collapse:collapse; margin:16px 0;">
-        <tr><td style="padding:6px 0; font-weight:bold; width:100px;">Phone</td><td>${escapeHtml(phone)}</td></tr>
+        <tr><td style="padding:6px 0; font-weight:bold; width:100px;">Email</td><td><a href="mailto:${escapeHtml(salonEmail)}" style="color:#b34a72;">${escapeHtml(salonEmail)}</a></td></tr>
+        <tr><td style="padding:6px 0; font-weight:bold;">Phone</td><td>${escapeHtml(phone)}</td></tr>
         <tr><td style="padding:6px 0; font-weight:bold;">WhatsApp</td><td><a href="https://wa.me/${whatsapp}" style="color:#b34a72;">Message us on WhatsApp</a></td></tr>
         <tr><td style="padding:6px 0; font-weight:bold; vertical-align:top;">Address</td><td>${escapeHtml(address)}</td></tr>
       </table>
@@ -78,7 +80,8 @@ async function sendCustomerConfirmation(booking) {
   await t.sendMail({
     from: `"XS Hair & Beauty" <${process.env.EMAIL_USER}>`,
     to: booking.email,
-    subject: 'We received your enquiry — XS Hair & Beauty',
+    replyTo: salonEmail,
+    subject: 'Thank you for your enquiry — XS Hair & Beauty',
     html,
   });
 

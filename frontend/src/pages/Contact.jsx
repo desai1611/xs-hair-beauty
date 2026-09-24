@@ -68,7 +68,7 @@ export default function Contact() {
               <InfoRow icon="📍" label="Address"><p className="mb-0">{SALON.address}</p></InfoRow>
               <InfoRow icon="📞" label="Phone"><a href={telLink()} className="font-semibold text-pink-700">{SALON.phoneDisplay}</a> — tap to call</InfoRow>
               <InfoRow icon="💬" label="WhatsApp"><a href={waLink()} target="_blank" rel="noopener noreferrer" className="font-semibold text-pink-700">Message us on WhatsApp</a></InfoRow>
-              <InfoRow icon="✉️" label="Email"><p className="mb-0">hello@xshairandbeauty.co.nz <span className="text-[11px] text-text-light">(placeholder — to be confirmed)</span></p></InfoRow>
+              <InfoRow icon="✉️" label="Email"><a href={`mailto:${SALON.email}`} className="font-semibold text-pink-700 break-all">{SALON.email}</a></InfoRow>
               <InfoRow icon="🕒" label="Opening Hours" last>
                 {hoursLines.map((line) => (
                   <p key={line} className="mb-0.5">{line}</p>
@@ -85,20 +85,17 @@ export default function Contact() {
             </div>
             <a href={mapsDirectionsLink()} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-block mt-4">Get Directions</a>
 
-            <div className="bg-pink-50 border border-dashed border-pink-300 rounded-[10px] px-4.5 py-3.5 text-[13px] text-text-light mt-4.5">
-              Placeholder content: phone/WhatsApp number and email above are demo values and should be confirmed with the client before launch.
-            </div>
           </div>
 
           {/* FORM */}
           <div id="booking-form">
             <div className="bg-white border border-pink-100 rounded-[18px] p-9 shadow-soft">
               <h2 className="text-2xl mb-1.5">Send a booking enquiry</h2>
-              <p className="mb-6.5">Fill out the form and our team will get back to you to confirm your appointment.</p>
+              <p className="mb-6.5">Fill out the form and our team will get back to you to confirm your appointment. You can also email us directly at <a href={`mailto:${SALON.email}`} className="font-semibold text-pink-700 break-all">{SALON.email}</a>.</p>
 
               {status === 'success' && (
                 <div className="bg-pink-50 border border-pink-200 text-pink-700 px-4.5 py-3.5 rounded-[10px] text-sm mb-4.5">
-                  <p className="font-semibold mb-2">Thanks! Your enquiry has been received — we'll be in touch shortly to confirm your appointment. Check your email for a confirmation.</p>
+                  <p className="font-semibold mb-2">Thank you for your enquiry — we will get back to you soon. We've also sent a confirmation email to the address you entered (check your spam folder if you don't see it).</p>
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn btn-gold btn-sm">
                     💬 Also message us on WhatsApp
                   </a>
