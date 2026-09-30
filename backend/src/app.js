@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const path = require('path');
 
 const { notFound, errorHandler } = require('./middleware/errorHandler');
+const { sanitizeInput } = require('./middleware/sanitize');
 
 const authRoutes = require('./routes/authRoutes');
 const serviceRoutes = require('./routes/serviceRoutes');
@@ -41,6 +42,7 @@ app.use(
 
 app.use(express.json({ limit: '2mb' }));
 app.use(express.urlencoded({ extended: true }));
+app.use(sanitizeInput); // strip Mongo operator keys ($ne, $gt, ...) from body/query/params
 if (process.env.NODE_ENV !== 'test') {
   app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 }
