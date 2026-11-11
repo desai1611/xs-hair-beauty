@@ -11,7 +11,9 @@
 function stripInPlace(obj) {
   if (!obj || typeof obj !== 'object') return;
   for (const key of Object.keys(obj)) {
-    if (key.startsWith('$') || key.includes('.')) {
+    // Also drop keys that could tamper with an object's prototype (mongoose advisories
+    // about inherited properties / prototype pollution).
+    if (key.startsWith('$') || key.includes('.') || key === '__proto__' || key === 'constructor' || key === 'prototype') {
       delete obj[key];
       continue;
     }

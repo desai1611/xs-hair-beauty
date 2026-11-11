@@ -8,6 +8,12 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const createBooking = asyncHandler(async (req, res) => {
   const { name, phone, email, service, message } = req.body;
 
+  // Honeypot: real visitors never see or fill this hidden field, bots usually do.
+  // Pretend it worked so the bot learns nothing, but save and email nothing.
+  if (req.body.website) {
+    return res.status(201).json({ message: 'Thanks! Your enquiry has been received — we will be in touch shortly.' });
+  }
+
   const errors = [];
   if (!name || !name.trim()) errors.push('Name is required');
   if (!phone || !phone.trim()) errors.push('Phone number is required');

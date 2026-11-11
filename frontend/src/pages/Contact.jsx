@@ -4,7 +4,7 @@ import api, { extractErrorMessage } from '../api/client';
 import useFetch from '../hooks/useFetch';
 import { SALON, waLink, telLink, mapsEmbedSrc, mapsDirectionsLink } from '../config/salon';
 
-const initialForm = { name: '', phone: '', email: '', service: 'Hair Services', message: '' };
+const initialForm = { name: '', phone: '', email: '', service: 'Hair Services', message: '', website: '' };
 
 const DEFAULT_HOURS = [
   'Monday: Closed',
@@ -137,6 +137,11 @@ export default function Contact() {
                 <div className="field mb-4.5">
                   <label htmlFor="message">Message</label>
                   <textarea id="message" name="message" rows="4" value={form.message} onChange={handleChange} placeholder="Tell us what you're looking for, preferred dates/times, etc." />
+                </div>
+                {/* Honeypot: hidden from people, but bots fill it in. Server drops those submissions. */}
+                <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', height: 0, overflow: 'hidden' }}>
+                  <label htmlFor="website">Leave this field empty</label>
+                  <input id="website" name="website" tabIndex={-1} autoComplete="off" value={form.website} onChange={handleChange} />
                 </div>
                 <button type="submit" disabled={status === 'submitting'} className="btn btn-primary btn-block disabled:opacity-60">
                   {status === 'submitting' ? 'Sending...' : 'Send Enquiry'}
