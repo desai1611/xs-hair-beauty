@@ -35,7 +35,7 @@ export default function BeautyServices() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search a service e.g. threading, waxing..."
-              className="w-full rounded-full px-4.5 py-3.5 border-[1.5px] border-pink-200 bg-pink-50 text-sm outline-none focus:border-pink-500"
+              className="w-full input-pill"
             />
           </div>
           {loading && <Loader label="Loading services..." />}
@@ -49,7 +49,7 @@ export default function BeautyServices() {
         </div>
       </section>
 
-      <section className="py-20 bg-pink-50 px-6">
+      <section className="py-20 bg-pink-100 px-6">
         <div className="max-w-[1180px] mx-auto grid sm:grid-cols-3 gap-7">
           {[
             { icon: '🧴', title: 'Fresh Tools, Every Time', desc: 'All threading and waxing tools are sanitised or single-use per client.' },
@@ -57,7 +57,7 @@ export default function BeautyServices() {
             { icon: '🕒', title: 'Quick Appointments', desc: 'Most beauty services take 10–30 minutes — easy to fit into your day.' },
           ].map((c) => (
             <div key={c.title} className="card text-center px-6.5 py-8.5">
-              <div className="w-15.5 h-15.5 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center text-2xl mx-auto mb-4.5">{c.icon}</div>
+              <div className="w-15.5 h-15.5 rounded-full bg-lime text-plum-900 border-2 border-plum-900 flex items-center justify-center text-2xl mx-auto mb-4.5">{c.icon}</div>
               <h3 className="text-lg mb-2">{c.title}</h3>
               <p className="text-sm text-text-light mb-0">{c.desc}</p>
             </div>
@@ -68,8 +68,7 @@ export default function BeautyServices() {
       {/* CONSULTATION CTA */}
       <section className="pt-20 pb-4 px-6">
         <div className="max-w-[1180px] mx-auto">
-          <div className="rounded-3xl px-9 py-13 text-center text-white shadow-lg"
-            style={{ background: 'linear-gradient(135deg, var(--color-gold), var(--color-plum-900))' }}>
+          <div className="tile px-7 sm:px-14 py-14 text-center bg-plum-900">
             <h2 className="text-white text-3xl mb-3">Not sure what's right for you?</h2>
             <p className="text-white/85 max-w-lg mx-auto mb-7">Book a free consultation and our specialists will design a treatment or package tailored to your skin and occasion.</p>
             <div className="flex gap-4 justify-center flex-wrap">
@@ -95,14 +94,14 @@ export default function BeautyServices() {
       </section>
 
       {/* BRIDAL */}
-      <section className="py-20 bg-pink-50 px-6">
+      <section className="py-20 bg-pink-100 px-6">
         <div className="max-w-[1180px] mx-auto grid lg:grid-cols-2 gap-11 items-center">
-          <div className="rounded-3xl aspect-[4/3] overflow-hidden shadow-mid">
+          <div className="rounded-[32px] aspect-[4/3] overflow-hidden">
             {bridalImage ? (
               <img src={bridalImage} alt="Bridal package" className="w-full h-full object-cover" />
             ) : (
-              <div className="w-full h-full flex flex-col items-center justify-center text-center text-white font-display text-xl p-5"
-                style={{ background: 'linear-gradient(150deg, var(--color-pink-300), var(--color-pink-700))' }}>
+              <div className="w-full h-full flex flex-col items-center justify-center text-center text-plum-900 font-display text-xl p-5"
+                style={{ background: 'var(--color-pink-500)' }}>
                 Bridal Photo<small className="block font-sans text-xs opacity-85 mt-2">Replace with real photography</small>
               </div>
             )}
@@ -135,12 +134,12 @@ export default function BeautyServices() {
             </ul>
             <a href={waLink('Hi! I would like to enquire about a party package.')} target="_blank" rel="noopener noreferrer" className="btn btn-gold">Enquire About Party Packages</a>
           </div>
-          <div className="lg:order-1 rounded-3xl aspect-[4/3] overflow-hidden shadow-mid">
+          <div className="lg:order-1 rounded-[32px] aspect-[4/3] overflow-hidden">
             {partyImage ? (
               <img src={partyImage} alt="Party package" className="w-full h-full object-cover" />
             ) : (
-              <div className="w-full h-full flex flex-col items-center justify-center text-center text-white font-display text-xl p-5"
-                style={{ background: 'linear-gradient(150deg, var(--color-gold), var(--color-pink-700))' }}>
+              <div className="w-full h-full flex flex-col items-center justify-center text-center text-plum-900 font-display text-xl p-5"
+                style={{ background: 'var(--color-lime)' }}>
                 Party Look Photo<small className="block font-sans text-xs opacity-85 mt-2">Replace with real photography</small>
               </div>
             )}
@@ -149,14 +148,14 @@ export default function BeautyServices() {
       </section>
 
       {/* PREMIUM GALLERY */}
-      <section className="py-20 bg-pink-50 px-6">
+      <section className="py-20 bg-pink-100 px-6">
         <div className="max-w-[1180px] mx-auto">
           <div className="text-center mb-9"><span className="eyebrow">Inspiration</span><h2 className="text-3xl">Premium looks gallery</h2></div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4.5">
             {(gallery && gallery.length > 0 ? gallery : [{ _id: 1, title: 'Bridal Glam' }, { _id: 2, title: 'Party Style' }, { _id: 3, title: 'Glow Facial' }, { _id: 4, title: 'Skin Treatment' }]).slice(0, 4).map((g, i) => (
-              <div key={g._id || i} className="rounded-[10px] overflow-hidden aspect-square shadow-soft">
-                <div className="w-full h-full flex items-center justify-center text-white text-[13px] text-center p-2"
-                  style={{ background: 'linear-gradient(150deg, var(--color-gold), var(--color-pink-600))' }}>
+              <div key={g._id || i} className="rounded-[24px] overflow-hidden aspect-square">
+                <div className="w-full h-full flex items-center justify-center text-plum-900 font-display font-semibold text-[18px] text-center p-3"
+                  style={{ background: 'var(--color-lime)' }}>
                   {g.image ? <img src={g.image} alt={g.title} className="w-full h-full object-cover" /> : g.title}
                 </div>
               </div>
@@ -165,7 +164,7 @@ export default function BeautyServices() {
         </div>
       </section>
 
-      <CtaBand gold title="Plan your treatment" subtitle="Threading, waxing, a facial, or a bridal/party package — send us a message and we'll find a time that works." />
+      <CtaBand title="Plan your treatment" subtitle="Threading, waxing, a facial, or a bridal/party package — send us a message and we'll find a time that works." />
     </>
   );
 }

@@ -160,6 +160,17 @@ html {
     box-shadow: 3px 3px 0 var(--color-pink-500);
   }
 
+  .input-pill {
+    @apply rounded-full px-5 py-3.5 text-sm outline-none transition-all duration-200;
+    background: var(--color-white);
+    border: 2px solid rgba(43, 10, 30, 0.14);
+    color: var(--color-text);
+  }
+  .input-pill:focus {
+    border-color: var(--color-plum-900);
+    box-shadow: 3px 3px 0 var(--color-pink-500);
+  }
+
   .call-float {
     display: none;
   }

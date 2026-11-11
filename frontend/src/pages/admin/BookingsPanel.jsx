@@ -67,7 +67,7 @@ export default function BookingsPanel() {
               key={f}
               onClick={() => setFilter(f)}
               className={`px-4 py-2 rounded-full text-xs font-semibold capitalize border ${
-                filter === f ? 'bg-pink-600 border-pink-600 text-white' : 'bg-white border-pink-200 text-text'
+                filter === f ? 'bg-plum-900 border-plum-900 text-white' : 'bg-white border-pink-200 text-text'
               }`}
             >
               {f}

@@ -10,10 +10,10 @@ export default function VideoEmbed({ url, placeholderLabel = 'Promo video placeh
   if (!url) {
     return (
       <div
-        className="rounded-3xl overflow-hidden aspect-video relative flex items-center justify-center shadow-mid"
-        style={{ background: 'linear-gradient(150deg, var(--color-plum-900), var(--color-pink-700))' }}
+        className="rounded-[32px] overflow-hidden aspect-video relative flex items-center justify-center shadow-mid"
+        style={{ background: 'var(--color-plum-900)' }}
       >
-        <div className="w-18.5 h-18.5 rounded-full bg-white/92 text-pink-700 flex items-center justify-center text-2xl shadow-mid">▶</div>
+        <div className="w-18.5 h-18.5 rounded-full bg-lime text-plum-900 border-2 border-plum-900 flex items-center justify-center text-2xl">▶</div>
         <span className="absolute bottom-4.5 left-5.5 text-white text-[13px] tracking-wide">{placeholderLabel}</span>
       </div>
     );
@@ -23,7 +23,7 @@ export default function VideoEmbed({ url, placeholderLabel = 'Promo video placeh
 
   if (youtubeId) {
     return (
-      <div className="rounded-3xl overflow-hidden aspect-video shadow-mid">
+      <div className="rounded-[32px] overflow-hidden aspect-video shadow-mid">
         <iframe
           className="w-full h-full"
           src={`https://www.youtube.com/embed/${youtubeId}`}
@@ -36,7 +36,7 @@ export default function VideoEmbed({ url, placeholderLabel = 'Promo video placeh
   }
 
   return (
-    <div className="rounded-3xl overflow-hidden aspect-video shadow-mid bg-plum-900">
+    <div className="rounded-[32px] overflow-hidden aspect-video shadow-mid bg-plum-900">
       <video className="w-full h-full" src={url} controls />
     </div>
   );

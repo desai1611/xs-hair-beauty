@@ -32,8 +32,8 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-pink-50 px-6">
       <div className="w-full max-w-sm bg-white rounded-2xl shadow-mid border border-pink-100 p-8">
         <div className="flex items-center gap-2.5 font-display text-xl font-bold text-plum-900 mb-1 justify-center">
-          <span className="w-9 h-9 rounded-full flex items-center justify-center text-white text-base font-bold flex-shrink-0"
-            style={{ background: 'linear-gradient(135deg, var(--color-pink-300), var(--color-pink-600))' }}>XS</span>
+          <span className="w-9 h-9 rounded-full flex items-center justify-center text-plum-900 text-base font-bold flex-shrink-0"
+            style={{ background: 'var(--color-pink-500)' }}>XS</span>
           XS Hair &amp; Beauty
         </div>
         <p className="text-center text-sm text-text-light mb-7">Admin Dashboard Login</p>

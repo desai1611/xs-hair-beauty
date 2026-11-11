@@ -44,7 +44,7 @@ export default function Reviews() {
 
       <section className="py-20 px-6">
         <div className="max-w-[1180px] mx-auto">
-          <div className="flex flex-wrap items-center gap-7 bg-white border border-pink-100 rounded-[18px] px-8.5 py-7.5 shadow-soft mb-13">
+          <div className="flex flex-wrap items-center gap-7 bg-white border-[1.5px] border-plum-900/10 rounded-[28px] px-8.5 py-7.5 shadow-soft mb-13">
             <div className="font-display text-5xl text-pink-700 leading-none text-center">
               {avg}<br /><span className="text-gold text-base">★★★★★</span>
             </div>
@@ -76,21 +76,21 @@ export default function Reviews() {
       </section>
 
       {/* BEFORE / AFTER */}
-      <section className="py-20 bg-pink-50 px-6">
+      <section className="py-20 bg-pink-100 px-6">
         <div className="max-w-[1180px] mx-auto">
           <div className="text-center mb-11"><span className="eyebrow">Transformations</span><h2 className="text-3xl">Before &amp; after</h2><p className="text-text-light mt-2">A few of our favourite results — shown with client permission.</p></div>
           <div className="grid sm:grid-cols-2 gap-7">
             {beforeAfter.map((ba, i) => (
-              <div key={ba.title || i} className="grid grid-cols-2 rounded-[18px] overflow-hidden shadow-soft border border-pink-100">
+              <div key={ba.title || i} className="grid grid-cols-2 rounded-[28px] overflow-hidden shadow-soft border-[1.5px] border-plum-900/10">
                 {ba.before?.image ? (
                   <img src={ba.before.image} alt={`${ba.title} — before`} className="aspect-[3/4] w-full object-cover" />
                 ) : (
-                  <div className="aspect-[3/4] flex items-center justify-center text-white text-[13px]" style={{ background: 'linear-gradient(150deg, #c9b3ba, #7d6570)' }}>Before</div>
+                  <div className="aspect-[3/4] flex items-center justify-center text-white text-[13px]" style={{ background: 'var(--color-plum-800)' }}>Before</div>
                 )}
                 {ba.after?.image ? (
                   <img src={ba.after.image} alt={`${ba.title} — after`} className="aspect-[3/4] w-full object-cover" />
                 ) : (
-                  <div className="aspect-[3/4] flex items-center justify-center text-white text-[13px]" style={{ background: 'linear-gradient(150deg, var(--color-pink-300), var(--color-pink-600))' }}>After</div>
+                  <div className="aspect-[3/4] flex items-center justify-center text-plum-900 font-semibold text-[13px]" style={{ background: 'var(--color-pink-500)' }}>After</div>
                 )}
                 <div className="col-span-2 bg-white px-4.5 py-3.5">
                   <strong className="block text-sm">{ba.title}</strong>

@@ -126,14 +126,14 @@ export default function ChatWidget() {
   return (
     <>
       {open && (
-        <div className="fixed bottom-[9.5rem] right-6.5 z-[210] w-[min(360px,calc(100vw-2rem))] h-[min(480px,calc(100vh-11rem))] bg-white rounded-2xl shadow-lg border border-pink-100 flex flex-col overflow-hidden">
-          <div className="px-5 py-4 text-white flex items-center justify-between flex-shrink-0"
-            style={{ background: 'linear-gradient(135deg, var(--color-pink-500), var(--color-pink-700))' }}>
+        <div className="fixed bottom-[9.5rem] right-6.5 z-[210] w-[min(360px,calc(100vw-2rem))] h-[min(480px,calc(100vh-11rem))] bg-white rounded-[28px] shadow-lg border-2 border-plum-900 flex flex-col overflow-hidden">
+          <div className="px-5 py-4 text-plum-900 border-b-2 border-plum-900 flex items-center justify-between flex-shrink-0"
+            style={{ background: 'var(--color-pink-500)' }}>
             <div>
               <strong className="block text-sm">XS Hair &amp; Beauty Assistant</strong>
               <span className="text-[11px] opacity-85">Usually replies instantly</span>
             </div>
-            <button onClick={() => setOpen(false)} aria-label="Close chat" className="text-white/90 hover:text-white text-lg leading-none px-1">✕</button>
+            <button onClick={() => setOpen(false)} aria-label="Close chat" className="text-plum-900 text-lg leading-none px-1">✕</button>
           </div>
 
           <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-pink-50">
@@ -141,7 +141,7 @@ export default function ChatWidget() {
               <div key={i} className={`flex ${m.from === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div
                   className={`max-w-[85%] px-3.5 py-2.5 rounded-2xl text-[13px] whitespace-pre-line ${
-                    m.from === 'user' ? 'bg-pink-600 text-white rounded-br-sm' : 'bg-white text-text border border-pink-100 rounded-bl-sm'
+                    m.from === 'user' ? 'bg-plum-900 text-white rounded-br-sm' : 'bg-white text-text border border-pink-100 rounded-bl-sm'
                   }`}
                 >
                   {m.text}
@@ -174,7 +174,7 @@ export default function ChatWidget() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type a question..."
-              className="flex-1 rounded-full px-3.5 py-2.5 text-[13px] border-[1.5px] border-pink-200 bg-pink-50 outline-none focus:border-pink-500"
+              className="flex-1 input-pill !py-2.5 !px-4 !text-[13px]"
             />
             <button type="submit" className="btn btn-primary btn-sm !px-4">Send</button>
           </form>
@@ -184,8 +184,8 @@ export default function ChatWidget() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? 'Close chat assistant' : 'Open chat assistant'}
-        className="fixed bottom-[5.75rem] right-6.5 w-14 h-14 rounded-full text-white flex items-center justify-center text-2xl shadow-mid z-[210] hover:scale-108 transition-transform"
-        style={{ background: 'linear-gradient(135deg, var(--color-pink-500), var(--color-pink-700))' }}
+        className="fixed bottom-[5.75rem] right-6.5 w-14 h-14 rounded-full text-plum-900 border-2 border-plum-900 flex items-center justify-center text-2xl shadow-[3px_3px_0_var(--color-plum-900)] z-[210] hover:scale-108 transition-transform"
+        style={{ background: 'var(--color-pink-500)' }}
       >
         {open ? '✕' : '💁‍♀️'}
       </button>
