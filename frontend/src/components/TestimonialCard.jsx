@@ -6,10 +6,10 @@ export default function TestimonialCard({ review }) {
         {'★'.repeat(review.rating)}
         {'☆'.repeat(5 - review.rating)}
       </span>
-      <p className="italic text-text text-[15px] mb-5">"{review.quote}"</p>
+      <p className="font-display text-text text-[17px] leading-snug mb-5">"{review.quote}"</p>
       <div className="flex items-center gap-3">
-        <div className="w-10.5 h-10.5 rounded-full flex items-center justify-center text-white font-bold text-[15px] flex-shrink-0"
-          style={{ background: 'linear-gradient(135deg, var(--color-pink-300), var(--color-pink-600))' }}>
+        <div className="w-10.5 h-10.5 rounded-full flex items-center justify-center text-plum-900 font-bold text-[15px] flex-shrink-0 border-2 border-plum-900"
+          style={{ background: 'var(--color-pink-500)' }}>
           {initial}
         </div>
         <div>

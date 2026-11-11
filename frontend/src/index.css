@@ -1,26 +1,30 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Poppins', 'Segoe UI', sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Space Grotesk', 'Segoe UI', sans-serif;
 
   --color-white: #ffffff;
-  --color-pink-50: #fdf1f5;
-  --color-pink-100: #fbe2ea;
-  --color-pink-200: #f6c6d6;
-  --color-pink-300: #f0a8c0;
-  --color-pink-500: #e685a9;
-  --color-pink-600: #d4638e;
-  --color-pink-700: #b34a72;
-  --color-plum-900: #3a2530;
-  --color-text: #4a3a42;
-  --color-text-light: #8a747c;
-  --color-gold: #c9a05c;
-  --color-gold-light: #f4e9d6;
+  --color-cream: #fff6fa;
+  --color-pink-50: #fff3f8;
+  --color-pink-100: #ffe0ee;
+  --color-pink-200: #ffc2dc;
+  --color-pink-300: #ff9cc6;
+  --color-pink-500: #ff5fa2;
+  --color-pink-600: #e8408a;
+  --color-pink-700: #bf2468;
+  --color-plum-900: #2b0a1e;
+  --color-plum-800: #4a1633;
+  --color-text: #3b2431;
+  --color-text-light: #7a6370;
+  --color-lime: #c8f25b;
+  --color-gold: #e0a93a;
+  --color-gold-light: #fff1d1;
 
-  --shadow-soft: 0 4px 14px rgba(180, 80, 120, 0.08);
-  --shadow-mid: 0 10px 30px rgba(180, 80, 120, 0.14);
-  --shadow-lg: 0 20px 50px rgba(120, 40, 70, 0.18);
+  --shadow-soft: 0 4px 16px rgba(43, 10, 30, 0.07);
+  --shadow-mid: 0 12px 32px rgba(43, 10, 30, 0.12);
+  --shadow-lg: 0 24px 56px rgba(43, 10, 30, 0.2);
+  --shadow-pop: 5px 5px 0 var(--color-plum-900);
 }
 
 html {
@@ -29,48 +33,78 @@ html {
 
 @layer base {
   body {
+    overflow-x: clip;
     font-family: var(--font-sans);
     color: var(--color-text);
-    background: var(--color-white);
+    background: var(--color-cream);
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
+    color: var(--color-plum-900);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background: var(--color-lime);
     color: var(--color-plum-900);
   }
 }
 
 @layer components {
   .btn {
-    @apply inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold text-sm border-2 border-transparent transition-all duration-200 cursor-pointer whitespace-nowrap;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-semibold text-sm border-2 border-transparent transition-all duration-200 cursor-pointer whitespace-nowrap;
   }
   .btn:hover {
     @apply -translate-y-0.5;
   }
+  .btn:active {
+    @apply translate-y-0;
+  }
   .btn-primary {
-    @apply text-white;
-    background: linear-gradient(135deg, var(--color-pink-500), var(--color-pink-700));
-    box-shadow: var(--shadow-soft);
+    background: var(--color-plum-900);
+    color: var(--color-white);
+    border-color: var(--color-plum-900);
   }
   .btn-primary:hover {
-    box-shadow: var(--shadow-mid);
+    background: var(--color-pink-500);
+    border-color: var(--color-plum-900);
+    color: var(--color-plum-900);
+    box-shadow: 3px 3px 0 var(--color-plum-900);
+  }
+  .btn-pink {
+    background: var(--color-pink-500);
+    color: var(--color-plum-900);
+    border-color: var(--color-plum-900);
+  }
+  .btn-pink:hover {
+    box-shadow: 3px 3px 0 var(--color-plum-900);
   }
   .btn-outline {
     @apply bg-transparent;
-    border-color: var(--color-pink-500);
-    color: var(--color-pink-700);
+    border-color: var(--color-plum-900);
+    color: var(--color-plum-900);
   }
   .btn-outline:hover {
-    background: var(--color-pink-500);
-    @apply text-white;
+    background: var(--color-plum-900);
+    color: var(--color-white);
   }
   .btn-light {
-    @apply bg-white;
-    color: var(--color-pink-700);
+    background: var(--color-white);
+    color: var(--color-plum-900);
+    border-color: var(--color-white);
+  }
+  .btn-light:hover {
+    box-shadow: 3px 3px 0 var(--color-lime);
   }
   .btn-gold {
-    @apply text-white;
-    background: linear-gradient(135deg, var(--color-gold), #a97f37);
+    background: var(--color-lime);
+    color: var(--color-plum-900);
+    border-color: var(--color-lime);
+  }
+  .btn-gold:hover {
+    box-shadow: 3px 3px 0 var(--color-white);
   }
   .btn-sm {
     @apply px-5 py-2.5 text-[13px];
@@ -80,18 +114,31 @@ html {
   }
 
   .card {
-    @apply bg-white rounded-[18px] overflow-hidden transition-all duration-250;
-    box-shadow: var(--shadow-soft);
-    border: 1px solid var(--color-pink-100);
+    @apply bg-white rounded-[28px] overflow-hidden transition-all duration-250;
+    border: 1.5px solid rgba(43, 10, 30, 0.1);
   }
   .card:hover {
-    @apply -translate-y-1.5;
-    box-shadow: var(--shadow-mid);
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-pop);
+    border-color: var(--color-plum-900);
   }
 
   .eyebrow {
-    @apply inline-block text-[13px] tracking-[3px] uppercase font-semibold mb-3.5;
-    color: var(--color-pink-600);
+    @apply inline-block text-[12px] tracking-[0.14em] uppercase font-bold mb-4 px-3.5 py-1.5 rounded-full;
+    background: var(--color-lime);
+    color: var(--color-plum-900);
+  }
+
+  .tile {
+    @apply rounded-[32px] relative overflow-hidden;
+  }
+
+  .sticker {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12px] font-bold uppercase tracking-wide;
+    background: var(--color-white);
+    color: var(--color-plum-900);
+    border: 2px solid var(--color-plum-900);
+    transform: rotate(-3deg);
   }
 
   .field label {
@@ -101,16 +148,16 @@ html {
   .field input,
   .field select,
   .field textarea {
-    @apply w-full rounded-[10px] px-4 py-3.5 text-sm transition-colors duration-200 outline-none;
-    border: 1.5px solid var(--color-pink-200);
-    background: var(--color-pink-50);
+    @apply w-full rounded-[14px] px-4 py-3.5 text-sm transition-all duration-200 outline-none;
+    border: 2px solid rgba(43, 10, 30, 0.14);
+    background: var(--color-white);
     color: var(--color-text);
   }
   .field input:focus,
   .field select:focus,
   .field textarea:focus {
-    border-color: var(--color-pink-500);
-    background: var(--color-white);
+    border-color: var(--color-plum-900);
+    box-shadow: 3px 3px 0 var(--color-pink-500);
   }
 
   .call-float {
@@ -120,5 +167,63 @@ html {
     .call-float {
       display: flex;
     }
+  }
+
+  .marquee {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-track {
+    display: inline-flex;
+    gap: 2.5rem;
+    padding-right: 2.5rem;
+    animation: marquee 28s linear infinite;
+  }
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-7px) rotate(-3deg); }
+}
+
+.float-sticker {
+  animation: float-y 4s ease-in-out infinite;
+}
+
+/* Scroll-in reveal: pure CSS, and content stays visible where unsupported. */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track,
+  .float-sticker,
+  .reveal {
+    animation: none !important;
   }
 }

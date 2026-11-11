@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 
 export default function ServiceCard({ service, premium = false }) {
   const gradient = premium
-    ? 'linear-gradient(135deg, var(--color-gold-light), var(--color-gold))'
-    : 'linear-gradient(135deg, var(--color-pink-200), var(--color-pink-500))';
+    ? 'var(--color-lime)'
+    : 'var(--color-pink-200)';
 
   return (
     <div className="card text-left pb-6.5">
-      <div className="h-[170px] flex items-center justify-center text-white text-3xl overflow-hidden" style={{ background: gradient }}>
+      <div className="h-[170px] flex items-center justify-center text-plum-900 text-4xl overflow-hidden" style={{ background: gradient }}>
         {service.image ? (
           <img src={service.image} alt={service.name} className="w-full h-full object-cover" />
         ) : (
@@ -15,10 +15,10 @@ export default function ServiceCard({ service, premium = false }) {
         )}
       </div>
       <div className="px-6 pt-5.5">
-        <h3 className="text-[19px] mb-2">{service.name}</h3>
+        <h3 className="text-[21px] mb-2">{service.name}</h3>
         <p className="text-sm text-text-light mb-3.5">{service.description}</p>
       </div>
-      <div className="flex justify-between items-center pt-3.5 mx-6 border-t border-dashed border-pink-200">
+      <div className="flex justify-between items-center pt-3.5 mx-6 border-t-2 border-dashed border-plum-900/15">
         <span className="font-display font-bold text-[16px] text-pink-700">
           {service.price != null ? (
             <>

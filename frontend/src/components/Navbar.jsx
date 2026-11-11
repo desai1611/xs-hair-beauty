@@ -15,41 +15,61 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-[100] bg-white/92 backdrop-blur-md border-b border-pink-100">
-      <div className="max-w-[1180px] mx-auto px-6 flex items-center justify-between gap-4 py-4">
-        <Link to="/" className="flex items-center flex-shrink-0 whitespace-nowrap" aria-label="XS Hair & Beauty — home">
-          <img src={logo} alt="XS Hair & Beauty Salon — Your Look, Our Art" className="h-12 lg:h-14 w-auto object-contain" />
-        </Link>
+    <header className="sticky top-0 z-[100] px-3 sm:px-5 pt-3">
+      <div className="max-w-[1240px] mx-auto relative">
+        <div className="bg-white/90 backdrop-blur-md rounded-full border-[1.5px] border-plum-900/10 shadow-soft pl-5 pr-2.5 py-2 flex items-center justify-between gap-4">
+          <Link to="/" className="flex items-center flex-shrink-0 whitespace-nowrap" aria-label="XS Hair & Beauty — home" onClick={() => setOpen(false)}>
+            <img src={logo} alt="XS Hair & Beauty Salon — Your Look, Our Art" className="h-11 lg:h-12 w-auto object-contain" />
+          </Link>
 
-        <nav className={`nav-links ${open ? 'flex' : 'hidden'} lg:flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-6 flex-shrink-0
-          fixed lg:static top-[68px] left-0 right-0 lg:top-auto bg-white lg:bg-transparent px-6 lg:px-0 py-5 lg:py-0 shadow-lg lg:shadow-none z-50`}>
-          {links.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              end={l.to === '/'}
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                `text-[14px] font-medium relative py-1.5 whitespace-nowrap ${isActive ? 'text-pink-700' : 'text-text'} hover:text-pink-700 transition-colors`
-              }
+          <nav className="hidden lg:flex items-center gap-1" aria-label="Main">
+            {links.map((l) => (
+              <NavLink
+                key={l.to}
+                to={l.to}
+                end={l.to === '/'}
+                className={({ isActive }) =>
+                  `text-[14px] font-semibold px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
+                    isActive ? 'bg-plum-900 text-white' : 'text-plum-900 hover:bg-pink-100'
+                  }`
+                }
+              >
+                {l.label}
+              </NavLink>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <Link to="/contact#booking-form" className="btn btn-pink btn-sm">Book Now</Link>
+            <button
+              className="lg:hidden w-10 h-10 rounded-full bg-plum-900 flex flex-col items-center justify-center gap-1.5"
+              aria-label="Toggle menu"
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
             >
-              {l.label}
-            </NavLink>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-3 flex-shrink-0">
-          <Link to="/contact#booking-form" className="btn btn-primary btn-sm">Book Now</Link>
-          <button
-            className="lg:hidden flex flex-col gap-1.5 p-1.5"
-            aria-label="Toggle menu"
-            onClick={() => setOpen((v) => !v)}
-          >
-            <span className="w-6 h-0.5 bg-plum-900 rounded-full" />
-            <span className="w-6 h-0.5 bg-plum-900 rounded-full" />
-            <span className="w-6 h-0.5 bg-plum-900 rounded-full" />
-          </button>
+              <span className={`w-5 h-0.5 bg-white rounded-full transition-transform ${open ? 'translate-y-[4px] rotate-45' : ''}`} />
+              <span className={`w-5 h-0.5 bg-white rounded-full transition-transform ${open ? '-translate-y-[4px] -rotate-45' : ''}`} />
+            </button>
+          </div>
         </div>
+
+        {open && (
+          <nav className="lg:hidden absolute left-0 right-0 top-[calc(100%+8px)] bg-white rounded-[28px] border-[1.5px] border-plum-900/10 shadow-lg p-3 flex flex-col" aria-label="Mobile">
+            {links.map((l) => (
+              <NavLink
+                key={l.to}
+                to={l.to}
+                end={l.to === '/'}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  `text-[16px] font-semibold px-5 py-3 rounded-full ${isActive ? 'bg-plum-900 text-white' : 'text-plum-900 hover:bg-pink-100'}`
+                }
+              >
+                {l.label}
+              </NavLink>
+            ))}
+          </nav>
+        )}
       </div>
     </header>
   );
