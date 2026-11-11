@@ -3,8 +3,8 @@
  *
  * Calls each public GET endpoint RUNS times in a row, times each call in
  * milliseconds, and prints + saves max / average / min / standard deviation
- * per endpoint - the same pattern as the network-speed example in the
- * "Test Results Collection" guide (run 10-30 times, don't trust a single run).
+ * per endpoint. Repeating the run (10-30 times) smooths out one-off spikes
+ * such as a cold start on the first request.
  *
  * Usage:
  *   node scripts/perf-test.js --base http://localhost:5000/api --label local
