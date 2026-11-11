@@ -126,7 +126,7 @@ export default function ChatWidget() {
   return (
     <>
       {open && (
-        <div className="fixed bottom-[9.5rem] right-6.5 z-[210] w-[min(360px,calc(100vw-2rem))] h-[min(480px,calc(100vh-11rem))] bg-white rounded-[28px] shadow-lg border-2 border-plum-900 flex flex-col overflow-hidden">
+        <div className="fixed bottom-[10rem] right-3 sm:bottom-[9.5rem] sm:right-6 z-[210] w-[min(360px,calc(100vw-2rem))] h-[min(480px,calc(100vh-11rem))] bg-white rounded-[28px] shadow-lg border-2 border-plum-900 flex flex-col overflow-hidden">
           <div className="px-5 py-4 text-plum-900 border-b-2 border-plum-900 flex items-center justify-between flex-shrink-0"
             style={{ background: 'var(--color-pink-500)' }}>
             <div>
@@ -184,7 +184,7 @@ export default function ChatWidget() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? 'Close chat assistant' : 'Open chat assistant'}
-        className="fixed bottom-[5.75rem] right-6.5 w-14 h-14 rounded-full text-plum-900 border-2 border-plum-900 flex items-center justify-center text-2xl shadow-[3px_3px_0_var(--color-plum-900)] z-[210] hover:scale-108 transition-transform"
+        className="fixed bottom-[5.75rem] right-4 sm:right-6 w-14 h-14 rounded-full text-plum-900 border-2 border-plum-900 flex items-center justify-center text-2xl shadow-[3px_3px_0_var(--color-plum-900)] z-[210] hover:scale-108 transition-transform"
         style={{ background: 'var(--color-pink-500)' }}
       >
         {open ? '✕' : '💁‍♀️'}

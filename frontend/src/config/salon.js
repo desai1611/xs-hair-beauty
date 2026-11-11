@@ -19,3 +19,14 @@ export const mapsEmbedSrc = () =>
 
 export const mapsDirectionsLink = () =>
   `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(SALON.address)}`;
+
+// Used when the owner hasn't edited opening hours in the admin dashboard.
+export const DEFAULT_HOURS = [
+  'Monday: Closed',
+  'Tuesday: 9:30 AM – 6:00 PM',
+  'Wednesday: 9:30 AM – 6:00 PM',
+  'Thursday: 9:30 AM – 6:00 PM',
+  'Friday: 9:30 AM – 6:00 PM',
+  'Saturday: 9:30 AM – 6:00 PM',
+  'Sunday: 10:00 AM – 6:00 PM',
+];

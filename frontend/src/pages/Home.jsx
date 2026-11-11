@@ -3,7 +3,8 @@ import useFetch from '../hooks/useFetch';
 import SectionHeading from '../components/SectionHeading';
 import TestimonialCard from '../components/TestimonialCard';
 import Loader from '../components/Loader';
-import { SALON, waLink, telLink, mapsEmbedSrc } from '../config/salon';
+import { SALON, DEFAULT_HOURS, waLink, telLink, mapsEmbedSrc } from '../config/salon';
+import { openStatus } from '../utils/openStatus';
 
 const MARQUEE_ITEMS = ['Your Look, Our Art', 'Haircuts', 'Colour', 'Threading', 'Waxing', 'Facials', 'Bridal & Party'];
 
@@ -36,6 +37,10 @@ export default function Home() {
   const { data: gallery } = useFetch('/gallery?page=home');
   const { data: siteContent } = useFetch('/site-content');
   const heroImage = siteContent?.home_hero_image?.value;
+  const hoursLines = siteContent?.opening_hours?.value
+    ? siteContent.opening_hours.value.split(/\r?\n/).filter(Boolean)
+    : DEFAULT_HOURS;
+  const status = openStatus(hoursLines);
   const galleryItems = (gallery && gallery.length > 0 ? gallery : GALLERY_FALLBACK).slice(0, 4);
 
   return (
@@ -45,7 +50,15 @@ export default function Home() {
         <div className="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-3">
           <div className="tile lg:col-span-8 bg-pink-500 px-7 sm:px-12 py-10 sm:py-14 flex flex-col justify-between min-h-[420px]">
             <div>
-              <span className="eyebrow" style={{ background: 'var(--color-white)' }}>Auckland's Neighbourhood Salon</span>
+              <div className="flex flex-wrap items-center gap-2 mb-5">
+                <span className="eyebrow !mb-0" style={{ background: 'var(--color-white)' }}>Auckland's Neighbourhood Salon</span>
+                {status && (
+                  <span className="inline-flex items-center gap-2 rounded-full bg-plum-900 text-white text-[12px] font-bold px-3.5 py-1.5">
+                    <span className={`w-2 h-2 rounded-full ${status.open ? 'bg-lime animate-pulse' : 'bg-pink-300'}`} aria-hidden="true" />
+                    {status.text}
+                  </span>
+                )}
+              </div>
               <h1 className="text-[44px] sm:text-[76px] leading-[0.98] mb-5 max-w-[11ch] sm:max-w-none">
                 Look &amp; feel your <em className="italic font-medium text-white">best</em>, every visit
               </h1>

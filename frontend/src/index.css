@@ -171,15 +171,6 @@ html {
     box-shadow: 3px 3px 0 var(--color-pink-500);
   }
 
-  .call-float {
-    display: none;
-  }
-  @media (max-width: 640px) {
-    .call-float {
-      display: flex;
-    }
-  }
-
   .marquee {
     overflow: hidden;
     white-space: nowrap;

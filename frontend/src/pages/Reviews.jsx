@@ -3,6 +3,7 @@ import TestimonialCard from '../components/TestimonialCard';
 import Loader, { ErrorMessage } from '../components/Loader';
 import PageHeader from '../components/PageHeader';
 import CtaBand from '../components/CtaBand';
+import BeforeAfterSlider from '../components/BeforeAfterSlider';
 
 // Shown only until the salon has added real before/after photos via Admin → Gallery.
 const placeholderBeforeAfter = [
@@ -81,18 +82,9 @@ export default function Reviews() {
           <div className="text-center mb-11"><span className="eyebrow">Transformations</span><h2 className="text-3xl">Before &amp; after</h2><p className="text-text-light mt-2">A few of our favourite results — shown with client permission.</p></div>
           <div className="grid sm:grid-cols-2 gap-7">
             {beforeAfter.map((ba, i) => (
-              <div key={ba.title || i} className="grid grid-cols-2 rounded-[28px] overflow-hidden shadow-soft border-[1.5px] border-plum-900/10">
-                {ba.before?.image ? (
-                  <img src={ba.before.image} alt={`${ba.title} — before`} className="aspect-[3/4] w-full object-cover" />
-                ) : (
-                  <div className="aspect-[3/4] flex items-center justify-center text-white text-[13px]" style={{ background: 'var(--color-plum-800)' }}>Before</div>
-                )}
-                {ba.after?.image ? (
-                  <img src={ba.after.image} alt={`${ba.title} — after`} className="aspect-[3/4] w-full object-cover" />
-                ) : (
-                  <div className="aspect-[3/4] flex items-center justify-center text-plum-900 font-semibold text-[13px]" style={{ background: 'var(--color-pink-500)' }}>After</div>
-                )}
-                <div className="col-span-2 bg-white px-4.5 py-3.5">
+              <div key={ba.title || i} className="rounded-[28px] overflow-hidden border-[1.5px] border-plum-900/10 bg-white">
+                <BeforeAfterSlider before={ba.before?.image} after={ba.after?.image} title={ba.title} />
+                <div className="bg-white px-5 py-4">
                   <strong className="block text-sm">{ba.title}</strong>
                   <p className="text-[13px] text-text-light mt-1 mb-0">{ba.description}</p>
                 </div>
