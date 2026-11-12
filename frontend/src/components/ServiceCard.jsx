@@ -9,7 +9,7 @@ export default function ServiceCard({ service, premium = false }) {
     <div className="card text-left pb-6.5">
       <div className="h-[170px] flex items-center justify-center text-plum-900 text-4xl overflow-hidden" style={{ background: gradient }}>
         {service.image ? (
-          <img src={service.image} alt={service.name} className="w-full h-full object-cover" />
+          <img src={service.image} alt={service.name} className="w-full h-full object-cover object-[50%_35%]" loading="lazy" />
         ) : (
           <span>✨</span>
         )}
