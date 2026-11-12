@@ -9,10 +9,10 @@ import { openStatus } from '../utils/openStatus';
 const MARQUEE_ITEMS = ['Your Look, Our Art', 'Haircuts', 'Colour', 'Threading', 'Waxing', 'Facials', 'Bridal & Party'];
 
 const GALLERY_FALLBACK = [
-  { _id: 'f1', title: 'Hair Colour' },
-  { _id: 'f2', title: 'Bridal Look' },
-  { _id: 'f3', title: 'Facial Glow' },
-  { _id: 'f4', title: 'Styling' },
+  { _id: 'f1', title: 'Hair Colour', image: '/images/stock/hair-colour.jpg' },
+  { _id: 'f2', title: 'Bridal Look', image: '/images/stock/bridal-look.jpg' },
+  { _id: 'f3', title: 'Facial Glow', image: '/images/stock/facial-glow.jpg' },
+  { _id: 'f4', title: 'Styling', image: '/images/stock/styling.jpg' },
 ];
 const GALLERY_BG = ['var(--color-pink-500)', 'var(--color-lime)', 'var(--color-plum-800)', 'var(--color-pink-200)'];
 const GALLERY_FG = ['text-plum-900', 'text-plum-900', 'text-white', 'text-plum-900'];
@@ -120,17 +120,19 @@ export default function Home() {
             subtitle="Two simple categories, one trusted team — explore hair, and beauty & advanced treatments." />
           <div className="grid md:grid-cols-2 gap-3">
             {[
-              { icon: '✂️', title: 'Hair Services', desc: 'Cuts, colour, highlights, keratin, nanoplastia and treatments for every hair type.', to: '/hair-services', bg: 'var(--color-lime)', dark: false },
-              { icon: '💆‍♀️', title: 'Beauty & Advanced', desc: 'Threading, waxing, gentle facials, advanced skin treatments, plus bridal and party packages.', to: '/beauty-services', bg: 'var(--color-plum-900)', dark: true },
+              { icon: '✂️', title: 'Hair Services', desc: 'Cuts, colour, highlights, keratin, nanoplastia and treatments for every hair type.', to: '/hair-services', bg: 'var(--color-lime)', img: '/images/stock/hair-colour.jpg', pos: '50% 74%' },
+              { icon: '💆‍♀️', title: 'Beauty & Advanced', desc: 'Threading, waxing, gentle facials, advanced skin treatments, plus bridal and party packages.', to: '/beauty-services', bg: 'var(--color-plum-900)', img: '/images/stock/facial-glow.jpg', pos: '50% 50%' },
             ].map((s) => (
               <Link key={s.title} to={s.to}
                 className="tile reveal group p-8 sm:p-10 min-h-[300px] flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1"
                 style={{ background: s.bg }}>
-                <span className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-3xl border-2 border-plum-900 group-hover:rotate-12 transition-transform">{s.icon}</span>
-                <div>
-                  <h3 className={`text-[34px] sm:text-[44px] leading-none mb-3 ${s.dark ? '!text-white' : ''}`}>{s.title}</h3>
-                  <p className={`text-[15px] max-w-sm mb-5 ${s.dark ? 'text-white/75' : 'text-plum-900/75'}`}>{s.desc}</p>
-                  <span className={`inline-flex items-center gap-2 font-bold text-sm ${s.dark ? 'text-lime' : 'text-plum-900'}`}>
+                <img src={s.img} alt="" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" style={{ objectPosition: s.pos }} loading="lazy" />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(43,10,30,0.15) 0%, rgba(43,10,30,0.88) 100%)' }} />
+                <span className="relative w-16 h-16 rounded-full bg-white flex items-center justify-center text-3xl border-2 border-plum-900 group-hover:rotate-12 transition-transform">{s.icon}</span>
+                <div className="relative">
+                  <h3 className="text-[34px] sm:text-[44px] leading-none mb-3 !text-white">{s.title}</h3>
+                  <p className="text-[15px] max-w-sm mb-5 text-white/85">{s.desc}</p>
+                  <span className="inline-flex items-center gap-2 font-bold text-sm text-lime">
                     View {s.title} <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </span>
                 </div>
@@ -178,7 +180,10 @@ export default function Home() {
                 className={`tile reveal ${GALLERY_SPAN[i % 4]} flex items-end p-4 hover:-rotate-1 hover:scale-[1.02] transition-transform duration-300`}
                 style={{ background: GALLERY_BG[i % 4] }}>
                 {g.image ? (
-                  <img src={g.image} alt={g.title} className="absolute inset-0 w-full h-full object-cover" />
+                  <>
+                    <img src={g.image} alt={g.title} className="absolute inset-0 w-full h-full object-cover object-[50%_30%]" loading="lazy" />
+                    <span className="sticker relative !text-[11px] sm:!text-[12px]">{g.title}</span>
+                  </>
                 ) : (
                   <span className={`font-display text-[22px] sm:text-[30px] leading-none font-semibold ${GALLERY_FG[i % 4]}`}>{g.title}</span>
                 )}

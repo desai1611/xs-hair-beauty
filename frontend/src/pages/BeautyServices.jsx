@@ -12,8 +12,9 @@ export default function BeautyServices() {
   const { data: premiumServices, loading: premiumLoading, error: premiumError } = useFetch('/services?category=advanced');
   const { data: gallery } = useFetch('/gallery?page=advanced');
   const { data: siteContent } = useFetch('/site-content');
-  const bridalImage = siteContent?.advanced_bridal_image?.value;
-  const partyImage = siteContent?.advanced_party_image?.value;
+  // Stock photos are used until the owner uploads real ones in Admin → Site images.
+  const bridalImage = siteContent?.advanced_bridal_image?.value || '/images/stock/bridal-look.jpg';
+  const partyImage = siteContent?.advanced_party_image?.value || '/images/stock/party-package.jpg';
   const [search, setSearch] = useState('');
 
   const filtered = (services || []).filter((s) => s.name.toLowerCase().includes(search.toLowerCase()));
@@ -98,7 +99,7 @@ export default function BeautyServices() {
         <div className="max-w-[1180px] mx-auto grid lg:grid-cols-2 gap-11 items-center">
           <div className="rounded-[32px] aspect-[4/3] overflow-hidden">
             {bridalImage ? (
-              <img src={bridalImage} alt="Bridal package" className="w-full h-full object-cover" />
+              <img src={bridalImage} alt="Bridal package" className="w-full h-full object-cover object-[50%_25%]" loading="lazy" />
             ) : (
               <div className="w-full h-full flex flex-col items-center justify-center text-center text-plum-900 font-display text-xl p-5"
                 style={{ background: 'var(--color-pink-500)' }}>
@@ -136,7 +137,7 @@ export default function BeautyServices() {
           </div>
           <div className="lg:order-1 rounded-[32px] aspect-[4/3] overflow-hidden">
             {partyImage ? (
-              <img src={partyImage} alt="Party package" className="w-full h-full object-cover" />
+              <img src={partyImage} alt="Party package" className="w-full h-full object-cover object-[50%_30%]" loading="lazy" />
             ) : (
               <div className="w-full h-full flex flex-col items-center justify-center text-center text-plum-900 font-display text-xl p-5"
                 style={{ background: 'var(--color-lime)' }}>
@@ -152,12 +153,13 @@ export default function BeautyServices() {
         <div className="max-w-[1180px] mx-auto">
           <div className="text-center mb-9"><span className="eyebrow">Inspiration</span><h2 className="text-3xl">Premium looks gallery</h2></div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4.5">
-            {(gallery && gallery.length > 0 ? gallery : [{ _id: 1, title: 'Bridal Glam' }, { _id: 2, title: 'Party Style' }, { _id: 3, title: 'Glow Facial' }, { _id: 4, title: 'Skin Treatment' }]).slice(0, 4).map((g, i) => (
-              <div key={g._id || i} className="rounded-[24px] overflow-hidden aspect-square">
+            {(gallery && gallery.length > 0 ? gallery : [{ _id: 1, title: 'Bridal Glam', image: '/images/stock/bridal-glam.jpg' }, { _id: 2, title: 'Party Style', image: '/images/stock/party-style.jpg' }, { _id: 3, title: 'Glow Facial', image: '/images/stock/facial-glow.jpg' }, { _id: 4, title: 'Skin Treatment', image: '/images/stock/skin-treatment.jpg' }]).slice(0, 4).map((g, i) => (
+              <div key={g._id || i} className="rounded-[24px] overflow-hidden aspect-square relative">
                 <div className="w-full h-full flex items-center justify-center text-plum-900 font-display font-semibold text-[18px] text-center p-3"
                   style={{ background: 'var(--color-lime)' }}>
-                  {g.image ? <img src={g.image} alt={g.title} className="w-full h-full object-cover" /> : g.title}
+                  {g.image ? <img src={g.image} alt={g.title} className="w-full h-full object-cover" loading="lazy" /> : g.title}
                 </div>
+                {g.image && <span className="sticker absolute left-3 bottom-3 !text-[11px]">{g.title}</span>}
               </div>
             ))}
           </div>
