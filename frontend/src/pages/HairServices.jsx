@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import ServiceCard from '../components/ServiceCard';
 import FaqAccordion from '../components/FaqAccordion';
@@ -6,6 +7,7 @@ import Loader, { ErrorMessage } from '../components/Loader';
 import PageHeader from '../components/PageHeader';
 import CtaBand from '../components/CtaBand';
 import VideoEmbed from '../components/VideoEmbed';
+import { waLink } from '../config/salon';
 
 const filters = ['all', 'colour', 'cuts', 'treatments'];
 
@@ -20,7 +22,8 @@ export default function HairServices() {
   const { data: services, loading, error } = useFetch('/services?category=hair');
   const { data: gallery } = useFetch('/gallery?page=hair');
   const { data: siteContent } = useFetch('/site-content');
-  const promoVideo = siteContent?.hair_promo_video?.value;
+  // Falls back to /videos/hair-promo.mp4 if that file has been added to the site.
+  const promoVideo = siteContent?.hair_promo_video?.value || '/videos/hair-promo.mp4';
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('all');
 
@@ -101,13 +104,22 @@ export default function HairServices() {
       </section>
 
       {/* PROMO VIDEO */}
-      <section className="py-20 px-6">
-        <div className="max-w-[1180px] mx-auto">
-          <div className="text-center mb-9">
-            <span className="eyebrow">Watch</span>
-            <h2 className="text-3xl">This month's hair promotion</h2>
+      <section className="py-16 px-3 sm:px-5">
+        <div className="max-w-[1240px] mx-auto grid lg:grid-cols-[1.5fr_1fr] gap-3 items-stretch">
+          <VideoEmbed url={promoVideo} poster="/images/stock/hair-colour.jpg" label="See our work on Instagram" />
+          <div className="tile bg-plum-900 p-8 sm:p-10 flex flex-col justify-center">
+            <span className="eyebrow self-start">Watch</span>
+            <h2 className="text-white text-[32px] sm:text-[42px] leading-[1.05] mb-4">See the care in every cut and colour</h2>
+            <ul className="text-white/80 text-[15px] space-y-2 mb-7">
+              <li>✦ A quick consultation before we start</li>
+              <li>✦ Premium, low-damage products</li>
+              <li>✦ Aftercare tips to keep it fresh at home</li>
+            </ul>
+            <div className="flex gap-3 flex-wrap">
+              <Link to="/contact#booking-form" className="btn btn-gold">Book a Visit</Link>
+              <a href={waLink('Hi! I saw your hair services and have a question.')} target="_blank" rel="noopener noreferrer" className="btn btn-light">💬 Ask on WhatsApp</a>
+            </div>
           </div>
-          <VideoEmbed url={promoVideo} placeholderLabel="Promo video placeholder — embed salon video here" />
         </div>
       </section>
 

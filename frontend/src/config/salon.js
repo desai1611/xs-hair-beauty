@@ -6,6 +6,7 @@ export const SALON = {
   whatsapp: import.meta.env.VITE_SALON_WHATSAPP || '223423964',
   email: import.meta.env.VITE_SALON_EMAIL || 'xshairbeautysalon@gmail.com',
   address: import.meta.env.VITE_SALON_ADDRESS || '25 Chartwell Avenue, Glenfield, Auckland 0629, New Zealand',
+  instagram: import.meta.env.VITE_SALON_INSTAGRAM || 'https://www.instagram.com/xs_hair_and_beauty',
   facebook: import.meta.env.VITE_SALON_FACEBOOK || 'https://www.facebook.com/profile.php?id=61580372792720',
 };
 
