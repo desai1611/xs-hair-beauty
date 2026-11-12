@@ -150,10 +150,10 @@ export default function Home() {
           {offersLoading ? (
             <Loader label="Loading offers..." />
           ) : (
-            <div className="flex sm:grid sm:grid-cols-3 gap-3 overflow-x-auto sm:overflow-visible snap-x snap-mandatory -mx-1 px-1 pb-2">
+            <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory -mx-1 px-1 pb-4 scroll-smooth [scrollbar-width:thin] [scrollbar-color:var(--color-plum-900)_transparent]" tabIndex={0} aria-label="Special offers, scroll sideways for more">
               {(offers || []).map((offer, i) => (
                 <div key={offer._id}
-                  className="tile reveal snap-center shrink-0 w-[82%] sm:w-auto p-7 min-h-[260px] flex flex-col justify-end text-white"
+                  className="tile snap-start shrink-0 w-[82%] sm:w-[calc(50%-0.375rem)] lg:w-[calc(33.333%-0.5rem)] p-7 min-h-[300px] flex flex-col justify-end text-white"
                   style={{ background: ['var(--color-plum-900)', 'var(--color-pink-600)', 'var(--color-plum-800)'][i % 3] }}>
                   {offer.image && <img src={offer.image} alt={offer.title} className="absolute inset-0 w-full h-full object-cover" />}
                   <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(43,10,30,0.1) 0%, rgba(43,10,30,0.85) 88%)' }} />
@@ -166,6 +166,9 @@ export default function Home() {
                 <p className="col-span-full text-center text-text-light w-full">No active offers right now — check back soon!</p>
               )}
             </div>
+          )}
+          {!offersLoading && (offers || []).length > 3 && (
+            <p className="text-center text-[13px] font-semibold text-plum-900/60 mt-1">Scroll sideways for more offers →</p>
           )}
         </div>
       </section>
