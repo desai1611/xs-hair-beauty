@@ -40,7 +40,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li><Link to="/" className={linkCls}>Home</Link></li>
               <li><Link to="/contact" className={linkCls}>Contact</Link></li>
-              <li><Link to="/contact#booking-form" className={linkCls}>Book Now</Link></li>
+              <li><a href={SALON.booking} target="_blank" rel="noopener noreferrer" className={linkCls}>Book Online</a></li>
               <li><Link to="/terms-and-conditions" className={linkCls}>Terms &amp; Conditions</Link></li>
               <li><Link to="/admin/login" className={linkCls}>Admin Login</Link></li>
             </ul>

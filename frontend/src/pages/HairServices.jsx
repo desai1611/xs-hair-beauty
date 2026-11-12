@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import ServiceCard from '../components/ServiceCard';
 import FaqAccordion from '../components/FaqAccordion';
@@ -7,7 +6,7 @@ import Loader, { ErrorMessage } from '../components/Loader';
 import PageHeader from '../components/PageHeader';
 import CtaBand from '../components/CtaBand';
 import VideoEmbed from '../components/VideoEmbed';
-import { waLink } from '../config/salon';
+import { SALON, waLink } from '../config/salon';
 
 const filters = ['all', 'colour', 'cuts', 'treatments'];
 
@@ -116,7 +115,7 @@ export default function HairServices() {
               <li>✦ Aftercare tips to keep it fresh at home</li>
             </ul>
             <div className="flex gap-3 flex-wrap">
-              <Link to="/contact#booking-form" className="btn btn-gold">Book a Visit</Link>
+              <a href={SALON.booking} target="_blank" rel="noopener noreferrer" className="btn btn-gold">Book a Visit</a>
               <a href={waLink('Hi! I saw your hair services and have a question.')} target="_blank" rel="noopener noreferrer" className="btn btn-light">💬 Ask on WhatsApp</a>
             </div>
           </div>

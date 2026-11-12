@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { SALON } from '../config/salon';
 
 export default function ServiceCard({ service, premium = false }) {
   const gradient = premium
@@ -28,7 +28,7 @@ export default function ServiceCard({ service, premium = false }) {
             <span className="text-sm font-sans font-semibold">Price on consultation</span>
           )}
         </span>
-        <Link to="/contact#booking-form" className="btn btn-outline btn-sm">Book</Link>
+        <a href={SALON.booking} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-sm">Book</a>
       </div>
     </div>
   );

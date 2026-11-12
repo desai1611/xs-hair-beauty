@@ -3,7 +3,7 @@ import useFetch from '../hooks/useFetch';
 import SectionHeading from '../components/SectionHeading';
 import TestimonialCard from '../components/TestimonialCard';
 import Loader from '../components/Loader';
-import { SALON, DEFAULT_HOURS, waLink, telLink, mapsEmbedSrc } from '../config/salon';
+import { SALON, FRESHA_STATS, DEFAULT_HOURS, waLink, telLink, mapsEmbedSrc } from '../config/salon';
 import { openStatus } from '../utils/openStatus';
 
 const MARQUEE_ITEMS = ['Your Look, Our Art', 'Haircuts', 'Colour', 'Threading', 'Waxing', 'Facials', 'Bridal & Party'];
@@ -67,7 +67,7 @@ export default function Home() {
               </p>
             </div>
             <div className="flex gap-3 flex-wrap">
-              <Link to="/contact#booking-form" className="btn btn-primary">Book an Appointment</Link>
+              <a href={SALON.booking} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Book Online</a>
               <a href={waLink('Hi! I want to book an appointment.')} target="_blank" rel="noopener noreferrer" className="btn btn-light">Chat on WhatsApp</a>
             </div>
           </div>
@@ -82,22 +82,22 @@ export default function Home() {
               </div>
             )}
             <div className="sticker float-sticker absolute left-4 bottom-4 sm:left-5 sm:bottom-5 shadow-[3px_3px_0_var(--color-plum-900)]">
-              <span className="text-gold">★★★★★</span> 4.9 / 5 from local reviews
+              <span className="text-gold">★★★★★</span> {FRESHA_STATS.rating} / 5 on Fresha
             </div>
           </div>
 
           <div className="lg:col-span-8 grid grid-cols-3 gap-3">
             <div className="tile bg-lime px-4 sm:px-7 py-6 sm:py-8">
-              <strong className="block font-display text-[34px] sm:text-[52px] leading-none text-plum-900">500+</strong>
-              <span className="text-[12px] sm:text-[14px] font-semibold text-plum-900/75">Happy Clients</span>
+              <strong className="block font-display text-[34px] sm:text-[52px] leading-none text-plum-900">{FRESHA_STATS.reviews}</strong>
+              <span className="text-[12px] sm:text-[14px] font-semibold text-plum-900/75">Client Reviews</span>
             </div>
             <div className="tile bg-plum-900 px-4 sm:px-7 py-6 sm:py-8">
-              <strong className="block font-display text-[34px] sm:text-[52px] leading-none text-white">4.9<span className="text-pink-500">★</span></strong>
-              <span className="text-[12px] sm:text-[14px] font-semibold text-white/75">Average Rating</span>
+              <strong className="block font-display text-[34px] sm:text-[52px] leading-none text-white">{FRESHA_STATS.rating}<span className="text-pink-500">★</span></strong>
+              <span className="text-[12px] sm:text-[14px] font-semibold text-white/75">Rating on Fresha</span>
             </div>
             <div className="tile bg-white border-[1.5px] border-plum-900/10 px-4 sm:px-7 py-6 sm:py-8">
-              <strong className="block font-display text-[34px] sm:text-[52px] leading-none text-pink-700">10+</strong>
-              <span className="text-[12px] sm:text-[14px] font-semibold text-plum-900/75">Services Offered</span>
+              <strong className="block font-display text-[34px] sm:text-[52px] leading-none text-pink-700">{FRESHA_STATS.services}</strong>
+              <span className="text-[12px] sm:text-[14px] font-semibold text-plum-900/75">Services to Book</span>
             </div>
           </div>
         </div>

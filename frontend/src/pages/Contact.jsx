@@ -60,6 +60,16 @@ export default function Contact() {
     <>
       <PageHeader eyebrow="Contact" title="We'd love to hear from you" subtitle="Call, WhatsApp, or send an enquiry below — our team will confirm your appointment as soon as possible." />
 
+      <section className="px-3 sm:px-5 pt-3">
+        <div className="tile max-w-[1240px] mx-auto bg-lime px-7 sm:px-12 py-8 flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
+          <div>
+            <h2 className="text-[26px] sm:text-[34px] leading-tight mb-1">Book online in under a minute</h2>
+            <p className="text-plum-900/75 mb-0">Choose your service and time on Fresha and get instant confirmation. Prefer to chat? Use the enquiry form below.</p>
+          </div>
+          <a href={SALON.booking} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Book on Fresha</a>
+        </div>
+      </section>
+
       <section className="py-20 px-6">
         <div className="max-w-[1180px] mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-11 items-start">
           {/* CONTACT INFO */}

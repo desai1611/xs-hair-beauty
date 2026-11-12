@@ -4,6 +4,7 @@ import Loader, { ErrorMessage } from '../components/Loader';
 import PageHeader from '../components/PageHeader';
 import CtaBand from '../components/CtaBand';
 import BeforeAfterSlider from '../components/BeforeAfterSlider';
+import { SALON, FRESHA_STATS } from '../config/salon';
 
 // Shown only until the salon has added real before/after photos via Admin → Gallery.
 const placeholderBeforeAfter = [
@@ -62,7 +63,8 @@ export default function Reviews() {
             </div>
             <div>
               <strong className="block text-[15px]">{reviews ? reviews.length : 0}+ Reviews</strong>
-              <span className="text-[13px] text-text-light">Based on Facebook &amp; in-salon feedback</span>
+              <span className="text-[13px] text-text-light block">Based on Facebook &amp; in-salon feedback</span>
+              <a href={`${SALON.booking}?reviews=true`} target="_blank" rel="noopener noreferrer" className="inline-block mt-2 text-[13px] font-bold text-pink-700 underline">{FRESHA_STATS.rating}★ on Fresha — read all {FRESHA_STATS.reviews} reviews →</a>
             </div>
           </div>
 

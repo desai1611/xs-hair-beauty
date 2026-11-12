@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import logo from '../assets/logo.jpg';
+import { SALON } from '../config/salon';
 
 const links = [
   { to: '/', label: 'Home' },
@@ -40,7 +41,7 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2 flex-shrink-0">
-            <Link to="/contact#booking-form" className="btn btn-pink btn-sm">Book Now</Link>
+            <a href={SALON.booking} target="_blank" rel="noopener noreferrer" className="btn btn-pink btn-sm">Book Now</a>
             <button
               className="lg:hidden w-10 h-10 rounded-full bg-plum-900 flex flex-col items-center justify-center gap-1.5"
               aria-label="Toggle menu"

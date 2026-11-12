@@ -7,6 +7,8 @@ export const SALON = {
   email: import.meta.env.VITE_SALON_EMAIL || 'xshairbeautysalon@gmail.com',
   address: import.meta.env.VITE_SALON_ADDRESS || '25 Chartwell Avenue, Glenfield, Auckland 0629, New Zealand',
   instagram: import.meta.env.VITE_SALON_INSTAGRAM || 'https://www.instagram.com/xs_hair_and_beauty',
+  // Online booking with instant confirmation.
+  booking: import.meta.env.VITE_SALON_BOOKING_URL || 'https://www.fresha.com/en-GB/a/xs-hair-and-beauty-salon-glenfield-marlborough-25-chartwell-avenue-ph4azzhq',
   facebook: import.meta.env.VITE_SALON_FACEBOOK || 'https://www.facebook.com/profile.php?id=61580372792720',
 };
 
@@ -31,3 +33,6 @@ export const DEFAULT_HOURS = [
   'Saturday: 9:30 AM – 6:00 PM',
   'Sunday: 10:00 AM – 6:00 PM',
 ];
+
+// Public numbers from the salon's Fresha page (checked November 2026). Update when they change.
+export const FRESHA_STATS = { rating: '4.8', reviews: 126, services: 66 };
