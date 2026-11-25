@@ -21,10 +21,10 @@ const GALLERY_SPAN = ['sm:col-span-2 sm:row-span-2', '', '', 'sm:col-span-2'];
 function MarqueeTrack() {
   return (
     <div className="marquee-track" aria-hidden="true">
-      {MARQUEE_ITEMS.map((t, i) => (
-        <span key={t} className="inline-flex items-center gap-10 font-display text-[22px] sm:text-[28px] font-semibold">
+      {MARQUEE_ITEMS.map((t) => (
+        <span key={t} className="inline-flex items-center gap-10 font-display text-[20px] sm:text-[24px] font-medium italic">
           {t}
-          <span className={i % 2 ? 'text-lime' : 'text-pink-500'}>✦</span>
+          <span className="text-gold text-[16px]">✦</span>
         </span>
       ))}
     </div>
@@ -36,7 +36,6 @@ export default function Home() {
   const { data: reviews, loading: reviewsLoading } = useFetch('/reviews');
   const { data: gallery } = useFetch('/gallery?page=home');
   const { data: siteContent } = useFetch('/site-content');
-  const heroImage = siteContent?.home_hero_image?.value;
   const hoursLines = siteContent?.opening_hours?.value
     ? siteContent.opening_hours.value.split(/\r?\n/).filter(Boolean)
     : DEFAULT_HOURS;
@@ -48,19 +47,19 @@ export default function Home() {
       {/* HERO — bento grid */}
       <section className="px-3 sm:px-5 pt-4">
         <div className="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-3">
-          <div className="tile lg:col-span-8 bg-pink-500 px-7 sm:px-12 py-10 sm:py-14 flex flex-col justify-between min-h-[420px]">
+          <div className="tile lg:col-span-8 bg-pink-100 px-7 sm:px-12 py-10 sm:py-14 flex flex-col justify-between min-h-[420px]">
             <div>
               <div className="flex flex-wrap items-center gap-2 mb-5">
                 <span className="eyebrow !mb-0" style={{ background: 'var(--color-white)' }}>Auckland's Neighbourhood Salon</span>
                 {status && (
                   <span className="inline-flex items-center gap-2 rounded-full bg-plum-900 text-white text-[12px] font-bold px-3.5 py-1.5">
-                    <span className={`w-2 h-2 rounded-full ${status.open ? 'bg-lime animate-pulse' : 'bg-pink-300'}`} aria-hidden="true" />
+                    <span className={`w-2 h-2 rounded-full ${status.open ? 'bg-gold animate-pulse' : 'bg-pink-300'}`} aria-hidden="true" />
                     {status.text}
                   </span>
                 )}
               </div>
-              <h1 className="text-[44px] sm:text-[76px] leading-[0.98] mb-5 max-w-[11ch] sm:max-w-none">
-                Look &amp; feel your <em className="italic font-medium text-white">best</em>, every visit
+              <h1 className="text-[44px] sm:text-[70px] leading-[1.02] mb-5 max-w-[11ch] sm:max-w-none">
+                Look &amp; feel your <em className="italic font-normal text-pink-700">best</em>, every visit
               </h1>
               <p className="text-[16px] sm:text-[18px] text-plum-900/80 max-w-md mb-8">
                 From everyday haircuts to bridal glam, XS Hair &amp; Beauty in Glenfield blends skilled hands with a calm, welcoming space. Book in minutes by phone or WhatsApp.
@@ -72,16 +71,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="tile lg:col-span-4 lg:row-span-2 bg-plum-800 min-h-[340px] lg:min-h-0">
-            {heroImage ? (
-              <img src={heroImage} alt="XS Hair & Beauty salon interior" className="absolute inset-0 w-full h-full object-cover" />
-            ) : (
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 text-white">
-                <span className="font-display text-[40px] sm:text-[48px] leading-tight font-semibold">Your Look,<br /><em className="italic text-lime font-medium">Our Art</em></span>
-                <small className="block text-xs text-white/60 mt-3">Salon interior photo goes here</small>
-              </div>
-            )}
-            <div className="sticker float-sticker absolute left-4 bottom-4 sm:left-5 sm:bottom-5 shadow-[3px_3px_0_var(--color-plum-900)]">
+          <div className="tile lg:col-span-4 lg:row-span-2 bg-plum-800 min-h-[380px] lg:min-h-0">
+            <img src="/images/salon/massage-chair.jpg" alt="Inside XS Hair & Beauty salon" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(42,21,34,0) 55%, rgba(42,21,34,0.55) 100%)' }} />
+            <div className="sticker absolute left-4 bottom-4 sm:left-5 sm:bottom-5">
               <span className="text-gold">★★★★★</span> {FRESHA_STATS.rating} / 5 on Fresha
             </div>
           </div>
@@ -92,7 +85,7 @@ export default function Home() {
               <span className="text-[12px] sm:text-[14px] font-semibold text-plum-900/75">Client Reviews</span>
             </div>
             <div className="tile bg-plum-900 px-4 sm:px-7 py-6 sm:py-8">
-              <strong className="block font-display text-[34px] sm:text-[52px] leading-none text-white">{FRESHA_STATS.rating}<span className="text-pink-500">★</span></strong>
+              <strong className="block font-display text-[34px] sm:text-[52px] leading-none text-white">{FRESHA_STATS.rating}<span className="text-gold">★</span></strong>
               <span className="text-[12px] sm:text-[14px] font-semibold text-white/75">Rating on Fresha</span>
             </div>
             <div className="tile bg-white border-[1.5px] border-plum-900/10 px-4 sm:px-7 py-6 sm:py-8">
@@ -104,8 +97,8 @@ export default function Home() {
       </section>
 
       {/* SLOGAN MARQUEE */}
-      <div className="overflow-hidden py-5">
-        <section className="py-4 bg-plum-900 text-white -rotate-1 scale-[1.03] origin-center" aria-label="Your Look, Our Art — haircuts, colour, threading, waxing, facials, bridal and party">
+      <div className="overflow-hidden py-3">
+        <section className="py-4 bg-plum-900 text-white" aria-label="Your Look, Our Art — haircuts, colour, threading, waxing, facials, bridal and party">
           <div className="marquee flex">
             <MarqueeTrack />
             <MarqueeTrack />
@@ -120,15 +113,15 @@ export default function Home() {
             subtitle="Two simple categories, one trusted team — explore hair, and beauty & advanced treatments." />
           <div className="grid md:grid-cols-2 gap-3">
             {[
-              { icon: '✂️', title: 'Hair Services', desc: 'Cuts, colour, highlights, keratin, nanoplastia and treatments for every hair type.', to: '/hair-services', bg: 'var(--color-lime)', img: '/images/stock/hair-colour.jpg', pos: '50% 74%' },
-              { icon: '💆‍♀️', title: 'Beauty & Advanced', desc: 'Threading, waxing, gentle facials, advanced skin treatments, plus bridal and party packages.', to: '/beauty-services', bg: 'var(--color-plum-900)', img: '/images/stock/facial-glow.jpg', pos: '50% 50%' },
+              { label: 'Hair', title: 'Hair Services', desc: 'Cuts, colour, highlights, keratin, nanoplastia and treatments for every hair type.', to: '/hair-services', bg: 'var(--color-lime)', img: '/images/stock/hair-colour.jpg', pos: '50% 74%' },
+              { label: 'Beauty', title: 'Beauty & Advanced', desc: 'Threading, waxing, gentle facials, advanced skin treatments, plus bridal and party packages.', to: '/beauty-services', bg: 'var(--color-plum-900)', img: '/images/stock/facial-glow.jpg', pos: '50% 50%' },
             ].map((s) => (
               <Link key={s.title} to={s.to}
                 className="tile reveal group p-8 sm:p-10 min-h-[300px] flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1"
                 style={{ background: s.bg }}>
                 <img src={s.img} alt="" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" style={{ objectPosition: s.pos }} loading="lazy" />
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(43,10,30,0.15) 0%, rgba(43,10,30,0.88) 100%)' }} />
-                <span className="relative w-16 h-16 rounded-full bg-white flex items-center justify-center text-3xl border-2 border-plum-900 group-hover:rotate-12 transition-transform">{s.icon}</span>
+                <span className="sticker relative self-start">{s.label}</span>
                 <div className="relative">
                   <h3 className="text-[34px] sm:text-[44px] leading-none mb-3 !text-white">{s.title}</h3>
                   <p className="text-[15px] max-w-sm mb-5 text-white/85">{s.desc}</p>
@@ -138,6 +131,32 @@ export default function Home() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INSIDE THE SALON */}
+      <section className="py-10 sm:py-16 px-3 sm:px-5">
+        <div className="max-w-[1240px] mx-auto">
+          <SectionHeading eyebrow="Inside XS" title="A calm, modern space"
+            subtitle="Unwind in our massage chair and browse professional Wella, Keune and Brazilian keratin care — all under one welcoming roof." />
+          <div className="grid sm:grid-cols-3 gap-3">
+            <div className="tile reveal aspect-[3/4] bg-pink-100">
+              <img src="/images/salon/massage-chair.jpg" alt="Massage chair in the XS Hair & Beauty salon" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <span className="sticker absolute left-4 bottom-4">Relax &amp; unwind</span>
+            </div>
+            <div className="tile reveal aspect-[3/4] bg-plum-800">
+              <video className="absolute inset-0 w-full h-full object-cover" src="/videos/salon-tour.mp4" poster="/images/salon/retail-wall.jpg"
+                autoPlay muted loop playsInline preload="metadata" aria-label="A short walk through the salon" />
+              <span className="sticker absolute left-4 bottom-4">Salon tour</span>
+            </div>
+            <div className="tile reveal aspect-[3/4] bg-pink-100">
+              <img src="/images/salon/retail-wall.jpg" alt="Wella and Keune professional hair care on display" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <span className="sticker absolute left-4 bottom-4">Professional care, in store</span>
+            </div>
+          </div>
+          <div className="text-center mt-9">
+            <Link to="/products" className="btn btn-outline">Shop salon products</Link>
           </div>
         </div>
       </section>
@@ -180,7 +199,7 @@ export default function Home() {
           <div className="grid grid-cols-2 sm:grid-cols-4 sm:auto-rows-[200px] auto-rows-[160px] gap-3">
             {galleryItems.map((g, i) => (
               <div key={g._id || i}
-                className={`tile reveal ${GALLERY_SPAN[i % 4]} flex items-end p-4 hover:-rotate-1 hover:scale-[1.02] transition-transform duration-300`}
+                className={`tile reveal ${GALLERY_SPAN[i % 4]} flex items-end p-4 hover:scale-[1.02] transition-transform duration-300`}
                 style={{ background: GALLERY_BG[i % 4] }}>
                 {g.image ? (
                   <>
@@ -227,7 +246,7 @@ export default function Home() {
             <p className="text-plum-900/75 mb-7">{SALON.address}. Easy parking and close to the Glenfield town centre.</p>
             <div><Link to="/contact" className="btn btn-primary">Get Directions &amp; Contact Info</Link></div>
           </div>
-          <div className="tile border-2 border-plum-900 min-h-[300px]">
+          <div className="tile border border-plum-900/15 min-h-[300px]">
             <iframe src={mapsEmbedSrc()} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="XS Hair & Beauty location" className="absolute inset-0 w-full h-full border-0 block" />
           </div>
         </div>
@@ -238,7 +257,7 @@ export default function Home() {
         <div className="max-w-[1240px] mx-auto">
           <div className="tile bg-plum-900 px-7 sm:px-14 py-14 sm:py-20 text-center">
             <h2 className="text-white text-[36px] sm:text-[60px] leading-[1.02] mb-4 max-w-3xl mx-auto">
-              Ready for your <em className="italic text-pink-500 font-medium">next</em> appointment?
+              Ready for your <em className="italic text-gold font-normal">next</em> appointment?
             </h2>
             <p className="text-white/75 max-w-lg mx-auto mb-8">Message us on WhatsApp, give us a call, or send an enquiry — our team will get back to you quickly.</p>
             <div className="flex gap-3 justify-center flex-wrap">

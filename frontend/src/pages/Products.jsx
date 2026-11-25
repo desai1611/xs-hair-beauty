@@ -20,6 +20,8 @@ export default function Products() {
       <PageHeader
         eyebrow="Shop"
         title="Hair Care & Beauty Products"
+        image="/images/salon/retail-wall.jpg"
+        imagePosition="50% 42%"
         subtitle="Salon-quality products to keep your results looking fresh at home. Message us on WhatsApp to purchase or check availability."
       />
 

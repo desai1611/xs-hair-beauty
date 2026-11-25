@@ -8,7 +8,7 @@ export default function TestimonialCard({ review }) {
       </span>
       <p className="font-display text-text text-[17px] leading-snug mb-5">"{review.quote}"</p>
       <div className="flex items-center gap-3">
-        <div className="w-10.5 h-10.5 rounded-full flex items-center justify-center text-plum-900 font-bold text-[15px] flex-shrink-0 border-2 border-plum-900"
+        <div className="w-10.5 h-10.5 rounded-full flex items-center justify-center text-plum-900 font-bold text-[15px] flex-shrink-0 border border-plum-900/15"
           style={{ background: 'var(--color-pink-500)' }}>
           {initial}
         </div>

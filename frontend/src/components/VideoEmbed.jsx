@@ -22,7 +22,7 @@ function PosterTile({ poster, label }) {
       {poster && <img src={poster} alt="" className="absolute inset-0 w-full h-full object-cover object-[50%_65%] group-hover:scale-105 transition-transform duration-500" loading="lazy" />}
       <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(43,10,30,0.1) 0%, rgba(43,10,30,0.75) 100%)' }} />
       <span className="absolute inset-0 flex items-center justify-center">
-        <span className="w-20 h-20 rounded-full bg-lime text-plum-900 border-2 border-plum-900 flex items-center justify-center text-2xl shadow-[4px_4px_0_var(--color-plum-900)] group-hover:scale-110 transition-transform">▶</span>
+        <span className="w-20 h-20 rounded-full bg-lime text-plum-900 border border-plum-900/15 flex items-center justify-center text-2xl shadow-mid group-hover:scale-110 transition-transform">▶</span>
       </span>
       <span className="absolute left-5 bottom-5 sticker">{label}</span>
     </a>
@@ -41,7 +41,7 @@ export default function VideoEmbed({ url, poster, label = 'Watch our work on Ins
 
   if (youtubeId) {
     return (
-      <div className="rounded-[32px] overflow-hidden aspect-video border-2 border-plum-900">
+      <div className="rounded-[32px] overflow-hidden aspect-video border border-plum-900/15">
         <iframe
           className="w-full h-full"
           src={`https://www.youtube.com/embed/${youtubeId}`}
@@ -55,7 +55,7 @@ export default function VideoEmbed({ url, poster, label = 'Watch our work on Ins
   }
 
   return (
-    <div className="rounded-[32px] overflow-hidden aspect-video relative bg-plum-900 border-2 border-plum-900">
+    <div className="rounded-[32px] overflow-hidden aspect-video relative bg-plum-900 border border-plum-900/15">
       <video
         className="w-full h-full object-cover"
         src={url}

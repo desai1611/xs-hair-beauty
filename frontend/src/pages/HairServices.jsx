@@ -36,6 +36,8 @@ export default function HairServices() {
       <PageHeader
         eyebrow="Hair Services"
         title="Cuts, colour & care for every hair type"
+        image="/images/stock/hair-colour.jpg"
+        imagePosition="50% 70%"
         subtitle="From a quick trim to full transformation colour work, our stylists tailor every service to your hair's health and your lifestyle."
       />
 

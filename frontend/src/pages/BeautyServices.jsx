@@ -24,6 +24,8 @@ export default function BeautyServices() {
       <PageHeader
         eyebrow="Beauty & Advanced Treatments"
         title="Threading, waxing, facials & premium packages"
+        image="/images/stock/facial-glow.jpg"
+        imagePosition="50% 45%"
         subtitle="Clean, comfortable beauty treatments plus elevated facials, glow treatments, and bespoke bridal & party packages — all in one place."
       />
 
@@ -58,7 +60,7 @@ export default function BeautyServices() {
             { icon: '🕒', title: 'Quick Appointments', desc: 'Most beauty services take 10–30 minutes — easy to fit into your day.' },
           ].map((c) => (
             <div key={c.title} className="card text-center px-6.5 py-8.5">
-              <div className="w-15.5 h-15.5 rounded-full bg-lime text-plum-900 border-2 border-plum-900 flex items-center justify-center text-2xl mx-auto mb-4.5">{c.icon}</div>
+              <div className="w-15.5 h-15.5 rounded-full bg-lime text-plum-900 border border-plum-900/15 flex items-center justify-center text-2xl mx-auto mb-4.5">{c.icon}</div>
               <h3 className="text-lg mb-2">{c.title}</h3>
               <p className="text-sm text-text-light mb-0">{c.desc}</p>
             </div>

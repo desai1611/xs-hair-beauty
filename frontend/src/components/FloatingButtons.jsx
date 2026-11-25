@@ -8,7 +8,7 @@ export default function FloatingButtons() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="hidden sm:flex fixed bottom-6 right-6 w-14 h-14 rounded-full bg-[#25D366] text-white items-center justify-center text-2xl border-2 border-plum-900 shadow-[3px_3px_0_var(--color-plum-900)] z-[200] hover:-translate-y-0.5 transition-transform"
+        className="hidden sm:flex fixed bottom-6 right-6 w-14 h-14 rounded-full bg-[#25D366] text-white items-center justify-center text-2xl border border-plum-900/15 shadow-mid z-[200] hover:-translate-y-0.5 transition-transform"
       >
         💬
       </a>

@@ -23,10 +23,10 @@ export default function BeforeAfterSlider({ before, after, title }) {
       </div>
 
       <span className="absolute top-3 left-3 sticker !text-[11px]">Before</span>
-      <span className="absolute top-3 right-3 sticker !text-[11px]" style={{ transform: 'rotate(3deg)' }}>After</span>
+      <span className="absolute top-3 right-3 sticker !text-[11px]">After</span>
 
       <div className="absolute inset-y-0 w-0.5 bg-white pointer-events-none" style={{ left: `${pos}%` }}>
-        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border-2 border-plum-900 flex items-center justify-center text-plum-900 text-sm font-bold shadow-[3px_3px_0_var(--color-plum-900)]">
+        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-plum-900/15 flex items-center justify-center text-plum-900 text-sm font-bold shadow-mid">
           ↔
         </span>
       </div>

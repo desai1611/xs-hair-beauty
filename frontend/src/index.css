@@ -1,30 +1,36 @@
 @import "tailwindcss";
 
+/*
+  XS Hair & Beauty theme — "calm luxe".
+  Colours come from the salon itself: warm ivory walls, champagne and rose-gold tones of the
+  massage chair, silver shelving, plus the deep plum and gold of the logo.
+  (Token names keep the old pink/lime names so existing components pick the new look up.)
+*/
 @theme {
   --font-display: 'Fraunces', Georgia, serif;
-  --font-sans: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-sans: 'Manrope', 'Segoe UI', sans-serif;
 
   --color-white: #ffffff;
-  --color-cream: #fff6fa;
-  --color-pink-50: #fff3f8;
-  --color-pink-100: #ffe0ee;
-  --color-pink-200: #ffc2dc;
-  --color-pink-300: #ff9cc6;
-  --color-pink-500: #ff5fa2;
-  --color-pink-600: #e8408a;
-  --color-pink-700: #bf2468;
-  --color-plum-900: #2b0a1e;
-  --color-plum-800: #4a1633;
-  --color-text: #3b2431;
-  --color-text-light: #7a6370;
-  --color-lime: #c8f25b;
-  --color-gold: #e0a93a;
-  --color-gold-light: #fff1d1;
+  --color-cream: #faf7f2;          /* page background: warm ivory */
+  --color-pink-50: #fbf6f1;
+  --color-pink-100: #f4e9e0;       /* blush */
+  --color-pink-200: #ead9cb;
+  --color-pink-300: #d9bda9;
+  --color-pink-500: #d4b09c;       /* rose-gold */
+  --color-pink-600: #b3806a;
+  --color-pink-700: #8a3a57;       /* dusty plum-rose: text accents on light */
+  --color-plum-900: #2a1522;       /* deep plum-black: text, buttons, dark tiles */
+  --color-plum-800: #47203a;
+  --color-text: #3a2a33;
+  --color-text-light: #6c5d66;
+  --color-lime: #eadbc0;           /* champagne highlight */
+  --color-gold: #b08a2e;           /* logo gold */
+  --color-gold-light: #f6ecd2;
 
-  --shadow-soft: 0 4px 16px rgba(43, 10, 30, 0.07);
-  --shadow-mid: 0 12px 32px rgba(43, 10, 30, 0.12);
-  --shadow-lg: 0 24px 56px rgba(43, 10, 30, 0.2);
-  --shadow-pop: 5px 5px 0 var(--color-plum-900);
+  --shadow-soft: 0 2px 12px rgba(42, 21, 34, 0.06);
+  --shadow-mid: 0 10px 30px rgba(42, 21, 34, 0.12);
+  --shadow-lg: 0 24px 56px rgba(42, 21, 34, 0.18);
+  --shadow-pop: 0 18px 40px rgba(42, 21, 34, 0.14);
 }
 
 html {
@@ -37,13 +43,14 @@ html {
     font-family: var(--font-sans);
     color: var(--color-text);
     background: var(--color-cream);
+    -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     color: var(--color-plum-900);
-    font-weight: 600;
-    letter-spacing: -0.015em;
+    font-weight: 500;
+    letter-spacing: -0.012em;
   }
 
   ::selection {
@@ -54,10 +61,11 @@ html {
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-semibold text-sm border-2 border-transparent transition-all duration-200 cursor-pointer whitespace-nowrap;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-semibold text-sm border border-transparent transition-all duration-200 cursor-pointer whitespace-nowrap;
+    letter-spacing: 0.01em;
   }
   .btn:hover {
-    @apply -translate-y-0.5;
+    @apply -translate-y-px;
   }
   .btn:active {
     @apply translate-y-0;
@@ -68,26 +76,26 @@ html {
     border-color: var(--color-plum-900);
   }
   .btn-primary:hover {
-    background: var(--color-pink-500);
-    border-color: var(--color-plum-900);
-    color: var(--color-plum-900);
-    box-shadow: 3px 3px 0 var(--color-plum-900);
+    background: var(--color-plum-800);
+    border-color: var(--color-plum-800);
+    box-shadow: var(--shadow-mid);
   }
   .btn-pink {
     background: var(--color-pink-500);
     color: var(--color-plum-900);
-    border-color: var(--color-plum-900);
+    border-color: var(--color-pink-500);
   }
   .btn-pink:hover {
-    box-shadow: 3px 3px 0 var(--color-plum-900);
+    box-shadow: var(--shadow-mid);
   }
   .btn-outline {
     @apply bg-transparent;
-    border-color: var(--color-plum-900);
+    border-color: rgba(42, 21, 34, 0.35);
     color: var(--color-plum-900);
   }
   .btn-outline:hover {
     background: var(--color-plum-900);
+    border-color: var(--color-plum-900);
     color: var(--color-white);
   }
   .btn-light {
@@ -96,15 +104,16 @@ html {
     border-color: var(--color-white);
   }
   .btn-light:hover {
-    box-shadow: 3px 3px 0 var(--color-lime);
+    box-shadow: var(--shadow-mid);
   }
   .btn-gold {
-    background: var(--color-lime);
+    background: var(--color-gold);
     color: var(--color-plum-900);
-    border-color: var(--color-lime);
+    border-color: var(--color-gold);
   }
   .btn-gold:hover {
-    box-shadow: 3px 3px 0 var(--color-white);
+    box-shadow: var(--shadow-mid);
+    filter: brightness(1.06);
   }
   .btn-sm {
     @apply px-5 py-2.5 text-[13px];
@@ -114,31 +123,32 @@ html {
   }
 
   .card {
-    @apply bg-white rounded-[28px] overflow-hidden transition-all duration-250;
-    border: 1.5px solid rgba(43, 10, 30, 0.1);
+    @apply bg-white rounded-[22px] overflow-hidden transition-all duration-250;
+    border: 1px solid rgba(42, 21, 34, 0.08);
   }
   .card:hover {
     @apply -translate-y-1;
     box-shadow: var(--shadow-pop);
-    border-color: var(--color-plum-900);
+    border-color: rgba(42, 21, 34, 0.16);
   }
 
   .eyebrow {
-    @apply inline-block text-[12px] tracking-[0.14em] uppercase font-bold mb-4 px-3.5 py-1.5 rounded-full;
+    @apply inline-block text-[11px] tracking-[0.2em] uppercase font-semibold mb-4 px-3.5 py-1.5 rounded-full;
     background: var(--color-lime);
-    color: var(--color-plum-900);
+    color: var(--color-plum-800);
   }
 
   .tile {
-    @apply rounded-[32px] relative overflow-hidden;
+    @apply rounded-[24px] relative overflow-hidden;
   }
 
+  /* small label on photos — quiet frosted pill */
   .sticker {
-    @apply inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12px] font-bold uppercase tracking-wide;
-    background: var(--color-white);
+    @apply inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em];
+    background: rgba(255, 255, 255, 0.9);
     color: var(--color-plum-900);
-    border: 2px solid var(--color-plum-900);
-    transform: rotate(-3deg);
+    border: 1px solid rgba(42, 21, 34, 0.1);
+    backdrop-filter: blur(6px);
   }
 
   .field label {
@@ -148,8 +158,8 @@ html {
   .field input,
   .field select,
   .field textarea {
-    @apply w-full rounded-[14px] px-4 py-3.5 text-sm transition-all duration-200 outline-none;
-    border: 2px solid rgba(43, 10, 30, 0.14);
+    @apply w-full rounded-[12px] px-4 py-3.5 text-sm transition-all duration-200 outline-none;
+    border: 1px solid rgba(42, 21, 34, 0.18);
     background: var(--color-white);
     color: var(--color-text);
   }
@@ -157,18 +167,18 @@ html {
   .field select:focus,
   .field textarea:focus {
     border-color: var(--color-plum-900);
-    box-shadow: 3px 3px 0 var(--color-pink-500);
+    box-shadow: 0 0 0 3px rgba(176, 138, 46, 0.25);
   }
 
   .input-pill {
     @apply rounded-full px-5 py-3.5 text-sm outline-none transition-all duration-200;
     background: var(--color-white);
-    border: 2px solid rgba(43, 10, 30, 0.14);
+    border: 1px solid rgba(42, 21, 34, 0.18);
     color: var(--color-text);
   }
   .input-pill:focus {
     border-color: var(--color-plum-900);
-    box-shadow: 3px 3px 0 var(--color-pink-500);
+    box-shadow: 0 0 0 3px rgba(176, 138, 46, 0.25);
   }
 
   .marquee {
@@ -179,11 +189,40 @@ html {
     display: inline-flex;
     gap: 2.5rem;
     padding-right: 2.5rem;
-    animation: marquee 28s linear infinite;
+    animation: marquee 40s linear infinite;
   }
   .marquee:hover .marquee-track {
     animation-play-state: paused;
   }
+}
+
+/* Video that plays behind the whole site. The ivory veil keeps all text easy to read;
+   lower the number (0.8) to let more of the video show through. */
+.bg-video {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--color-cream);
+}
+/* the clip is shown whole (contain), never zoomed in */
+.bg-video__clip {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: bg-fade 1.2s ease both;
+}
+@keyframes bg-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.bg-video__veil {
+  position: absolute;
+  inset: 0;
+  background: rgba(250, 247, 242, 0.8);
 }
 
 @keyframes marquee {
@@ -195,7 +234,7 @@ html {
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(28px) scale(0.98);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -203,21 +242,12 @@ html {
   }
 }
 
-@keyframes float-y {
-  0%, 100% { transform: translateY(0) rotate(-3deg); }
-  50% { transform: translateY(-7px) rotate(-3deg); }
-}
-
-.float-sticker {
-  animation: float-y 4s ease-in-out infinite;
-}
-
 /* Scroll-in reveal: pure CSS, and content stays visible where unsupported. */
 @supports (animation-timeline: view()) {
   .reveal {
     animation: rise linear both;
     animation-timeline: view();
-    animation-range: entry 0% entry 35%;
+    animation-range: entry 0% entry 30%;
   }
 }
 

@@ -94,8 +94,8 @@ export default function Contact() {
                 ))}
               </InfoRow>
               <div className="flex gap-2.5 mt-5.5">
-                <a href={SALON.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 rounded-full bg-white border-2 border-plum-900 flex items-center justify-center text-plum-900 hover:bg-plum-900 hover:text-white transition-colors">f</a>
-                <a href={waLink()} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="w-10 h-10 rounded-full bg-white border-2 border-plum-900 flex items-center justify-center text-plum-900 hover:bg-plum-900 hover:text-white transition-colors">w</a>
+                <a href={SALON.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 rounded-full bg-white border border-plum-900/15 flex items-center justify-center text-plum-900 hover:bg-plum-900 hover:text-white transition-colors">f</a>
+                <a href={waLink()} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="w-10 h-10 rounded-full bg-white border border-plum-900/15 flex items-center justify-center text-plum-900 hover:bg-plum-900 hover:text-white transition-colors">w</a>
               </div>
             </div>
 
@@ -113,7 +113,7 @@ export default function Contact() {
               <p className="mb-6.5">Fill out the form and our team will get back to you to confirm your appointment. You can also email us directly at <a href={`mailto:${SALON.email}`} className="font-semibold text-pink-700 break-all">{SALON.email}</a>.</p>
 
               {status === 'success' && (
-                <div ref={messageRef} role="status" className="bg-lime/40 border-2 border-plum-900 text-plum-900 px-4.5 py-3.5 rounded-2xl text-sm mb-4.5">
+                <div ref={messageRef} role="status" className="bg-lime/40 border border-plum-900/15 text-plum-900 px-4.5 py-3.5 rounded-2xl text-sm mb-4.5">
                   <p className="font-semibold mb-2">Thank you for your enquiry — we will get back to you soon. We've also sent a confirmation email to the address you entered (check your spam folder if you don't see it).</p>
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn btn-gold btn-sm">
                     💬 Also message us on WhatsApp
@@ -173,7 +173,7 @@ export default function Contact() {
 function InfoRow({ icon, label, children, last = false }) {
   return (
     <div className={`flex gap-4 py-4 ${last ? '' : 'border-b border-plum-900/10'}`}>
-      <div className="w-11 h-11 rounded-full bg-lime text-plum-900 border-2 border-plum-900 flex items-center justify-center flex-shrink-0 text-lg">{icon}</div>
+      <div className="w-11 h-11 rounded-full bg-lime text-plum-900 border border-plum-900/15 flex items-center justify-center flex-shrink-0 text-lg">{icon}</div>
       <div>
         <h4 className="text-[15px] mb-1">{label}</h4>
         <div className="text-sm">{children}</div>

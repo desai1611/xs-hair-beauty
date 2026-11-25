@@ -11,11 +11,7 @@ export default function Footer() {
       <div className="tile max-w-[1240px] mx-auto bg-plum-900 text-white/75 px-7 sm:px-12 pt-14 pb-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-white/10">
           <div>
-            <div className="flex items-center gap-2.5 mb-2">
-              <span className="w-10 h-10 rounded-full flex items-center justify-center text-plum-900 text-base font-bold flex-shrink-0 bg-pink-500">XS</span>
-              <span className="font-display text-2xl font-semibold text-white">XS Hair &amp; Beauty</span>
-            </div>
-            <p className="text-[12px] tracking-[0.14em] uppercase text-lime font-bold mb-4">{SALON.tagline}</p>
+            <img src="/brand/logo-for-dark.png" alt="XS Hair & Beauty Salon — Your Look, Our Art" className="h-24 w-auto mb-4 -ml-2" loading="lazy" />
             <p className="text-white/60 text-sm">
               A modern hair &amp; beauty salon in Glenfield, Auckland — haircuts, colour, threading, waxing, facials, and bridal &amp; party packages.
             </p>
