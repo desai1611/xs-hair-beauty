@@ -64,7 +64,7 @@ export default function Reviews() {
             <div>
               <strong className="block text-[15px]">{reviews ? reviews.length : 0}+ Reviews</strong>
               <span className="text-[13px] text-text-light block">Based on Facebook &amp; in-salon feedback</span>
-              <a href={`${SALON.booking}?reviews=true`} target="_blank" rel="noopener noreferrer" className="inline-block mt-2 text-[13px] font-bold text-pink-700 underline">{FRESHA_STATS.rating}★ on Fresha — read all {FRESHA_STATS.reviews} reviews →</a>
+              <a href={`${SALON.booking}?reviews=true`} target="_blank" rel="noopener noreferrer" className="inline-block mt-1 py-2 text-[13px] font-bold text-pink-700 underline">{FRESHA_STATS.rating}★ on Fresha — read all {FRESHA_STATS.reviews} reviews →</a>
             </div>
           </div>
 

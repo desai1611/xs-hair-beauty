@@ -36,7 +36,7 @@ export default function Login() {
             style={{ background: 'var(--color-pink-500)' }}>XS</span>
           XS Hair &amp; Beauty
         </div>
-        <p className="text-center text-sm text-text-light mb-7">Admin Dashboard Login</p>
+        <h1 className="text-center text-sm font-sans font-normal text-text-light mb-7">Admin Dashboard Login</h1>
 
         {error && <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm mb-4">{error}</div>}
 

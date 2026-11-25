@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { SALON, waLink, telLink } from '../config/salon';
 
-const linkCls = 'hover:text-lime transition-colors';
+const linkCls = 'inline-block py-1.5 sm:py-0 hover:text-lime transition-colors';
 const iconCls =
   'w-10 h-10 rounded-full border-2 border-white/25 flex items-center justify-center text-white font-bold hover:bg-lime hover:text-plum-900 hover:border-lime transition-colors';
 
@@ -27,7 +27,7 @@ export default function Footer() {
 
           <div>
             <h4 className="text-white text-[16px] mb-4">Explore</h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-0.5 sm:space-y-2.5 text-sm">
               <li><Link to="/hair-services" className={linkCls}>Hair Services</Link></li>
               <li><Link to="/beauty-services" className={linkCls}>Beauty Services</Link></li>
               <li><Link to="/products" className={linkCls}>Products</Link></li>
@@ -37,7 +37,7 @@ export default function Footer() {
 
           <div>
             <h4 className="text-white text-[16px] mb-4">Company</h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-0.5 sm:space-y-2.5 text-sm">
               <li><Link to="/" className={linkCls}>Home</Link></li>
               <li><Link to="/contact" className={linkCls}>Contact</Link></li>
               <li><a href={SALON.booking} target="_blank" rel="noopener noreferrer" className={linkCls}>Book Online</a></li>
@@ -48,7 +48,7 @@ export default function Footer() {
 
           <div>
             <h4 className="text-white text-[16px] mb-4">Contact</h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-0.5 sm:space-y-2.5 text-sm">
               <li>{SALON.address}</li>
               <li><a href={telLink()} className={linkCls}>{SALON.phoneDisplay}</a></li>
             </ul>

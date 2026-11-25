@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import PageHeader from '../components/PageHeader';
 import api, { extractErrorMessage } from '../api/client';
 import useFetch from '../hooks/useFetch';
@@ -21,11 +21,20 @@ export default function Contact() {
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errorMsg, setErrorMsg] = useState('');
   const [whatsappLink, setWhatsappLink] = useState('');
+  const messageRef = useRef(null);
   const { data: siteContent } = useFetch('/site-content');
 
   const hoursLines = siteContent?.opening_hours?.value
     ? siteContent.opening_hours.value.split('\n').filter(Boolean)
     : DEFAULT_HOURS;
+
+  // On a phone the result message sits above the form, off-screen after tapping Send —
+  // bring it into view so the customer sees the confirmation (or the error).
+  useEffect(() => {
+    if (status === 'success' || status === 'error') {
+      messageRef.current?.scrollIntoView({ behavior: 'instant', block: 'center' });
+    }
+  }, [status]);
 
   function handleChange(e) {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
@@ -76,9 +85,9 @@ export default function Contact() {
           <div>
             <div className="bg-white border-[1.5px] border-plum-900/10 rounded-[28px] p-8 shadow-soft">
               <InfoRow icon="📍" label="Address"><p className="mb-0">{SALON.address}</p></InfoRow>
-              <InfoRow icon="📞" label="Phone"><a href={telLink()} className="font-semibold text-pink-700">{SALON.phoneDisplay}</a> — tap to call</InfoRow>
-              <InfoRow icon="💬" label="WhatsApp"><a href={waLink()} target="_blank" rel="noopener noreferrer" className="font-semibold text-pink-700">Message us on WhatsApp</a></InfoRow>
-              <InfoRow icon="✉️" label="Email"><a href={`mailto:${SALON.email}`} className="font-semibold text-pink-700 break-all">{SALON.email}</a></InfoRow>
+              <InfoRow icon="📞" label="Phone"><a href={telLink()} className="inline-block py-1.5 font-semibold text-pink-700">{SALON.phoneDisplay}</a> — tap to call</InfoRow>
+              <InfoRow icon="💬" label="WhatsApp"><a href={waLink()} target="_blank" rel="noopener noreferrer" className="inline-block py-1.5 font-semibold text-pink-700">Message us on WhatsApp</a></InfoRow>
+              <InfoRow icon="✉️" label="Email"><a href={`mailto:${SALON.email}`} className="inline-block py-1.5 font-semibold text-pink-700 break-all">{SALON.email}</a></InfoRow>
               <InfoRow icon="🕒" label="Opening Hours" last>
                 {hoursLines.map((line) => (
                   <p key={line} className="mb-0.5">{line}</p>
@@ -104,7 +113,7 @@ export default function Contact() {
               <p className="mb-6.5">Fill out the form and our team will get back to you to confirm your appointment. You can also email us directly at <a href={`mailto:${SALON.email}`} className="font-semibold text-pink-700 break-all">{SALON.email}</a>.</p>
 
               {status === 'success' && (
-                <div className="bg-lime/40 border-2 border-plum-900 text-plum-900 px-4.5 py-3.5 rounded-2xl text-sm mb-4.5">
+                <div ref={messageRef} role="status" className="bg-lime/40 border-2 border-plum-900 text-plum-900 px-4.5 py-3.5 rounded-2xl text-sm mb-4.5">
                   <p className="font-semibold mb-2">Thank you for your enquiry — we will get back to you soon. We've also sent a confirmation email to the address you entered (check your spam folder if you don't see it).</p>
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn btn-gold btn-sm">
                     💬 Also message us on WhatsApp
@@ -112,7 +121,7 @@ export default function Contact() {
                 </div>
               )}
               {status === 'error' && (
-                <div className="bg-red-50 border border-red-200 text-red-700 px-4.5 py-3.5 rounded-[10px] text-sm font-semibold mb-4.5">
+                <div ref={messageRef} role="alert" className="bg-red-50 border border-red-200 text-red-700 px-4.5 py-3.5 rounded-[10px] text-sm font-semibold mb-4.5">
                   {errorMsg}
                 </div>
               )}
@@ -121,16 +130,16 @@ export default function Contact() {
                 <div className="grid sm:grid-cols-2 gap-4.5">
                   <div className="field mb-4.5">
                     <label htmlFor="name">Full Name</label>
-                    <input id="name" name="name" value={form.name} onChange={handleChange} placeholder="Your name" required />
+                    <input id="name" name="name" autoComplete="name" value={form.name} onChange={handleChange} placeholder="Your name" required />
                   </div>
                   <div className="field mb-4.5">
                     <label htmlFor="phone">Phone Number</label>
-                    <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="Your phone number" required />
+                    <input id="phone" name="phone" type="tel" autoComplete="tel" value={form.phone} onChange={handleChange} placeholder="Your phone number" required />
                   </div>
                 </div>
                 <div className="field mb-4.5">
                   <label htmlFor="email">Email Address</label>
-                  <input id="email" name="email" type="email" value={form.email} onChange={handleChange} placeholder="you@example.com" required />
+                  <input id="email" name="email" type="email" autoComplete="email" value={form.email} onChange={handleChange} placeholder="you@example.com" required />
                 </div>
                 <div className="field mb-4.5">
                   <label htmlFor="service">Service Interested In</label>
