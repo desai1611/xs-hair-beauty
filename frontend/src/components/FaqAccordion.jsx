@@ -8,7 +8,7 @@ export default function FaqAccordion({ items }) {
       {items.map((item, i) => {
         const isOpen = openIndex === i;
         return (
-          <div key={item.q} className="border border-pink-100 rounded-[10px] mb-3.5 overflow-hidden bg-white">
+          <div key={item.q} className="border-[1.5px] border-plum-900/10 rounded-2xl mb-3 overflow-hidden bg-white">
             <button
               className="w-full text-left px-5.5 py-4.5 font-semibold text-[15px] text-plum-900 flex justify-between items-center gap-3"
               onClick={() => setOpenIndex(isOpen ? -1 : i)}

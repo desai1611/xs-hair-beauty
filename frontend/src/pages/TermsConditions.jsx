@@ -55,7 +55,7 @@ export default function TermsConditions() {
       <section className="py-16 px-6">
         <div className="max-w-[820px] mx-auto space-y-9">
           {SECTIONS.map((s) => (
-            <div key={s.title} className="bg-white border border-pink-100 rounded-[18px] px-7 py-6.5 shadow-soft">
+            <div key={s.title} className="bg-white border-[1.5px] border-plum-900/10 rounded-[28px] px-7 py-6.5 shadow-soft">
               <h2 className="flex items-center gap-3 text-[20px] mb-4">
                 <span className="text-2xl">{s.icon}</span>
                 {s.title}

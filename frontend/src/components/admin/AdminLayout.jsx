@@ -21,8 +21,8 @@ export default function AdminLayout() {
       <aside className="w-64 bg-plum-900 text-white flex-shrink-0 flex flex-col">
         <div className="px-6 py-6 border-b border-white/10">
           <Link to="/" className="flex items-center gap-2.5 font-display text-lg font-bold text-white">
-            <span className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-              style={{ background: 'linear-gradient(135deg, var(--color-pink-300), var(--color-pink-600))' }}>XS</span>
+            <span className="w-8 h-8 rounded-full flex items-center justify-center text-plum-900 text-sm font-bold flex-shrink-0"
+              style={{ background: 'var(--color-pink-500)' }}>XS</span>
             Admin Panel
           </Link>
         </div>
@@ -34,7 +34,7 @@ export default function AdminLayout() {
               end={l.end}
               className={({ isActive }) =>
                 `block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                  isActive ? 'bg-pink-600 text-white' : 'text-white/70 hover:bg-white/10 hover:text-white'
+                  isActive ? 'bg-pink-500 text-plum-900 font-semibold' : 'text-white/70 hover:bg-white/10 hover:text-white'
                 }`
               }
             >

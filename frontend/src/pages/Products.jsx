@@ -31,15 +31,15 @@ export default function Products() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search products..."
-              className="w-full sm:w-80 rounded-full px-4.5 py-3.5 border-[1.5px] border-pink-200 bg-pink-50 text-sm outline-none focus:border-pink-500"
+              className="w-full sm:w-80 input-pill"
             />
             <div className="flex gap-2.5 flex-wrap justify-center">
               {categories.map((c) => (
                 <button
                   key={c}
                   onClick={() => setCategory(c)}
-                  className={`px-5 py-2.5 rounded-full border-[1.5px] text-[13.5px] font-semibold capitalize transition-colors ${
-                    category === c ? 'bg-pink-600 border-pink-600 text-white' : 'bg-white border-pink-200 hover:border-pink-500'
+                  className={`px-5 py-2.5 rounded-full border-2 text-[13.5px] font-semibold capitalize transition-colors ${
+                    category === c ? 'bg-plum-900 border-plum-900 text-white' : 'bg-white border-plum-900/15 hover:border-plum-900'
                   }`}
                 >
                   {c}
