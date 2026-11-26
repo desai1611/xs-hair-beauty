@@ -12,7 +12,8 @@
    "isFeatured": true,
    "isActive": true,
    "order": 1,
-   "freshaName": "Nanoplastia"
+   "freshaName": "Nanoplastia",
+   "isPopular": true
   },
   {
    "name": "Regrowth",
@@ -25,7 +26,8 @@
    "isFeatured": true,
    "isActive": true,
    "order": 2,
-   "freshaName": "Regrowth"
+   "freshaName": "Regrowth",
+   "isPopular": false
   },
   {
    "name": "Trim Hair Cut",
@@ -38,12 +40,13 @@
    "isFeatured": true,
    "isActive": true,
    "order": 3,
-   "freshaName": "Trim hair cut"
+   "freshaName": "Trim hair cut",
+   "isPopular": false
   },
   {
    "name": "Eyebrows Threading/Waxing",
    "category": "beauty",
-   "description": "Eyebrow shaping by threading or waxing for a clean, defined line.",
+   "description": "Eyebrow shaping by threading or waxing for a clean, defined line. A quick treatment that keeps your brows tidy between visits.",
    "price": 10,
    "priceNote": "Only",
    "duration": "10 min",
@@ -51,7 +54,8 @@
    "isFeatured": true,
    "isActive": true,
    "order": 1,
-   "freshaName": "Eyebrows threading/waxing"
+   "freshaName": "Eyebrows threading/waxing",
+   "isPopular": false
   },
   {
    "name": "Style Cut",
@@ -64,7 +68,8 @@
    "isFeatured": true,
    "isActive": true,
    "order": 4,
-   "freshaName": "Style cut"
+   "freshaName": "Style cut",
+   "isPopular": false
   },
   {
    "name": "Full Head Highlights",
@@ -77,7 +82,8 @@
    "isFeatured": true,
    "isActive": true,
    "order": 5,
-   "freshaName": "Full Head Highlights"
+   "freshaName": "Full Head Highlights",
+   "isPopular": false
   },
   {
    "name": "Full Arm + Half Leg + Underarm Waxing",
@@ -90,7 +96,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 2,
-   "freshaName": "Full arm + half leg + underarm waxing"
+   "freshaName": "Full arm + half leg + underarm waxing",
+   "isPopular": false
   },
   {
    "name": "Full Arm + Full Leg + Underarm Waxing",
@@ -103,7 +110,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 3,
-   "freshaName": "Full arm + full leg + underarm waxing"
+   "freshaName": "Full arm + full leg + underarm waxing",
+   "isPopular": false
   },
   {
    "name": "Microblading Session 2",
@@ -116,7 +124,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 1,
-   "freshaName": "Microblading session 2"
+   "freshaName": "Microblading session 2",
+   "isPopular": false
   },
   {
    "name": "Microblading",
@@ -129,7 +138,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 2,
-   "freshaName": "Microblading"
+   "freshaName": "Microblading",
+   "isPopular": false
   },
   {
    "name": "Lip Tattoo",
@@ -142,7 +152,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 3,
-   "freshaName": "Lip Tatoo"
+   "freshaName": "Lip Tatoo",
+   "isPopular": false
   },
   {
    "name": "Brazilian Wax Maintain",
@@ -155,7 +166,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 4,
-   "freshaName": "Brazilian wax maintain"
+   "freshaName": "Brazilian wax maintain",
+   "isPopular": false
   },
   {
    "name": "Half Arm Wax",
@@ -168,7 +180,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 5,
-   "freshaName": "Half arm wax"
+   "freshaName": "Half arm wax",
+   "isPopular": false
   },
   {
    "name": "Signature Facial Including Massage",
@@ -181,7 +194,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 4,
-   "freshaName": "Signature facial including massage"
+   "freshaName": "Signature facial including massage",
+   "isPopular": false
   },
   {
    "name": "Gold Facial",
@@ -194,7 +208,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 5,
-   "freshaName": "Gold facial"
+   "freshaName": "Gold facial",
+   "isPopular": false
   },
   {
    "name": "Express Facial",
@@ -207,7 +222,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 6,
-   "freshaName": "Express facial"
+   "freshaName": "Express facial",
+   "isPopular": false
   },
   {
    "name": "BB Glow",
@@ -220,7 +236,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 7,
-   "freshaName": "Bb glow"
+   "freshaName": "Bb glow",
+   "isPopular": false
   },
   {
    "name": "Diamond Microdermabrasion",
@@ -233,7 +250,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 8,
-   "freshaName": "Diamond Microdermabrasion"
+   "freshaName": "Diamond Microdermabrasion",
+   "isPopular": false
   },
   {
    "name": "Microneedling",
@@ -246,7 +264,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 9,
-   "freshaName": "Microneedaling"
+   "freshaName": "Microneedaling",
+   "isPopular": false
   },
   {
    "name": "Underarm Wax",
@@ -259,7 +278,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 6,
-   "freshaName": "Underarm wax"
+   "freshaName": "Underarm wax",
+   "isPopular": false
   },
   {
    "name": "Facial",
@@ -272,7 +292,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 10,
-   "freshaName": "Facial"
+   "freshaName": "Facial",
+   "isPopular": false
   },
   {
    "name": "Brazilian (waxing)",
@@ -285,7 +306,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 7,
-   "freshaName": "Brazilian (waxing)"
+   "freshaName": "Brazilian (waxing)",
+   "isPopular": false
   },
   {
    "name": "Half Legs (waxing)",
@@ -298,7 +320,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 8,
-   "freshaName": "Half legs (waxing)"
+   "freshaName": "Half legs (waxing)",
+   "isPopular": false
   },
   {
    "name": "Full Legs (waxing)",
@@ -311,7 +334,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 9,
-   "freshaName": "Full legs (waxing)"
+   "freshaName": "Full legs (waxing)",
+   "isPopular": false
   },
   {
    "name": "Full Arms (waxing)",
@@ -324,7 +348,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 10,
-   "freshaName": "Full arms (waxing)"
+   "freshaName": "Full arms (waxing)",
+   "isPopular": false
   },
   {
    "name": "Forehead (waxing/Threading)",
@@ -337,7 +362,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 11,
-   "freshaName": "Forehead (waxing/threading)"
+   "freshaName": "Forehead (waxing/threading)",
+   "isPopular": false
   },
   {
    "name": "Nose Waxing",
@@ -350,7 +376,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 12,
-   "freshaName": "Nose waxing"
+   "freshaName": "Nose waxing",
+   "isPopular": false
   },
   {
    "name": "Sides Waxing",
@@ -363,7 +390,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 13,
-   "freshaName": "Sides waxing"
+   "freshaName": "Sides waxing",
+   "isPopular": false
   },
   {
    "name": "Hydrating Facial",
@@ -376,7 +404,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 11,
-   "freshaName": "Hydrating Facial"
+   "freshaName": "Hydrating Facial",
+   "isPopular": false
   },
   {
    "name": "Full Face Waxing/Threading",
@@ -389,7 +418,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 14,
-   "freshaName": "Full Face waxing/Threading"
+   "freshaName": "Full Face waxing/Threading",
+   "isPopular": false
   },
   {
    "name": "Hair Protein Treatment with Hot Towel",
@@ -402,7 +432,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 6,
-   "freshaName": "Hair Protein Treatment with hot towel"
+   "freshaName": "Hair Protein Treatment with hot towel",
+   "isPopular": false
   },
   {
    "name": "Men's Wash",
@@ -415,7 +446,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 7,
-   "freshaName": "Men's wash"
+   "freshaName": "Men's wash",
+   "isPopular": false
   },
   {
    "name": "Fringe Cut",
@@ -428,7 +460,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 8,
-   "freshaName": "Fringe cut"
+   "freshaName": "Fringe cut",
+   "isPopular": false
   },
   {
    "name": "Wash Cut Blow Dry",
@@ -441,7 +474,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 9,
-   "freshaName": "Wash cut blow dry"
+   "freshaName": "Wash cut blow dry",
+   "isPopular": false
   },
   {
    "name": "Men's Global Color with Cut",
@@ -454,7 +488,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 10,
-   "freshaName": "Men's global color with cut"
+   "freshaName": "Men's global color with cut",
+   "isPopular": false
   },
   {
    "name": "Men's Highlights",
@@ -467,7 +502,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 11,
-   "freshaName": "Men's highlights"
+   "freshaName": "Men's highlights",
+   "isPopular": false
   },
   {
    "name": "Men's Haircut",
@@ -480,7 +516,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 12,
-   "freshaName": "Men's haircut"
+   "freshaName": "Men's haircut",
+   "isPopular": false
   },
   {
    "name": "Consultation",
@@ -493,7 +530,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 13,
-   "freshaName": "Consultation"
+   "freshaName": "Consultation",
+   "isPopular": false
   },
   {
    "name": "Hot Towel",
@@ -506,7 +544,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 14,
-   "freshaName": "Hot towel"
+   "freshaName": "Hot towel",
+   "isPopular": false
   },
   {
    "name": "Balayage",
@@ -519,7 +558,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 15,
-   "freshaName": "Balayage"
+   "freshaName": "Balayage",
+   "isPopular": false
   },
   {
    "name": "Global Color",
@@ -532,7 +572,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 16,
-   "freshaName": "Global Color"
+   "freshaName": "Global Color",
+   "isPopular": false
   },
   {
    "name": "Hair Cut and Blow Dry",
@@ -545,7 +586,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 17,
-   "freshaName": "Hair cut and blow dry"
+   "freshaName": "Hair cut and blow dry",
+   "isPopular": false
   },
   {
    "name": "Hair Wash Shampoo and Conditioner",
@@ -558,7 +600,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 18,
-   "freshaName": "Hair Wash Shampoo and Conditioner"
+   "freshaName": "Hair Wash Shampoo and Conditioner",
+   "isPopular": false
   },
   {
    "name": "Permanent Straightening",
@@ -571,7 +614,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 19,
-   "freshaName": "Permanent straightening"
+   "freshaName": "Permanent straightening",
+   "isPopular": false
   },
   {
    "name": "GHD Curl and Straightening",
@@ -584,7 +628,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 20,
-   "freshaName": "GHD curl and straightening"
+   "freshaName": "GHD curl and straightening",
+   "isPopular": false
   },
   {
    "name": "Half Head Highlights",
@@ -597,7 +642,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 21,
-   "freshaName": "Half Head Highlights"
+   "freshaName": "Half Head Highlights",
+   "isPopular": false
   },
   {
    "name": "Keratin Straightening",
@@ -610,7 +656,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 22,
-   "freshaName": "Keratin straightening"
+   "freshaName": "Keratin straightening",
+   "isPopular": true
   },
   {
    "name": "Hair Botox",
@@ -623,7 +670,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 23,
-   "freshaName": "Hair Botox"
+   "freshaName": "Hair Botox",
+   "isPopular": false
   },
   {
    "name": "Nanoplastia with Trim",
@@ -636,7 +684,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 24,
-   "freshaName": "Nanoplastia with Trim"
+   "freshaName": "Nanoplastia with Trim",
+   "isPopular": false
   },
   {
    "name": "Brazilian Keratin",
@@ -649,7 +698,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 25,
-   "freshaName": "Brazilian Keratin"
+   "freshaName": "Brazilian Keratin",
+   "isPopular": false
   },
   {
    "name": "Toner",
@@ -662,7 +712,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 26,
-   "freshaName": "Toner"
+   "freshaName": "Toner",
+   "isPopular": false
   },
   {
    "name": "Blow Dry",
@@ -675,12 +726,13 @@
    "isFeatured": false,
    "isActive": true,
    "order": 27,
-   "freshaName": "Blow Dry"
+   "freshaName": "Blow Dry",
+   "isPopular": false
   },
   {
    "name": "Skin Tag Removal",
    "category": "advanced",
-   "description": "Skin tag removal. Please ask us about suitability when you book.",
+   "description": "Removal of skin tags by our beauty team. Please message us before booking so we can confirm it is suitable for you.",
    "price": 150,
    "priceNote": "Only",
    "duration": "1 hr",
@@ -688,12 +740,13 @@
    "isFeatured": false,
    "isActive": true,
    "order": 12,
-   "freshaName": "Skin tag removal"
+   "freshaName": "Skin tag removal",
+   "isPopular": false
   },
   {
    "name": "Eyelashes Tint",
    "category": "beauty",
-   "description": "Lash tinting for darker, fuller-looking lashes.",
+   "description": "Lash tinting for darker, fuller-looking lashes without needing mascara. A short, comfortable treatment.",
    "price": 15,
    "priceNote": "Only",
    "duration": "15 min",
@@ -701,12 +754,13 @@
    "isFeatured": false,
    "isActive": true,
    "order": 15,
-   "freshaName": "Eyelashes tint"
+   "freshaName": "Eyelashes tint",
+   "isPopular": false
   },
   {
    "name": "Eyebrows, Upper Lip and Chin",
    "category": "beauty",
-   "description": "Eyebrow shaping with upper lip and chin hair removal in one visit.",
+   "description": "Eyebrow shaping with upper lip and chin hair removal in one visit, so your face is neat and groomed in a single appointment.",
    "price": 25,
    "priceNote": "Only",
    "duration": "20 min",
@@ -714,12 +768,13 @@
    "isFeatured": false,
    "isActive": true,
    "order": 16,
-   "freshaName": "Eyebrows upp and chin"
+   "freshaName": "Eyebrows upp and chin",
+   "isPopular": false
   },
   {
    "name": "Eyebrow and Upper Lip",
    "category": "beauty",
-   "description": "Eyebrow shaping with upper lip hair removal in one visit.",
+   "description": "Eyebrow shaping with upper lip hair removal in one visit for a tidy, groomed finish.",
    "price": 18,
    "priceNote": "Only",
    "duration": "15 min",
@@ -727,12 +782,13 @@
    "isFeatured": false,
    "isActive": true,
    "order": 17,
-   "freshaName": "Eyebrow and upp"
+   "freshaName": "Eyebrow and upp",
+   "isPopular": false
   },
   {
    "name": "Men's Eyebrows",
    "category": "beauty",
-   "description": "Tidy, natural-looking eyebrow shaping for men.",
+   "description": "Tidy, natural-looking eyebrow shaping for men, removing stray hairs while keeping a natural shape.",
    "price": 12,
    "priceNote": "Only",
    "duration": "15 min",
@@ -740,12 +796,13 @@
    "isFeatured": false,
    "isActive": true,
    "order": 18,
-   "freshaName": "Men's eyebrows"
+   "freshaName": "Men's eyebrows",
+   "isPopular": false
   },
   {
    "name": "Eyebrows Henna",
    "category": "beauty",
-   "description": "Henna tint for fuller, longer-lasting brow colour.",
+   "description": "Henna tint for fuller-looking, longer-lasting brow colour. A good option if your brows are light or sparse.",
    "price": 50,
    "priceNote": "Only",
    "duration": "30 min",
@@ -753,12 +810,13 @@
    "isFeatured": false,
    "isActive": true,
    "order": 19,
-   "freshaName": "Eyebrows Henna"
+   "freshaName": "Eyebrows Henna",
+   "isPopular": false
   },
   {
    "name": "Eyebrow Lamination",
    "category": "beauty",
-   "description": "Brow lamination to set brows in shape for a fuller, groomed look.",
+   "description": "Brow lamination sets your brows in shape and direction for a fuller, groomed look that lasts.",
    "price": 60,
    "priceNote": "Only",
    "duration": "1 hr",
@@ -766,12 +824,13 @@
    "isFeatured": false,
    "isActive": true,
    "order": 20,
-   "freshaName": "Eyebrow lamination"
+   "freshaName": "Eyebrow lamination",
+   "isPopular": false
   },
   {
    "name": "Eyelashes Extensions Classic",
    "category": "beauty",
-   "description": "Classic lash extensions applied one by one for natural length and definition.",
+   "description": "Classic lash extensions applied one by one to your natural lashes for added length and definition.",
    "price": 70,
    "priceNote": "Only",
    "duration": "1 hr",
@@ -779,12 +838,13 @@
    "isFeatured": false,
    "isActive": true,
    "order": 21,
-   "freshaName": "Eyelashes extensions classic"
+   "freshaName": "Eyelashes extensions classic",
+   "isPopular": false
   },
   {
    "name": "Lashes Lifting with Tint",
    "category": "beauty",
-   "description": "A lash lift with tint for lifted, curled, darker lashes.",
+   "description": "A lash lift with tint: lifts and curls your natural lashes and darkens them for a defined, open-eyed look.",
    "price": 89,
    "priceNote": "Only",
    "duration": "1 hr",
@@ -792,12 +852,13 @@
    "isFeatured": false,
    "isActive": true,
    "order": 22,
-   "freshaName": "Lashes lifting with tint"
+   "freshaName": "Lashes lifting with tint",
+   "isPopular": false
   },
   {
    "name": "Lashes Lifting",
    "category": "beauty",
-   "description": "Lifts and curls your natural lashes for an open-eyed look.",
+   "description": "Lifts and curls your natural lashes for an open-eyed look, with no curlers needed each morning.",
    "price": 69,
    "priceNote": "Only",
    "duration": "1 hr",
@@ -805,7 +866,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 23,
-   "freshaName": "Lashes lifting"
+   "freshaName": "Lashes lifting",
+   "isPopular": false
   },
   {
    "name": "Eyebrow Shape and Tint",
@@ -818,12 +880,13 @@
    "isFeatured": false,
    "isActive": true,
    "order": 24,
-   "freshaName": "Eyebrow sheap And tint"
+   "freshaName": "Eyebrow sheap And tint",
+   "isPopular": false
   },
   {
    "name": "Chin Waxing/Threading",
    "category": "beauty",
-   "description": "Chin hair removal by waxing or threading.",
+   "description": "Chin hair removal by waxing or threading, for smooth, tidy skin.",
    "price": 10,
    "priceNote": "Only",
    "duration": "10 min",
@@ -831,12 +894,13 @@
    "isFeatured": false,
    "isActive": true,
    "order": 25,
-   "freshaName": "Chin waxing/threading"
+   "freshaName": "Chin waxing/threading",
+   "isPopular": false
   },
   {
    "name": "Upper Lip Waxing/Threading",
    "category": "beauty",
-   "description": "Upper lip hair removal by waxing or threading.",
+   "description": "Upper lip hair removal by waxing or threading, for smooth, tidy skin.",
    "price": 10,
    "priceNote": "Only",
    "duration": "10 min",
@@ -844,7 +908,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 26,
-   "freshaName": "Upper lip waxing/threading"
+   "freshaName": "Upper lip waxing/threading",
+   "isPopular": false
   },
   {
    "name": "Eyebrow Tint",
@@ -857,7 +922,8 @@
    "isFeatured": false,
    "isActive": true,
    "order": 27,
-   "freshaName": "Eyebrow Tint"
+   "freshaName": "Eyebrow Tint",
+   "isPopular": false
   }
  ]
 }

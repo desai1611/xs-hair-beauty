@@ -109,8 +109,8 @@ async function sendCustomerConfirmation(booking) {
     return false;
   }
 
-  const phone = process.env.SALON_PHONE_DISPLAY || '022 435 9610';
-  const whatsapp = process.env.SALON_WHATSAPP || '64224359610';
+  const phone = process.env.SALON_PHONE_DISPLAY || '022 342 3964';
+  const whatsapp = process.env.SALON_WHATSAPP || '64223423964';
   const address = process.env.SALON_ADDRESS || '25 Chartwell Avenue, Glenfield, Auckland 0629, New Zealand';
   const salonEmail = process.env.SALON_EMAIL || 'xshairbeautysalon@gmail.com';
 

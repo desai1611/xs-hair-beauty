@@ -18,9 +18,10 @@
         "$date": "2026-09-03T15:24:35.308Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.168Z"
+        "$date": "2026-11-26T01:36:23.954Z"
       },
-      "duration": "30 min"
+      "duration": "30 min",
+      "isPopular": false
     },
     {
       "_id": {
@@ -40,9 +41,10 @@
         "$date": "2026-09-03T15:24:35.309Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.086Z"
+        "$date": "2026-11-26T01:36:23.895Z"
       },
-      "duration": "2 hr"
+      "duration": "2 hr",
+      "isPopular": true
     },
     {
       "_id": {
@@ -62,9 +64,10 @@
         "$date": "2026-11-26T01:04:43.116Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.116Z"
+        "$date": "2026-11-26T01:36:23.903Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -84,9 +87,10 @@
         "$date": "2026-11-26T01:04:43.120Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.120Z"
+        "$date": "2026-11-26T01:36:23.906Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -94,7 +98,7 @@
       },
       "name": "Eyebrows Threading/Waxing",
       "category": "beauty",
-      "description": "Eyebrow shaping by threading or waxing for a clean, defined line.",
+      "description": "Eyebrow shaping by threading or waxing for a clean, defined line. A quick treatment that keeps your brows tidy between visits.",
       "price": 10,
       "priceNote": "Only",
       "duration": "10 min",
@@ -106,9 +110,10 @@
         "$date": "2026-11-26T01:04:43.123Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.123Z"
+        "$date": "2026-11-26T01:36:23.909Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -128,9 +133,10 @@
         "$date": "2026-11-26T01:04:43.126Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.126Z"
+        "$date": "2026-11-26T01:36:23.911Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -150,9 +156,10 @@
         "$date": "2026-11-26T01:04:43.128Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.128Z"
+        "$date": "2026-11-26T01:36:23.913Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -172,9 +179,10 @@
         "$date": "2026-11-26T01:04:43.131Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.131Z"
+        "$date": "2026-11-26T01:36:23.916Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -194,9 +202,10 @@
         "$date": "2026-11-26T01:04:43.132Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.132Z"
+        "$date": "2026-11-26T01:36:23.917Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -216,9 +225,10 @@
         "$date": "2026-11-26T01:04:43.134Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.134Z"
+        "$date": "2026-11-26T01:36:23.919Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -238,9 +248,10 @@
         "$date": "2026-11-26T01:04:43.136Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.136Z"
+        "$date": "2026-11-26T01:36:23.921Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -260,9 +271,10 @@
         "$date": "2026-11-26T01:04:43.138Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.138Z"
+        "$date": "2026-11-26T01:36:23.923Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -282,9 +294,10 @@
         "$date": "2026-11-26T01:04:43.140Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.140Z"
+        "$date": "2026-11-26T01:36:23.924Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -304,9 +317,10 @@
         "$date": "2026-11-26T01:04:43.142Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.142Z"
+        "$date": "2026-11-26T01:36:23.926Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -326,9 +340,10 @@
         "$date": "2026-11-26T01:04:43.143Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.143Z"
+        "$date": "2026-11-26T01:36:23.927Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -348,9 +363,10 @@
         "$date": "2026-11-26T01:04:43.145Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.145Z"
+        "$date": "2026-11-26T01:36:23.929Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -370,9 +386,10 @@
         "$date": "2026-11-26T01:04:43.146Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.146Z"
+        "$date": "2026-11-26T01:36:23.930Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -392,9 +409,10 @@
         "$date": "2026-11-26T01:04:43.147Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.147Z"
+        "$date": "2026-11-26T01:36:23.931Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -414,9 +432,10 @@
         "$date": "2026-11-26T01:04:43.148Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.148Z"
+        "$date": "2026-11-26T01:36:23.932Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -436,9 +455,10 @@
         "$date": "2026-11-26T01:04:43.149Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.149Z"
+        "$date": "2026-11-26T01:36:23.934Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -458,9 +478,10 @@
         "$date": "2026-11-26T01:04:43.150Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.150Z"
+        "$date": "2026-11-26T01:36:23.935Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -480,9 +501,10 @@
         "$date": "2026-11-26T01:04:43.151Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.151Z"
+        "$date": "2026-11-26T01:36:23.936Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -502,9 +524,10 @@
         "$date": "2026-11-26T01:04:43.152Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.152Z"
+        "$date": "2026-11-26T01:36:23.937Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -524,9 +547,10 @@
         "$date": "2026-11-26T01:04:43.153Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.153Z"
+        "$date": "2026-11-26T01:36:23.938Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -546,9 +570,10 @@
         "$date": "2026-11-26T01:04:43.155Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.155Z"
+        "$date": "2026-11-26T01:36:23.941Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -568,9 +593,10 @@
         "$date": "2026-11-26T01:04:43.156Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.156Z"
+        "$date": "2026-11-26T01:36:23.942Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -590,9 +616,10 @@
         "$date": "2026-11-26T01:04:43.157Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.157Z"
+        "$date": "2026-11-26T01:36:23.944Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -612,9 +639,10 @@
         "$date": "2026-11-26T01:04:43.158Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.158Z"
+        "$date": "2026-11-26T01:36:23.945Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -634,9 +662,10 @@
         "$date": "2026-11-26T01:04:43.159Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.159Z"
+        "$date": "2026-11-26T01:36:23.946Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -656,9 +685,10 @@
         "$date": "2026-11-26T01:04:43.161Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.161Z"
+        "$date": "2026-11-26T01:36:23.947Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -678,9 +708,10 @@
         "$date": "2026-11-26T01:04:43.162Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.162Z"
+        "$date": "2026-11-26T01:36:23.948Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -700,9 +731,10 @@
         "$date": "2026-11-26T01:04:43.163Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.163Z"
+        "$date": "2026-11-26T01:36:23.949Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -722,9 +754,10 @@
         "$date": "2026-11-26T01:04:43.164Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.164Z"
+        "$date": "2026-11-26T01:36:23.950Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -744,9 +777,10 @@
         "$date": "2026-11-26T01:04:43.164Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.164Z"
+        "$date": "2026-11-26T01:36:23.951Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -766,9 +800,10 @@
         "$date": "2026-11-26T01:04:43.165Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.165Z"
+        "$date": "2026-11-26T01:36:23.952Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -788,9 +823,10 @@
         "$date": "2026-11-26T01:04:43.166Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.166Z"
+        "$date": "2026-11-26T01:36:23.952Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -810,9 +846,10 @@
         "$date": "2026-11-26T01:04:43.167Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.167Z"
+        "$date": "2026-11-26T01:36:23.953Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -832,9 +869,10 @@
         "$date": "2026-11-26T01:04:43.169Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.169Z"
+        "$date": "2026-11-26T01:36:23.956Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -854,9 +892,10 @@
         "$date": "2026-11-26T01:04:43.171Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.171Z"
+        "$date": "2026-11-26T01:36:23.957Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -876,9 +915,10 @@
         "$date": "2026-11-26T01:04:43.172Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.172Z"
+        "$date": "2026-11-26T01:36:23.958Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -898,9 +938,10 @@
         "$date": "2026-11-26T01:04:43.173Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.173Z"
+        "$date": "2026-11-26T01:36:23.959Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -920,9 +961,10 @@
         "$date": "2026-11-26T01:04:43.175Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.175Z"
+        "$date": "2026-11-26T01:36:23.960Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -942,9 +984,10 @@
         "$date": "2026-11-26T01:04:43.176Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.176Z"
+        "$date": "2026-11-26T01:36:23.961Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -964,9 +1007,10 @@
         "$date": "2026-11-26T01:04:43.177Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.177Z"
+        "$date": "2026-11-26T01:36:23.962Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -986,9 +1030,10 @@
         "$date": "2026-11-26T01:04:43.178Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.178Z"
+        "$date": "2026-11-26T01:36:23.963Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1008,9 +1053,10 @@
         "$date": "2026-11-26T01:04:43.179Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.179Z"
+        "$date": "2026-11-26T01:36:23.964Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1030,9 +1076,10 @@
         "$date": "2026-11-26T01:04:43.180Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.180Z"
+        "$date": "2026-11-26T01:36:23.965Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": true
     },
     {
       "_id": {
@@ -1052,9 +1099,10 @@
         "$date": "2026-11-26T01:04:43.181Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.181Z"
+        "$date": "2026-11-26T01:36:23.966Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1074,9 +1122,10 @@
         "$date": "2026-11-26T01:04:43.182Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.182Z"
+        "$date": "2026-11-26T01:36:23.967Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1096,9 +1145,10 @@
         "$date": "2026-11-26T01:04:43.183Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.183Z"
+        "$date": "2026-11-26T01:36:23.968Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1118,9 +1168,10 @@
         "$date": "2026-11-26T01:04:43.184Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.184Z"
+        "$date": "2026-11-26T01:36:23.969Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1140,9 +1191,10 @@
         "$date": "2026-11-26T01:04:43.185Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.185Z"
+        "$date": "2026-11-26T01:36:23.969Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1150,7 +1202,7 @@
       },
       "name": "Skin Tag Removal",
       "category": "advanced",
-      "description": "Skin tag removal. Please ask us about suitability when you book.",
+      "description": "Removal of skin tags by our beauty team. Please message us before booking so we can confirm it is suitable for you.",
       "price": 150,
       "priceNote": "Only",
       "duration": "1 hr",
@@ -1162,9 +1214,10 @@
         "$date": "2026-11-26T01:04:43.186Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.186Z"
+        "$date": "2026-11-26T01:36:23.970Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1172,7 +1225,7 @@
       },
       "name": "Eyelashes Tint",
       "category": "beauty",
-      "description": "Lash tinting for darker, fuller-looking lashes.",
+      "description": "Lash tinting for darker, fuller-looking lashes without needing mascara. A short, comfortable treatment.",
       "price": 15,
       "priceNote": "Only",
       "duration": "15 min",
@@ -1184,9 +1237,10 @@
         "$date": "2026-11-26T01:04:43.187Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.187Z"
+        "$date": "2026-11-26T01:36:23.972Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1194,7 +1248,7 @@
       },
       "name": "Eyebrows, Upper Lip and Chin",
       "category": "beauty",
-      "description": "Eyebrow shaping with upper lip and chin hair removal in one visit.",
+      "description": "Eyebrow shaping with upper lip and chin hair removal in one visit, so your face is neat and groomed in a single appointment.",
       "price": 25,
       "priceNote": "Only",
       "duration": "20 min",
@@ -1206,9 +1260,10 @@
         "$date": "2026-11-26T01:04:43.188Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.188Z"
+        "$date": "2026-11-26T01:36:23.973Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1216,7 +1271,7 @@
       },
       "name": "Eyebrow and Upper Lip",
       "category": "beauty",
-      "description": "Eyebrow shaping with upper lip hair removal in one visit.",
+      "description": "Eyebrow shaping with upper lip hair removal in one visit for a tidy, groomed finish.",
       "price": 18,
       "priceNote": "Only",
       "duration": "15 min",
@@ -1228,9 +1283,10 @@
         "$date": "2026-11-26T01:04:43.189Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.189Z"
+        "$date": "2026-11-26T01:36:23.974Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1238,7 +1294,7 @@
       },
       "name": "Men's Eyebrows",
       "category": "beauty",
-      "description": "Tidy, natural-looking eyebrow shaping for men.",
+      "description": "Tidy, natural-looking eyebrow shaping for men, removing stray hairs while keeping a natural shape.",
       "price": 12,
       "priceNote": "Only",
       "duration": "15 min",
@@ -1250,9 +1306,10 @@
         "$date": "2026-11-26T01:04:43.190Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.190Z"
+        "$date": "2026-11-26T01:36:23.975Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1260,7 +1317,7 @@
       },
       "name": "Eyebrows Henna",
       "category": "beauty",
-      "description": "Henna tint for fuller, longer-lasting brow colour.",
+      "description": "Henna tint for fuller-looking, longer-lasting brow colour. A good option if your brows are light or sparse.",
       "price": 50,
       "priceNote": "Only",
       "duration": "30 min",
@@ -1272,9 +1329,10 @@
         "$date": "2026-11-26T01:04:43.191Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.191Z"
+        "$date": "2026-11-26T01:36:23.976Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1282,7 +1340,7 @@
       },
       "name": "Eyebrow Lamination",
       "category": "beauty",
-      "description": "Brow lamination to set brows in shape for a fuller, groomed look.",
+      "description": "Brow lamination sets your brows in shape and direction for a fuller, groomed look that lasts.",
       "price": 60,
       "priceNote": "Only",
       "duration": "1 hr",
@@ -1294,9 +1352,10 @@
         "$date": "2026-11-26T01:04:43.192Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.192Z"
+        "$date": "2026-11-26T01:36:23.977Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1304,7 +1363,7 @@
       },
       "name": "Eyelashes Extensions Classic",
       "category": "beauty",
-      "description": "Classic lash extensions applied one by one for natural length and definition.",
+      "description": "Classic lash extensions applied one by one to your natural lashes for added length and definition.",
       "price": 70,
       "priceNote": "Only",
       "duration": "1 hr",
@@ -1316,9 +1375,10 @@
         "$date": "2026-11-26T01:04:43.193Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.193Z"
+        "$date": "2026-11-26T01:36:23.979Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1326,7 +1386,7 @@
       },
       "name": "Lashes Lifting with Tint",
       "category": "beauty",
-      "description": "A lash lift with tint for lifted, curled, darker lashes.",
+      "description": "A lash lift with tint: lifts and curls your natural lashes and darkens them for a defined, open-eyed look.",
       "price": 89,
       "priceNote": "Only",
       "duration": "1 hr",
@@ -1338,9 +1398,10 @@
         "$date": "2026-11-26T01:04:43.194Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.194Z"
+        "$date": "2026-11-26T01:36:23.980Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1348,7 +1409,7 @@
       },
       "name": "Lashes Lifting",
       "category": "beauty",
-      "description": "Lifts and curls your natural lashes for an open-eyed look.",
+      "description": "Lifts and curls your natural lashes for an open-eyed look, with no curlers needed each morning.",
       "price": 69,
       "priceNote": "Only",
       "duration": "1 hr",
@@ -1360,9 +1421,10 @@
         "$date": "2026-11-26T01:04:43.195Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.195Z"
+        "$date": "2026-11-26T01:36:23.981Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1382,9 +1444,10 @@
         "$date": "2026-11-26T01:04:43.196Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.196Z"
+        "$date": "2026-11-26T01:36:23.982Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1392,7 +1455,7 @@
       },
       "name": "Chin Waxing/Threading",
       "category": "beauty",
-      "description": "Chin hair removal by waxing or threading.",
+      "description": "Chin hair removal by waxing or threading, for smooth, tidy skin.",
       "price": 10,
       "priceNote": "Only",
       "duration": "10 min",
@@ -1404,9 +1467,10 @@
         "$date": "2026-11-26T01:04:43.197Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.197Z"
+        "$date": "2026-11-26T01:36:23.982Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1414,7 +1478,7 @@
       },
       "name": "Upper Lip Waxing/Threading",
       "category": "beauty",
-      "description": "Upper lip hair removal by waxing or threading.",
+      "description": "Upper lip hair removal by waxing or threading, for smooth, tidy skin.",
       "price": 10,
       "priceNote": "Only",
       "duration": "10 min",
@@ -1426,9 +1490,10 @@
         "$date": "2026-11-26T01:04:43.198Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.198Z"
+        "$date": "2026-11-26T01:36:23.984Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     },
     {
       "_id": {
@@ -1448,15 +1513,16 @@
         "$date": "2026-11-26T01:04:43.198Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:04:43.198Z"
+        "$date": "2026-11-26T01:36:23.985Z"
       },
-      "__v": 0
+      "__v": 0,
+      "isPopular": false
     }
   ],
   "products": [
     {
       "_id": {
-        "$oid": "6b078988ad0cca7defbcb8ec"
+        "$oid": "6b078dc1b50e71d61b135f1b"
       },
       "name": "Protein Brazilian Shampoo & Conditioner",
       "brand": "",
@@ -1469,15 +1535,15 @@
       "order": 1,
       "__v": 0,
       "createdAt": {
-        "$date": "2026-11-26T01:21:12.857Z"
+        "$date": "2026-11-26T01:39:13.115Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:21:12.857Z"
+        "$date": "2026-11-26T01:39:13.115Z"
       }
     },
     {
       "_id": {
-        "$oid": "6b078988ad0cca7defbcb8ed"
+        "$oid": "6b078dc1b50e71d61b135f1c"
       },
       "name": "Collagen Hair Care",
       "brand": "",
@@ -1490,15 +1556,15 @@
       "order": 2,
       "__v": 0,
       "createdAt": {
-        "$date": "2026-11-26T01:21:12.858Z"
+        "$date": "2026-11-26T01:39:13.116Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:21:12.858Z"
+        "$date": "2026-11-26T01:39:13.116Z"
       }
     },
     {
       "_id": {
-        "$oid": "6b078988ad0cca7defbcb8ee"
+        "$oid": "6b078dc1b50e71d61b135f1d"
       },
       "name": "9+3 Hair Treatment",
       "brand": "",
@@ -1511,15 +1577,15 @@
       "order": 3,
       "__v": 0,
       "createdAt": {
-        "$date": "2026-11-26T01:21:12.858Z"
+        "$date": "2026-11-26T01:39:13.116Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:21:12.858Z"
+        "$date": "2026-11-26T01:39:13.116Z"
       }
     },
     {
       "_id": {
-        "$oid": "6b078988ad0cca7defbcb8ef"
+        "$oid": "6b078dc1b50e71d61b135f1e"
       },
       "name": "Argan Oil Shampoo & Mask",
       "brand": "",
@@ -1532,20 +1598,20 @@
       "order": 4,
       "__v": 0,
       "createdAt": {
-        "$date": "2026-11-26T01:21:12.859Z"
+        "$date": "2026-11-26T01:39:13.116Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:21:12.859Z"
+        "$date": "2026-11-26T01:39:13.116Z"
       }
     },
     {
       "_id": {
-        "$oid": "6b078988ad0cca7defbcb8f0"
+        "$oid": "6b078dc1b50e71d61b135f1f"
       },
-      "name": "Purple Shampoo & Conditioner",
-      "brand": "",
+      "name": "Fanola No Yellow Shampoo",
+      "brand": "Fanola",
       "category": "Hair Care",
-      "description": "Purple-label shampoo and conditioner, available in the salon. Ask our team what it is best for.",
+      "description": "Purple toning shampoo for blonde, bleached, grey and highlighted hair, available in the salon.",
       "price": null,
       "image": "/images/products/purple-shampoo.jpg",
       "inStock": true,
@@ -1553,15 +1619,15 @@
       "order": 5,
       "__v": 0,
       "createdAt": {
-        "$date": "2026-11-26T01:21:12.859Z"
+        "$date": "2026-11-26T01:39:13.116Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:21:12.859Z"
+        "$date": "2026-11-26T01:39:13.116Z"
       }
     },
     {
       "_id": {
-        "$oid": "6b078988ad0cca7defbcb8f1"
+        "$oid": "6b078dc1b50e71d61b135f20"
       },
       "name": "Keune Care Range",
       "brand": "Keune",
@@ -1574,15 +1640,15 @@
       "order": 6,
       "__v": 0,
       "createdAt": {
-        "$date": "2026-11-26T01:21:12.859Z"
+        "$date": "2026-11-26T01:39:13.116Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:21:12.859Z"
+        "$date": "2026-11-26T01:39:13.116Z"
       }
     },
     {
       "_id": {
-        "$oid": "6b078988ad0cca7defbcb8f2"
+        "$oid": "6b078dc1b50e71d61b135f21"
       },
       "name": "Silver Bullet Keratin 230 Titanium Straightener",
       "brand": "Silver Bullet",
@@ -1595,10 +1661,10 @@
       "order": 7,
       "__v": 0,
       "createdAt": {
-        "$date": "2026-11-26T01:21:12.859Z"
+        "$date": "2026-11-26T01:39:13.116Z"
       },
       "updatedAt": {
-        "$date": "2026-11-26T01:21:12.859Z"
+        "$date": "2026-11-26T01:39:13.116Z"
       }
     }
   ],
@@ -1664,13 +1730,13 @@
       "_id": {
         "$oid": "6aac811580a6277912c40763"
       },
-      "tag": "Hair",
+      "tag": "Most popular",
       "title": "Nanoplastia Treatment",
-      "description": "Smooth, frizz-free, long-lasting results — any hair length. Starting from $159.",
+      "description": "Smooth, frizz-free, long-lasting results for any hair length. Takes about 2 hours. Our most popular treatment, from $159.",
       "image": "/uploads/1789690133505-858631345.jpg",
       "isActive": true,
       "expiresAt": null,
-      "order": 4,
+      "order": -6,
       "createdAt": {
         "$date": "2026-09-18T00:08:53.958Z"
       },

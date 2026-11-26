@@ -36,6 +36,9 @@ export default function Home() {
   const { data: reviews, loading: reviewsLoading } = useFetch('/reviews');
   const { data: gallery } = useFetch('/gallery?page=home');
   const { data: siteContent } = useFetch('/site-content');
+  const { data: allServices } = useFetch('/services');
+  const popular = (allServices || []).filter((s) => s.isPopular).slice(0, 2);
+  const shortText = (t = '') => (t.length > 170 ? `${t.slice(0, 167).replace(/\s+\S*$/, '')}...` : t);
   const hoursLines = siteContent?.opening_hours?.value
     ? siteContent.opening_hours.value.split(/\r?\n/).filter(Boolean)
     : DEFAULT_HOURS;
@@ -160,6 +163,32 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* MOST POPULAR */}
+      {popular.length > 0 && (
+        <section className="py-10 sm:py-16 px-3 sm:px-5">
+          <div className="max-w-[1240px] mx-auto">
+            <SectionHeading eyebrow="Most popular" title="Our clients' favourites"
+              subtitle="The two treatments our clients ask for most. Tap Book to choose your time on Fresha." />
+            <div className="grid md:grid-cols-2 gap-3">
+              {popular.map((s) => (
+                <div key={s._id} className="tile reveal bg-plum-900 min-h-[380px] p-7 sm:p-9 flex flex-col justify-end text-white">
+                  {s.image && <img src={s.image} alt={s.name} className="absolute inset-0 w-full h-full object-cover object-[50%_30%]" loading="lazy" />}
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(42,21,34,0.1) 0%, rgba(42,21,34,0.9) 78%)' }} />
+                  <span className="sticker relative self-start mb-auto">★ Most popular</span>
+                  <h3 className="relative !text-white text-[32px] sm:text-[40px] leading-none mt-10 mb-3">{s.name}</h3>
+                  <p className="relative text-white/85 text-[15px] max-w-md mb-5">{shortText(s.description)}</p>
+                  <div className="relative flex flex-wrap items-center gap-x-5 gap-y-3">
+                    {s.duration && <span className="text-[13px] font-semibold text-white/85">Takes {s.duration}</span>}
+                    <span className="font-display text-[22px] font-semibold text-white">{s.priceNote} ${s.price}</span>
+                    <a href={SALON.booking} target="_blank" rel="noopener noreferrer" className="btn btn-light btn-sm">Book now</a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* OFFERS */}
       <section className="py-16 sm:py-20 px-3 sm:px-5">

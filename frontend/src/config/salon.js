@@ -1,9 +1,9 @@
 export const SALON = {
   name: 'XS Hair & Beauty',
   tagline: 'Your Look, Our Art',
-  phoneDisplay: import.meta.env.VITE_SALON_PHONE_DISPLAY || '022 435 9610',
-  phoneTel: import.meta.env.VITE_SALON_PHONE_TEL || '0224359610',
-  whatsapp: import.meta.env.VITE_SALON_WHATSAPP || '64224359610',
+  phoneDisplay: import.meta.env.VITE_SALON_PHONE_DISPLAY || '022 342 3964',
+  phoneTel: import.meta.env.VITE_SALON_PHONE_TEL || '0223423964',
+  whatsapp: import.meta.env.VITE_SALON_WHATSAPP || '64223423964',
   email: import.meta.env.VITE_SALON_EMAIL || 'xshairbeautysalon@gmail.com',
   address: import.meta.env.VITE_SALON_ADDRESS || '25 Chartwell Avenue, Glenfield, Auckland 0629, New Zealand',
   instagram: import.meta.env.VITE_SALON_INSTAGRAM || 'https://www.instagram.com/xs_hair_and_beauty',

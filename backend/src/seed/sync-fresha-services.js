@@ -24,6 +24,7 @@ async function main() {
     const fields = {
       name: s.name, category: s.category, description: s.description, price: s.price,
       priceNote: s.priceNote, duration: s.duration, image: s.image, isFeatured: s.isFeatured,
+      isPopular: Boolean(s.isPopular),
       isActive: true, order: s.order,
     };
     const current = byName.get(s.name.toLowerCase());

@@ -10,6 +10,7 @@ const serviceSchema = new mongoose.Schema(
     duration: { type: String, default: '' }, // e.g. "45 min", "2 hr" — as listed on Fresha
     image: { type: String, default: '' },
     isFeatured: { type: Boolean, default: false },
+    isPopular: { type: Boolean, default: false }, // "Most popular" badge + homepage spotlight
     isActive: { type: Boolean, default: true },
     order: { type: Number, default: 0 },
   },

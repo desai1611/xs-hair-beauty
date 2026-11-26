@@ -145,7 +145,7 @@ git push -u origin main
 The seed data uses placeholder values from the requirements brief. Confirm/replace these with the
 client before launch (most can be edited straight from the admin dashboard):
 
-- [x] Real phone number and WhatsApp number (022 435 9610)
+- [x] Real phone number and WhatsApp number (022 342 3964)
 - [ ] Real business email (currently placeholder `hello@xshairandbeauty.co.nz`)
 - [ ] Confirmed opening hours (currently placeholder Mon–Sat 9–6)
 - [ ] Confirmed address for the Google Maps embed (currently `23 Chartwell Avenue, Glenfield, Auckland 0629`)

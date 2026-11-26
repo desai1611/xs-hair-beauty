@@ -73,7 +73,7 @@ describe('mailer', () => {
     expect(body.from).toBe('"XS Hair & Beauty" <bookings@xshairbeauty.nz>');
     expect(body.to).toEqual(['mia@example.com']);
     expect(body.reply_to).toBe('xshairbeautysalon@gmail.com');
-    expect(body.html).toContain('022 435 9610');
+    expect(body.html).toContain('022 342 3964');
   });
 
   it('throws a useful error, without the key, when Resend rejects the email', async () => {
