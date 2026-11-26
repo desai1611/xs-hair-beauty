@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="tile max-w-[1240px] mx-auto bg-plum-900 text-white/75 px-7 sm:px-12 pt-14 pb-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-white/10">
           <div>
-            <img src="/brand/logo-for-dark.png" alt="XS Hair & Beauty Salon — Your Look, Our Art" className="h-24 w-auto mb-4 -ml-2" loading="lazy" />
+            <img src="/brand/logo-for-dark-sm.png" alt="XS Hair & Beauty Salon — Your Look, Our Art" className="h-24 w-auto mb-4 -ml-2" loading="lazy" />
             <p className="text-white/60 text-sm">
               A modern hair &amp; beauty salon in Glenfield, Auckland — haircuts, colour, threading, waxing, facials, and bridal &amp; party packages.
             </p>
@@ -53,7 +53,7 @@ export default function Footer() {
 
         <div className="pt-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2.5 text-[13px]">
           <span>© {new Date().getFullYear()} XS Hair &amp; Beauty. All rights reserved.</span>
-          <span>Site by Dhruvraj Desai — <a href="mailto:dhruvraj.d1611@gmail.com" className="text-lime">Get in touch</a></span>
+          <span>Site by Dhruvraj Desai — <a href="mailto:dhruvraj.d1611@gmail.com" className="text-lime inline-block py-2">Get in touch</a></span>
         </div>
       </div>
     </footer>

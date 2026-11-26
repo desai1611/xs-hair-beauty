@@ -17,23 +17,23 @@ export default function AdminLayout() {
   const { admin, logout } = useAuth();
 
   return (
-    <div className="min-h-screen flex bg-pink-50">
-      <aside className="w-64 bg-plum-900 text-white flex-shrink-0 flex flex-col">
-        <div className="px-6 py-6 border-b border-white/10">
+    <div className="min-h-screen flex flex-col lg:flex-row bg-pink-50">
+      <aside className="w-full lg:w-64 bg-plum-900 text-white lg:flex-shrink-0 flex flex-col">
+        <div className="px-6 py-4 lg:py-6 border-b border-white/10">
           <Link to="/" className="flex items-center gap-2.5 font-display text-lg font-bold text-white">
             <span className="w-8 h-8 rounded-full flex items-center justify-center text-plum-900 text-sm font-bold flex-shrink-0"
               style={{ background: 'var(--color-pink-500)' }}>XS</span>
             Admin Panel
           </Link>
         </div>
-        <nav className="flex-1 px-3 py-5 space-y-1">
+        <nav className="flex lg:block gap-1 overflow-x-auto lg:overflow-visible lg:flex-1 px-3 py-3 lg:py-5 lg:space-y-1">
           {links.map((l) => (
             <NavLink
               key={l.to}
               to={l.to}
               end={l.end}
               className={({ isActive }) =>
-                `block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                `block whitespace-nowrap shrink-0 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                   isActive ? 'bg-pink-500 text-plum-900 font-semibold' : 'text-white/70 hover:bg-white/10 hover:text-white'
                 }`
               }
@@ -42,10 +42,12 @@ export default function AdminLayout() {
             </NavLink>
           ))}
         </nav>
-        <div className="px-6 py-5 border-t border-white/10">
-          <p className="text-xs text-white/50 mb-1">Signed in as</p>
-          <p className="text-sm font-semibold mb-3 truncate">{admin?.name || admin?.email}</p>
-          <button onClick={logout} className="btn btn-outline btn-sm w-full justify-center" style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }}>
+        <div className="px-6 py-4 lg:py-5 border-t border-white/10 flex items-center justify-between gap-4 lg:block">
+          <div className="min-w-0">
+            <p className="text-xs text-white/50 mb-1">Signed in as</p>
+            <p className="text-sm font-semibold lg:mb-3 truncate">{admin?.name || admin?.email}</p>
+          </div>
+          <button onClick={logout} className="btn btn-outline btn-sm lg:w-full justify-center shrink-0" style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }}>
             Log Out
           </button>
         </div>

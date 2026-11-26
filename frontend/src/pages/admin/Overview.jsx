@@ -48,7 +48,7 @@ export default function Overview() {
       <h1 className="text-[26px] mb-1">Dashboard Overview</h1>
       <p className="mb-8">Welcome back — here's what's happening at XS Hair &amp; Beauty.</p>
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
         {cards.map((c) => (
           <Link key={c.label} to={c.to} className={`card px-6 py-6 block ${c.accent ? 'border-pink-500' : ''}`}>
             <span className="text-3xl font-display text-pink-700 block">{c.value}</span>
