@@ -4,7 +4,7 @@ import Loader, { ErrorMessage } from '../components/Loader';
 import PageHeader from '../components/PageHeader';
 import CtaBand from '../components/CtaBand';
 import BeforeAfterSlider from '../components/BeforeAfterSlider';
-import { SALON, FRESHA_STATS } from '../config/salon';
+import { SALON, FRESHA_STATS, GOOGLE_STATS } from '../config/salon';
 
 // Shown only until the salon has added real before/after photos via Admin → Gallery.
 const placeholderBeforeAfter = [
@@ -34,10 +34,10 @@ export default function Reviews() {
   const realPairs = groupBeforeAfterPairs(gallery);
   const beforeAfter = realPairs.length > 0 ? realPairs : placeholderBeforeAfter;
 
-  const avg = reviews && reviews.length ? (reviews.reduce((s, r) => s + r.rating, 0) / reviews.length).toFixed(1) : '4.9';
+  // Figures come from the salon's real Fresha listing, not from the handful of reviews shown below.
   const counts = [5, 4, 3, 2, 1].map((star) => ({
     star,
-    pct: reviews && reviews.length ? Math.round((reviews.filter((r) => r.rating === star).length / reviews.length) * 100) : 0,
+    pct: Math.round((FRESHA_STATS.stars[star] / FRESHA_STATS.reviews) * 100),
   }));
 
   return (
@@ -48,7 +48,7 @@ export default function Reviews() {
         <div className="max-w-[1180px] mx-auto">
           <div className="flex flex-wrap items-center gap-7 bg-white border-[1.5px] border-plum-900/10 rounded-[28px] px-8.5 py-7.5 shadow-soft mb-13">
             <div className="font-display text-5xl text-pink-700 leading-none text-center">
-              {avg}<br /><span className="text-gold text-base">★★★★★</span>
+              {FRESHA_STATS.rating}<br /><span className="text-gold text-base">★★★★★</span>
             </div>
             <div className="flex-1 min-w-55">
               {counts.map((c) => (
@@ -62,9 +62,11 @@ export default function Reviews() {
               ))}
             </div>
             <div>
-              <strong className="block text-[15px]">{reviews ? reviews.length : 0}+ Reviews</strong>
-              <span className="text-[13px] text-text-light block">Based on Facebook &amp; in-salon feedback</span>
-              <a href={`${SALON.booking}?reviews=true`} target="_blank" rel="noopener noreferrer" className="inline-block mt-1 py-2 text-[13px] font-bold text-pink-700 underline">{FRESHA_STATS.rating}★ on Fresha — read all {FRESHA_STATS.reviews} reviews →</a>
+              <strong className="block text-[15px]">{FRESHA_STATS.reviews} reviews on Fresha</strong>
+              <span className="text-[13px] text-text-light block">Verified reviews from genuine clients</span>
+              <a href={`${SALON.booking}?reviews=true`} target="_blank" rel="noopener noreferrer" className="inline-block mt-1 py-2 text-[13px] font-bold text-pink-700 underline">Read all {FRESHA_STATS.reviews} reviews on Fresha →</a>
+              <span className="block text-[13px] text-text-light mt-1">{GOOGLE_STATS.rating}★ on Google ({GOOGLE_STATS.reviews} reviews)</span>
+              <a href={GOOGLE_STATS.url} target="_blank" rel="noopener noreferrer" className="inline-block py-2 text-[13px] font-bold text-pink-700 underline">See our Google reviews →</a>
             </div>
           </div>
 
@@ -74,6 +76,9 @@ export default function Reviews() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
               {(reviews || []).map((r) => <TestimonialCard key={r._id} review={r} />)}
             </div>
+          )}
+          {!loading && !error && (
+            <p className="text-center text-[13px] text-text-light mt-8 mb-0">A selection of real reviews from our Fresha and Google pages, in our clients' own words.</p>
           )}
         </div>
       </section>

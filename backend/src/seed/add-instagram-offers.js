@@ -24,13 +24,13 @@ const OFFERS = [
   {
     tag: 'Beauty',
     title: 'Express Facial',
-    description: 'Refresh, rejuvenate, glow: deep cleansing, hydrating care and a relaxing experience. Only $49.',
+    description: 'Refresh, rejuvenate, glow: deep cleansing, hydrating care and a relaxing experience. Only $39.',
     image: '/images/services/basic-facial.jpg',
   },
   {
     tag: 'Beauty',
     title: 'Brazilian Wax',
-    description: 'Smooth skin, long-lasting results, professional and hygienic. Only $49.',
+    description: 'Smooth skin, long-lasting results, professional and hygienic. Only $55.',
     image: '/images/services/legs-waxing.jpg',
   },
   {

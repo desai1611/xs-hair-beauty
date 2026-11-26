@@ -35,4 +35,15 @@ export const DEFAULT_HOURS = [
 ];
 
 // Public numbers from the salon's Fresha page (checked November 2026). Update when they change.
-export const FRESHA_STATS = { rating: '4.8', reviews: 126, services: 66 };
+// Public figures from the salon's Fresha and Google listings (checked 26 Nov 2026).
+export const FRESHA_STATS = {
+  rating: '4.8',
+  reviews: 138,
+  services: 66,
+  stars: { 5: 122, 4: 12, 3: 3, 2: 1, 1: 0 },
+};
+export const GOOGLE_STATS = {
+  rating: '4.6',
+  reviews: 176,
+  url: 'https://www.google.com/maps/search/?api=1&query=Xs+Hair+%26+Beauty-Glenfield+25+Chartwell+Avenue+Glenfield+Auckland',
+};

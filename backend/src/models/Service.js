@@ -6,7 +6,8 @@ const serviceSchema = new mongoose.Schema(
     category: { type: String, enum: ['hair', 'beauty', 'advanced'], required: true },
     description: { type: String, default: '' },
     price: { type: Number, default: null }, // null = "price on consultation"
-    priceNote: { type: String, default: '' }, // e.g. "From", "Starting at"
+    priceNote: { type: String, default: '' }, // e.g. "From", "Only"
+    duration: { type: String, default: '' }, // e.g. "45 min", "2 hr" — as listed on Fresha
     image: { type: String, default: '' },
     isFeatured: { type: Boolean, default: false },
     isActive: { type: Boolean, default: true },

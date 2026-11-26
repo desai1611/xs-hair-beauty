@@ -16,11 +16,14 @@ export default function ServiceCard({ service, premium = false }) {
       </div>
       <div className="px-6 pt-5.5">
         <h3 className="text-[21px] mb-2">{service.name}</h3>
-        <p className="text-sm text-text-light mb-3.5">{service.description}</p>
+        {service.duration && <span className="block text-[12px] font-semibold tracking-wide text-plum-900/55 mb-2">{service.duration}</span>}
+        <p className="text-sm text-text-light mb-3.5 line-clamp-4">{service.description}</p>
       </div>
       <div className="flex justify-between items-center pt-3.5 mx-6 border-t-2 border-dashed border-plum-900/15">
         <span className="font-display font-bold text-[16px] text-pink-700">
-          {service.price != null ? (
+          {service.price === 0 ? (
+            <span>Free</span>
+          ) : service.price != null ? (
             <>
               {service.priceNote || 'From'} ${service.price} <small className="font-sans text-[11px] text-text-light font-normal">NZD</small>
             </>
