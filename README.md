@@ -52,13 +52,18 @@ demosaloon/
 - **Products**: shown with "Price on enquiry"; bridal and party packages are "on request".
 - **Look and feel**: ivory / rose-gold theme, looping background video, translucent
   "liquid glass" sticky header.
-- **Admin dashboard** (`/admin`): login, overview, enquiry inbox with status, and add/edit/delete
-  for Services, Products, Gallery, Offers, Reviews, Transformations and Site Media.
+- **Chat assistant**: a small chat button answers common questions (hours, location, booking,
+  bridal/party, products). Its answers live in `frontend/src/components/ChatWidget.jsx`; keep them
+  in line with the site (booking is via Fresha, bridal/party are on request).
+- **Admin dashboard** (`/admin`): login, overview, enquiry inbox with status (including a
+  **Delete all** button that asks you to type `DELETE`), and add/edit/delete for Services,
+  Products, Gallery, Offers, Reviews, Transformations and Site Media.
 - **Security**: helmet, CORS allow-list, rate limits (login and enquiries 10 per 15 min),
   input validation and sanitising, honeypot field on the enquiry form, security headers on the
   frontend (`frontend/public/_headers`).
-- **SEO**: `robots.txt` (blocks `/admin`), `sitemap.xml`, verified in Google Search Console and
-  Bing Webmaster Tools.
+- **SEO**: every page has its own title and description (`frontend/src/components/PageMeta.jsx`),
+  plus `robots.txt` (blocks `/admin`) and `sitemap.xml`. The site is verified in Google Search
+  Console and Bing Webmaster Tools.
 
 ## Local development
 
@@ -82,7 +87,8 @@ npm run dev               # http://localhost:5173
 The seeded admin login is whatever you set as `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` in
 `backend/.env` before running `npm run seed`. Never keep the default password in production.
 
-Run tests:
+Run tests (backend: Jest + Supertest with an in-memory MongoDB; frontend: Vitest + Testing
+Library). CI runs both on every push:
 
 ```bash
 cd backend && npm test
@@ -132,8 +138,10 @@ backend changes redeploy it.
 
 **Search engines:** the domain is verified in Google Search Console (DNS TXT record) and Bing
 Webmaster Tools (DNS CNAME record). Keep both records in Cloudflare DNS or verification is lost.
-The sitemap at `https://xshairbeauty.nz/sitemap.xml` is submitted to both. Add new public pages
-to `frontend/public/sitemap.xml`.
+The sitemap at `https://xshairbeauty.nz/sitemap.xml` is submitted to both, and indexing was
+requested in Google for all 7 pages (Nov 2026). When you add a new public page, add it to
+`frontend/public/sitemap.xml` and to the `PAGES` list in `PageMeta.jsx`, then use "Request
+indexing" in Search Console for the new URL.
 
 ## Still open
 
