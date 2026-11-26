@@ -37,7 +37,7 @@ export default function Home() {
   const { data: gallery } = useFetch('/gallery?page=home');
   const { data: siteContent } = useFetch('/site-content');
   const { data: allServices } = useFetch('/services');
-  const popular = (allServices || []).filter((s) => s.isPopular).slice(0, 2);
+  const popular = (allServices || []).filter((s) => s.isPopular).slice(0, 3);
   const shortText = (t = '') => (t.length > 170 ? `${t.slice(0, 167).replace(/\s+\S*$/, '')}...` : t);
   const hoursLines = siteContent?.opening_hours?.value
     ? siteContent.opening_hours.value.split(/\r?\n/).filter(Boolean)
@@ -169,8 +169,8 @@ export default function Home() {
         <section className="py-10 sm:py-16 px-3 sm:px-5">
           <div className="max-w-[1240px] mx-auto">
             <SectionHeading eyebrow="Most popular" title="Our clients' favourites"
-              subtitle="The two treatments our clients ask for most. Tap Book to choose your time on Fresha." />
-            <div className="grid md:grid-cols-2 gap-3">
+              subtitle="The treatments our clients ask for most. Tap Book to choose your time on Fresha." />
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
               {popular.map((s) => (
                 <div key={s._id} className="tile reveal bg-plum-900 min-h-[380px] p-7 sm:p-9 flex flex-col justify-end text-white">
                   {s.image && <img src={s.image} alt={s.name} className="absolute inset-0 w-full h-full object-cover object-[50%_30%]" loading="lazy" />}
