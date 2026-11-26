@@ -1,52 +1,86 @@
-# XS Hair & Beauty — Full Stack Website
+# XS Hair & Beauty — Website
 
-A production-ready website for XS Hair & Beauty (Glenfield, Auckland): a React + Vite + Tailwind
-frontend, an Express + MongoDB backend with a JWT-secured admin dashboard, email notifications on
-booking submissions, and a Products page for the salon's retail hair-care range.
+Live site: **https://xshairbeauty.nz**
+
+Website for XS Hair & Beauty salon (25 Chartwell Avenue, Glenfield, Auckland). A React + Vite +
+Tailwind frontend, an Express + MongoDB backend, and a JWT-secured admin dashboard for managing
+the site's content.
+
+## How it works
+
+- Customers browse services, products, reviews and offers, then **book through Fresha** (the
+  salon's booking system) or **enquire via the contact form / WhatsApp / phone**.
+- **Fresha is the source of truth** for services, prices and durations. The site mirrors all 66
+  Fresha services, and reviews shown are real Fresha / Google reviews.
+- Enquiries are saved to MongoDB and appear in the admin dashboard. Automatic emails are
+  deliberately off (Railway's Hobby plan blocks SMTP); the flow is enquiry → WhatsApp hand-off.
+
+## Stack and hosting
+
+| Part | Tech | Hosted on |
+|---|---|---|
+| Frontend (`frontend/`) | React, Vite, Tailwind CSS, React Router, axios | Cloudflare Workers static assets, built from `main` |
+| Backend (`backend/`) | Node 20+, Express 5, Mongoose | Railway |
+| Database | MongoDB | Railway |
+| Domain / DNS / HTTPS | `xshairbeauty.nz` | Cloudflare |
+| CI | GitHub Actions (`.github/workflows/ci.yml`) | GitHub |
+
+Pushing to `main` redeploys automatically: Cloudflare rebuilds the frontend on every push, and
+Railway redeploys the backend only when `backend/**` or the root `package.json` change.
 
 ## Structure
 
 ```
 demosaloon/
-├── frontend/         React + Vite + Tailwind CSS (public site + admin dashboard)
-├── backend/          Node.js + Express + MongoDB (Mongoose) REST API
-├── static-preview/   Original static HTML mockup (kept for reference — not part of the live app)
-└── .github/workflows/ci.yml   Runs backend + frontend tests and the frontend build on every push/PR
+├── frontend/         React + Vite + Tailwind (public site + /admin dashboard)
+│   ├── public/       _headers, robots.txt, sitemap.xml, images, videos, brand logos
+│   ├── wrangler.jsonc  Cloudflare config (SPA fallback so /contact works when opened directly)
+│   └── src/          pages, components, config/salon.js (phone, booking link, ratings)
+├── backend/          Express REST API + Mongoose models
+│   ├── src/          routes, controllers, middleware, models, utils
+│   ├── src/seed/     seed + content import/export scripts
+│   └── tests/        Jest + Supertest
+├── static-preview/   Original static HTML mockup (reference only)
+└── package.json      Root file so Railway can build the backend
 ```
 
-## What's included
+## Features
 
-- **Public site**: Home, Hair Services, Beauty Services, Advanced Beauty, Products, Reviews, Contact
-  — all content-driven from the database (services, products, reviews, gallery, offers).
-- **Booking form**: saves to MongoDB and emails the salon via Nodemailer.
-- **Admin dashboard** (`/admin`): JWT-secured login, overview stats, booking inbox with status
-  tracking, and CRUD screens for Services, Products, Gallery, Offers, and Reviews.
-- **Tests**: 7 backend tests (Jest + Supertest + an in-memory MongoDB), 8 frontend tests (Vitest +
-  Testing Library).
-- **CI**: GitHub Actions runs both test suites and the frontend build on every push/PR to `main`.
+- **Public pages**: Home, Hair Services, Beauty Services, Products, Reviews, Contact, Terms.
+- **Service cards**: duration, "Most popular" badge (Nanoplastia, Keratin Straightening,
+  Brazilian Keratin), expandable descriptions, Book → Fresha.
+- **Products**: shown with "Price on enquiry"; bridal and party packages are "on request".
+- **Look and feel**: ivory / rose-gold theme, looping background video, translucent
+  "liquid glass" sticky header.
+- **Admin dashboard** (`/admin`): login, overview, enquiry inbox with status, and add/edit/delete
+  for Services, Products, Gallery, Offers, Reviews, Transformations and Site Media.
+- **Security**: helmet, CORS allow-list, rate limits (login and enquiries 10 per 15 min),
+  input validation and sanitising, honeypot field on the enquiry form, security headers on the
+  frontend (`frontend/public/_headers`).
+- **SEO**: `robots.txt` (blocks `/admin`), `sitemap.xml`, verified in Google Search Console and
+  Bing Webmaster Tools.
 
 ## Local development
 
-Prerequisites: Node 20+, a MongoDB instance (local `mongod` or an Atlas connection string).
+Prerequisites: Node 20+ and a MongoDB instance (local `mongod` or a connection string).
 
 ```bash
 # Backend
 cd backend
-cp .env.example .env      # edit values as needed — local MongoDB works out of the box
+cp .env.example .env      # edit values as needed
 npm install
-npm run seed               # populates services/products/reviews/gallery/offers + one admin user
-npm run dev                 # http://localhost:5000
+npm run seed              # sample content + one admin user
+npm run dev               # http://localhost:5000
 
 # Frontend (separate terminal)
 cd frontend
 cp .env.example .env
 npm install
-npm run dev                 # http://localhost:5173
+npm run dev               # http://localhost:5173
 ```
 
-Seeded admin login: whatever you set as `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` in
-`backend/.env` before running `npm run seed` (defaults to `admin@xshairandbeauty.co.nz` /
-`change-this-password` — **change this password on first login and before going live**).
+The seeded admin login is whatever you set as `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` in
+`backend/.env` before running `npm run seed`. Never keep the default password in production.
 
 Run tests:
 
@@ -55,106 +89,54 @@ cd backend && npm test
 cd frontend && npm test
 ```
 
----
+## Environment variables
 
-## Deployment runbook
+Backend (`backend/.env.example` lists all of them): `MONGO_URI`, `JWT_SECRET`, `JWT_EXPIRES_IN`,
+`NODE_ENV`, `CLIENT_ORIGIN` (comma-separated allowed origins: localhost, `xshairbeauty.nz`,
+`www.xshairbeauty.nz`), plus optional email settings (`RESEND_API_KEY` + `EMAIL_FROM_ADDRESS`,
+or SMTP `EMAIL_*`). With no email settings, emails are simply skipped.
 
-Everything below is written so you (or the client) can follow it step by step. These are external
-accounts and a domain purchase, so they need to be done by a human with billing access — I can't
-create accounts or spend money on your behalf, but the codebase is ready to plug straight in.
+Frontend (`frontend/.env.example`): `VITE_API_URL` (backend API base, ending in `/api`) and the
+`VITE_SALON_*` contact details.
 
-### 1. MongoDB Atlas (database — free tier)
+## Managing content in production
 
-1. Create a free account at mongodb.com/atlas and create a new **M0 (free)** cluster.
-2. Database Access → add a database user (username/password, not your Atlas login).
-3. Network Access → add IP `0.0.0.0/0` (allow from anywhere) — simplest for Railway's dynamic IPs.
-4. Clusters → Connect → "Drivers" → copy the connection string, e.g.
-   `mongodb+srv://<user>:<password>@cluster0.xxxxx.mongodb.net/xs-hair-beauty?retryWrites=true&w=majority`
-5. Keep this string handy for step 2's `MONGO_URI`.
+Content is edited in the admin dashboard or synced from a local database:
 
-### 2. Backend on Railway
+1. Edit content locally, then run `node backend/src/seed/export-content.js`. This writes
+   `content.json` and copies uploaded images to `frontend/public/uploads`.
+2. Commit and push.
+3. In the Railway console for the backend, run `node src/seed/import-content.js --apply`. This
+   is idempotent and replaces services, products, offers, gallery, reviews and site content only.
+   It never touches enquiries or admin accounts.
 
-1. Push this repo to GitHub (see "Getting this onto GitHub" below if you haven't yet).
-2. railway.app → New Project → Deploy from GitHub repo → select this repo.
-3. Set the service's **root directory** to `backend`.
-4. Add environment variables (Settings → Variables) — copy every key from `backend/.env.example`:
-   - `MONGO_URI` — from step 1
-   - `JWT_SECRET` — generate with `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`
-   - `CLIENT_ORIGIN` — your Vercel frontend URL once you have it (step 3); update after deploying the frontend
-   - `EMAIL_HOST`, `EMAIL_PORT`, `EMAIL_SECURE`, `EMAIL_USER`, `EMAIL_PASS`, `SALON_NOTIFICATION_EMAIL` — see step 5
-   - `SEED_ADMIN_*` — only needed when you run the seed script
-5. Railway auto-detects the `start` script (`npm start` → `node server.js`) — deploy.
-6. Once live, note the public URL (e.g. `https://xs-hair-beauty-api.up.railway.app`).
-7. Run the seed script once against production: easiest is to temporarily set your local
-   `backend/.env` `MONGO_URI` to the Atlas string and run `npm run seed` from your machine.
+Other maintenance scripts in `backend/src/seed/`:
 
-### 3. Frontend on Vercel
+- `reset-admin-password.js` — set a new admin password (hidden prompt, 10+ characters).
+- `sync-fresha-services.js` — rebuild services from `fresha-services.json`.
+- `replace-reviews.js`, `replace-products.js` — load the real reviews and products.
 
-1. vercel.com → New Project → import the same GitHub repo.
-2. Set the project's **root directory** to `frontend` (Vercel reads `frontend/vercel.json` for
-   the SPA rewrite rule already included in this repo).
-3. Environment variables (copy from `frontend/.env.example`):
-   - `VITE_API_URL` → `https://<your-railway-url>/api`
-   - `VITE_SALON_PHONE_DISPLAY`, `VITE_SALON_PHONE_TEL`, `VITE_SALON_WHATSAPP`, `VITE_SALON_ADDRESS`, `VITE_SALON_FACEBOOK`
-4. Deploy. Then go back to Railway and set `CLIENT_ORIGIN` to this Vercel URL so CORS allows it.
+On Railway the console needs node on the PATH first:
+`export $(tr '\0' '\n' < /proc/1/environ | grep '^PATH=') && node src/seed/<script>.js`
 
-### 4. Domain name
+## Deployment
 
-1. Buy the domain from any registrar (e.g. Namecheap, GoDaddy, or via Vercel's own domain
-   purchase flow) — this is a real purchase only you/the client can make.
-2. In the Vercel project → Settings → Domains → add the domain, then add the DNS records Vercel
-   shows you at your registrar (usually an `A` record to Vercel's IP or a `CNAME`).
-3. Optional: give the API its own subdomain (e.g. `api.xshairandbeauty.co.nz`) pointed at Railway
-   via a `CNAME`, configured in Railway's domain settings. Otherwise the Railway-issued URL works fine.
+**Frontend (Cloudflare):** connect the GitHub repo, set the root directory to `frontend`, build
+command `npm run build`, and deploy with the included `wrangler.jsonc`. Add `VITE_API_URL` as a
+build variable. Cloudflare "Always Use HTTPS" is on, and a redirect rule sends `www` to the bare
+domain.
 
-### 5. Email notifications (Gmail example)
+**Backend (Railway):** deploy from the same repo with the root directory `backend`, add the
+environment variables above, and set Watch Paths to `/backend/**` and `/package.json` so only
+backend changes redeploy it.
 
-1. On the Gmail account the salon wants notifications sent to/from: enable 2-Step Verification
-   (Google Account → Security).
-2. Google Account → Security → App Passwords → generate one for "Mail".
-3. In Railway's backend environment variables:
-   - `EMAIL_HOST=smtp.gmail.com`, `EMAIL_PORT=465`, `EMAIL_SECURE=true`
-   - `EMAIL_USER=<the gmail address>`, `EMAIL_PASS=<the 16-character app password>`
-   - `SALON_NOTIFICATION_EMAIL=<where booking alerts should land>`
-4. Submit a test booking on the live site and confirm the email arrives — the admin dashboard's
-   Bookings panel also shows "✅ email sent" / "⚠️ email not sent" per enquiry so you can verify.
+**Search engines:** the domain is verified in Google Search Console (DNS TXT record) and Bing
+Webmaster Tools (DNS CNAME record). Keep both records in Cloudflare DNS or verification is lost.
+The sitemap at `https://xshairbeauty.nz/sitemap.xml` is submitted to both. Add new public pages
+to `frontend/public/sitemap.xml`.
 
-### 6. CI/CD
+## Still open
 
-- **CI** is already active: `.github/workflows/ci.yml` runs both test suites and the frontend
-  build on every push and pull request to `main`.
-- **CD**: once the Vercel and Railway projects are connected to the GitHub repo (steps 2–3), both
-  redeploy automatically on every push to `main` — no extra setup needed.
-
-### Getting this onto GitHub
-
-```bash
-cd D:\demosaloon
-git init
-git add .
-git commit -m "Initial commit: XS Hair & Beauty full-stack site"
-git branch -M main
-git remote add origin <your-empty-github-repo-url>
-git push -u origin main
-```
-
----
-
-## Before going live — content checklist
-
-The seed data uses placeholder values from the requirements brief. Confirm/replace these with the
-client before launch (most can be edited straight from the admin dashboard):
-
-- [x] Real phone number and WhatsApp number (022 342 3964)
-- [ ] Real business email (currently placeholder `hello@xshairandbeauty.co.nz`)
-- [ ] Confirmed opening hours (currently placeholder Mon–Sat 9–6)
-- [ ] Confirmed address for the Google Maps embed (currently `23 Chartwell Avenue, Glenfield, Auckland 0629`)
-- [ ] Real service list + final pricing (Admin → Services)
-- [ ] Real product list + pricing (Admin → Products)
-- [ ] Real photos for services, gallery, before/afters, and products (Admin panels accept image
-      URLs; wire up a host like Cloudinary/S3 for production image uploads, or use the built-in
-      `/api/uploads` endpoint for small-scale local file storage)
-- [ ] Real customer reviews (Admin → Reviews)
-- [ ] Current offers/promotions (Admin → Offers)
-- [ ] Change the seeded admin password
-- [ ] Instagram link, if the client wants it added alongside Facebook
+- Real before/after photos (placeholders are shown on the Reviews page)
+- Real product prices (currently "Price on enquiry")
+- Google Business Profile website set to `https://xshairbeauty.nz` (owner to do)
