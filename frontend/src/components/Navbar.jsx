@@ -18,7 +18,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-[100] px-3 sm:px-5 pt-3">
       <div className="max-w-[1240px] mx-auto relative">
-        <div className="bg-white/90 backdrop-blur-md rounded-full border-[1.5px] border-plum-900/10 shadow-soft pl-5 pr-2.5 py-2 flex items-center justify-between gap-4">
+        <div className="glass-bar rounded-full pl-5 pr-2.5 py-2 flex items-center justify-between gap-4">
           <Link to="/" className="flex items-center flex-shrink-0 whitespace-nowrap" aria-label="XS Hair & Beauty — home" onClick={() => setOpen(false)}>
             <img src={logo} alt="XS Hair & Beauty Salon — Your Look, Our Art" className="h-11 lg:h-12 w-auto object-contain" />
           </Link>
@@ -55,7 +55,7 @@ export default function Navbar() {
         </div>
 
         {open && (
-          <nav className="lg:hidden absolute left-0 right-0 top-[calc(100%+8px)] bg-white rounded-[28px] border-[1.5px] border-plum-900/10 shadow-lg p-3 flex flex-col" aria-label="Mobile">
+          <nav className="lg:hidden absolute left-0 right-0 top-[calc(100%+8px)] glass-menu rounded-[28px] p-3 flex flex-col" aria-label="Mobile">
             {links.map((l) => (
               <NavLink
                 key={l.to}

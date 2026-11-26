@@ -225,6 +225,30 @@ html {
   background: rgba(250, 247, 242, 0.8);
 }
 
+/* "Liquid glass" for the sticky header and mobile menu: translucent, blurred, with a soft
+   light edge so page content shows through as it scrolls underneath. */
+.glass-bar {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.28));
+  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  backdrop-filter: blur(18px) saturate(1.6);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 8px 28px rgba(42, 21, 34, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.25);
+}
+.glass-menu {
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(22px) saturate(1.6);
+  backdrop-filter: blur(22px) saturate(1.6);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 12px 32px rgba(42, 21, 34, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-bar { background: rgba(255, 255, 255, 0.92); }
+  .glass-menu { background: rgba(255, 255, 255, 0.97); }
+}
+
 @keyframes marquee {
   to {
     transform: translateX(-100%);
