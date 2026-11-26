@@ -78,4 +78,10 @@ const deleteBooking = asyncHandler(async (req, res) => {
   res.json({ message: 'Booking deleted' });
 });
 
-module.exports = { createBooking, getBookings, updateBookingStatus, deleteBooking };
+// Admin: removes every enquiry at once (used to clear out test or old enquiries).
+const deleteAllBookings = asyncHandler(async (req, res) => {
+  const result = await Booking.deleteMany({});
+  res.json({ message: 'All bookings deleted', deleted: result.deletedCount });
+});
+
+module.exports = { createBooking, getBookings, updateBookingStatus, deleteBooking, deleteAllBookings };

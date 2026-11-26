@@ -52,6 +52,22 @@ export default function BookingsPanel() {
     }
   }
 
+  async function removeAll() {
+    if (bookings.length === 0) return;
+    const typed = window.prompt(
+      `This permanently deletes ALL ${bookings.length} enquiries, whatever their status. It cannot be undone.
+
+Type DELETE to confirm.`
+    );
+    if (typed !== 'DELETE') return;
+    try {
+      await api.delete('/bookings');
+      setBookings([]);
+    } catch (err) {
+      alert(extractErrorMessage(err));
+    }
+  }
+
   const filtered = filter === 'all' ? bookings : bookings.filter((b) => b.status === filter);
 
   return (
@@ -73,6 +89,14 @@ export default function BookingsPanel() {
               {f}
             </button>
           ))}
+          {bookings.length > 0 && (
+            <button
+              onClick={removeAll}
+              className="px-4 py-2 rounded-full text-xs font-semibold border border-red-300 text-red-600 hover:bg-red-50"
+            >
+              Delete all
+            </button>
+          )}
         </div>
       </div>
 

@@ -5,6 +5,7 @@ const {
   getBookings,
   updateBookingStatus,
   deleteBooking,
+  deleteAllBookings,
 } = require('../controllers/bookingController');
 const { protect } = require('../middleware/auth');
 const { validate } = require('../middleware/validate');
@@ -24,6 +25,7 @@ const bookingLimiter = rateLimit({
 router.post('/', bookingLimiter, bookingValidator, validate, createBooking);
 router.get('/', protect, getBookings);
 router.patch('/:id', protect, updateBookingStatus);
+router.delete('/', protect, deleteAllBookings);
 router.delete('/:id', protect, deleteBooking);
 
 module.exports = router;
