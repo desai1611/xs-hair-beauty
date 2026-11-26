@@ -16,7 +16,7 @@ function buildKnowledgeBase(hoursText) {
     },
     {
       keywords: ['book', 'appointment', 'schedule', 'reserve'],
-      answer: `You can book in two ways: fill out the booking form on our Contact page, or message us directly on WhatsApp — whichever's easier for you!`,
+      answer: `The quickest way is to book online on Fresha with instant confirmation — tap "Book Now" at the top of the page. Prefer to chat? Send an enquiry from our Contact page or message us on WhatsApp.`,
     },
     {
       keywords: ['phone', 'call', 'number', 'contact'],
@@ -24,7 +24,7 @@ function buildKnowledgeBase(hoursText) {
     },
     {
       keywords: ['price', 'cost', 'how much', 'charge', 'fee'],
-      answer: `Pricing varies by service — check the Hair Services, Beauty Services, or Advanced Beauty pages for our price list, or message us on WhatsApp for a quick quote.`,
+      answer: `Every service on our Hair Services and Beauty Services pages shows its price and how long it takes. Products are priced on enquiry — message us on WhatsApp for a quick quote.`,
     },
     {
       keywords: ['hair', 'cut', 'colour', 'color', 'keratin', 'balayage', 'highlight'],
@@ -36,19 +36,19 @@ function buildKnowledgeBase(hoursText) {
     },
     {
       keywords: ['bridal', 'wedding', 'bride'],
-      answer: `We'd love to be part of your big day! Our Bridal Package includes hair styling & trial, a pre-wedding glow facial, and bridal party grooming. Check the Advanced Beauty page or message us to enquire.`,
+      answer: `We'd love to be part of your big day! Bridal packages are arranged on request — tell us your date and what you have in mind on WhatsApp or by phone, and we'll put a package together from our hair and beauty services.`,
     },
     {
       keywords: ['party', 'birthday', 'event', 'occasion'],
-      answer: `Our Party Package covers event hair styling, an express glow facial, and brow/face threading touch-ups — perfect for birthdays and celebrations. See the Advanced Beauty page for more.`,
+      answer: `Party packages are arranged on request too. Message us on WhatsApp with the occasion and the number of guests, and we'll suggest a mix of our hair and beauty services.`,
     },
     {
       keywords: ['product', 'shop', 'buy', 'shampoo', 'conditioner'],
-      answer: `We sell hair care & styling products in-salon — check out the Products page and message us on WhatsApp to purchase or check availability.`,
+      answer: `We sell hair care products in-salon — see the Products page, and message us on WhatsApp for prices and availability.`,
     },
     {
       keywords: ['review', 'rating', 'testimonial'],
-      answer: `We're rated highly by our clients! Check out the Reviews page to read what people are saying and see real before & after results.`,
+      answer: `We're rated 4.8 on Fresha and 4.6 on Google. The Reviews page has real reviews from our clients.`,
     },
     {
       keywords: ['cancel', 'reschedule', 'change appointment'],
