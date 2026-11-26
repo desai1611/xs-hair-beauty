@@ -21,6 +21,7 @@ export default function Contact() {
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errorMsg, setErrorMsg] = useState('');
   const [whatsappLink, setWhatsappLink] = useState('');
+  const [confirmationEmailed, setConfirmationEmailed] = useState(false);
   const messageRef = useRef(null);
   const { data: siteContent } = useFetch('/site-content');
 
@@ -45,7 +46,8 @@ export default function Contact() {
     setStatus('submitting');
     setErrorMsg('');
     try {
-      await api.post('/bookings', form);
+      const res = await api.post('/bookings', form);
+      setConfirmationEmailed(Boolean(res.data?.booking?.customerEmailSent));
       setStatus('success');
 
       // Hand off to WhatsApp with the enquiry pre-filled, so it also reaches
@@ -114,7 +116,7 @@ export default function Contact() {
 
               {status === 'success' && (
                 <div ref={messageRef} role="status" className="bg-lime/40 border border-plum-900/15 text-plum-900 px-4.5 py-3.5 rounded-2xl text-sm mb-4.5">
-                  <p className="font-semibold mb-2">Thank you for your enquiry — we will get back to you soon. We've also sent a confirmation email to the address you entered (check your spam folder if you don't see it).</p>
+                  <p className="font-semibold mb-2">Thank you for your enquiry — we will get back to you soon.{confirmationEmailed && " We've also sent a confirmation email to the address you entered (check your spam folder if you don't see it)."}</p>
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn btn-gold btn-sm">
                     💬 Also message us on WhatsApp
                   </a>

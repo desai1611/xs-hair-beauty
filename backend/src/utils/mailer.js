@@ -1,12 +1,25 @@
 const nodemailer = require('nodemailer');
 
+// Email can go out two ways:
+//  1. Resend (an email service used over HTTPS) when RESEND_API_KEY is set. This is the one to use on
+//     Railway's Hobby plan, which blocks SMTP. Mail is sent from EMAIL_FROM_ADDRESS, an address on a
+//     domain verified in Resend (for example bookings@xshairbeauty.nz).
+//  2. Plain SMTP (EMAIL_HOST / EMAIL_USER / EMAIL_PASS) otherwise, e.g. Gmail on a normal server.
+// If neither is configured, booking emails are skipped and the booking is still saved.
 let transporter = null;
+
+function usingResend() {
+  return Boolean(process.env.RESEND_API_KEY);
+}
+
+function fromAddress() {
+  return process.env.EMAIL_FROM_ADDRESS || process.env.EMAIL_USER;
+}
 
 function getTransporter() {
   if (transporter) return transporter;
 
   if (!process.env.EMAIL_HOST || !process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-    console.warn('Email is not configured (EMAIL_HOST/EMAIL_USER/EMAIL_PASS missing) — booking emails will be skipped.');
     return null;
   }
 
@@ -23,10 +36,49 @@ function getTransporter() {
   return transporter;
 }
 
+function emailConfigured() {
+  if (usingResend()) return Boolean(fromAddress());
+  return Boolean(getTransporter());
+}
+
+let warned = false;
+function warnOnce() {
+  if (warned) return;
+  warned = true;
+  console.warn('Email is not configured (set RESEND_API_KEY + EMAIL_FROM_ADDRESS, or EMAIL_HOST/EMAIL_USER/EMAIL_PASS) — booking emails will be skipped.');
+}
+
+// Sends one email by whichever method is configured. Throws if the provider rejects it.
+async function deliver({ fromName, to, replyTo, subject, html }) {
+  const from = `"${fromName}" <${fromAddress()}>`;
+
+  if (usingResend()) {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ from, to: [to], reply_to: replyTo, subject, html }),
+    });
+    if (!res.ok) {
+      // keep the provider's reason for the logs, never the key
+      const detail = await res.text().catch(() => '');
+      throw new Error(`Resend rejected the email (${res.status}): ${detail.slice(0, 300)}`);
+    }
+    return true;
+  }
+
+  await getTransporter().sendMail({ from, to, replyTo, subject, html });
+  return true;
+}
+
 async function sendBookingNotification(booking) {
-  const t = getTransporter();
   const to = process.env.SALON_NOTIFICATION_EMAIL || process.env.EMAIL_USER;
-  if (!t || !to) return false;
+  if (!emailConfigured() || !to) {
+    warnOnce();
+    return false;
+  }
 
   const html = `
     <div style="font-family:sans-serif; max-width:520px;">
@@ -42,20 +94,20 @@ async function sendBookingNotification(booking) {
     </div>
   `;
 
-  await t.sendMail({
-    from: `"XS Hair & Beauty Website" <${process.env.EMAIL_USER}>`,
+  return deliver({
+    fromName: 'XS Hair & Beauty Website',
     to,
     replyTo: booking.email,
     subject: `New booking enquiry from ${booking.name}`,
     html,
   });
-
-  return true;
 }
 
 async function sendCustomerConfirmation(booking) {
-  const t = getTransporter();
-  if (!t) return false;
+  if (!emailConfigured()) {
+    warnOnce();
+    return false;
+  }
 
   const phone = process.env.SALON_PHONE_DISPLAY || '022 435 9610';
   const whatsapp = process.env.SALON_WHATSAPP || '64224359610';
@@ -77,15 +129,13 @@ async function sendCustomerConfirmation(booking) {
     </div>
   `;
 
-  await t.sendMail({
-    from: `"XS Hair & Beauty" <${process.env.EMAIL_USER}>`,
+  return deliver({
+    fromName: 'XS Hair & Beauty',
     to: booking.email,
     replyTo: salonEmail,
     subject: 'Thank you for your enquiry — XS Hair & Beauty',
     html,
   });
-
-  return true;
 }
 
 function escapeHtml(str = '') {
