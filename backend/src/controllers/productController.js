@@ -1,12 +1,13 @@
 const Product = require('../models/Product');
 const asyncHandler = require('../utils/asyncHandler');
+const { escapeRegex } = require('../utils/escapeRegex');
 
 // GET /api/products?search=shampoo
 const getProducts = asyncHandler(async (req, res) => {
   const { search, category } = req.query;
   const filter = { isActive: true };
-  if (category) filter.category = category;
-  if (search) filter.name = { $regex: search, $options: 'i' };
+  if (category) filter.category = String(category); // always a plain string, never an object
+  if (search) filter.name = { $regex: escapeRegex(search), $options: 'i' };
 
   const products = await Product.find(filter).sort({ order: 1, createdAt: 1 });
   res.json(products);

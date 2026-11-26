@@ -3,8 +3,10 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const path = require('path');
+const mongoose = require('mongoose');
 
 const { notFound, errorHandler } = require('./middleware/errorHandler');
+const { sanitizeInput } = require('./middleware/sanitize');
 
 const authRoutes = require('./routes/authRoutes');
 const serviceRoutes = require('./routes/serviceRoutes');
@@ -33,7 +35,9 @@ app.use(
   cors({
     origin: (origin, cb) => {
       if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
-      cb(new Error(`CORS blocked for origin: ${origin}`));
+      const err = new Error('Origin not allowed');
+      err.statusCode = 403;
+      cb(err);
     },
     credentials: true,
   })
@@ -41,6 +45,7 @@ app.use(
 
 app.use(express.json({ limit: '2mb' }));
 app.use(express.urlencoded({ extended: true }));
+app.use(sanitizeInput); // strip Mongo operator keys ($ne, $gt, ...) from body/query/params
 if (process.env.NODE_ENV !== 'test') {
   app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 }
@@ -48,8 +53,15 @@ if (process.env.NODE_ENV !== 'test') {
 // Serve uploaded images
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
+// Used by uptime monitors: 200 only when the API is up AND can reach the database.
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', service: 'xs-hair-beauty-api', time: new Date().toISOString() });
+  const dbUp = mongoose.connection.readyState === 1;
+  res.status(dbUp ? 200 : 503).json({
+    status: dbUp ? 'ok' : 'degraded',
+    database: dbUp ? 'connected' : 'unavailable',
+    service: 'xs-hair-beauty-api',
+    time: new Date().toISOString(),
+  });
 });
 
 app.use('/api/auth', authRoutes);

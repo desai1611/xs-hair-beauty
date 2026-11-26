@@ -7,6 +7,8 @@ const {
   deleteBooking,
 } = require('../controllers/bookingController');
 const { protect } = require('../middleware/auth');
+const { validate } = require('../middleware/validate');
+const { bookingValidator } = require('../middleware/validators');
 
 const router = express.Router();
 
@@ -19,7 +21,7 @@ const bookingLimiter = rateLimit({
   legacyHeaders: false,
 });
 
-router.post('/', bookingLimiter, createBooking);
+router.post('/', bookingLimiter, bookingValidator, validate, createBooking);
 router.get('/', protect, getBookings);
 router.patch('/:id', protect, updateBookingStatus);
 router.delete('/:id', protect, deleteBooking);
