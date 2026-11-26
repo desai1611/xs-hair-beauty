@@ -132,6 +132,12 @@ command `npm run build`, and deploy with the included `wrangler.jsonc`. Add `VIT
 build variable. Cloudflare "Always Use HTTPS" is on, and a redirect rule sends `www` to the bare
 domain.
 
+**Old Vercel copy:** the site was first deployed on Vercel (`xs-hair-beauty.vercel.app`). That
+project still exists, so `frontend/vercel.json` permanently redirects every path to
+`https://xshairbeauty.nz`. This avoids a duplicate copy of the site in search results. Cloudflare
+ignores this file. The Vercel project can be deleted in Vercel (Project, Settings, Delete) once you
+no longer need the old address; if you do, `vercel.json` can go too.
+
 **Backend (Railway):** deploy from the same repo with the root directory `backend`, add the
 environment variables above, and set Watch Paths to `/backend/**` and `/package.json` so only
 backend changes redeploy it.
