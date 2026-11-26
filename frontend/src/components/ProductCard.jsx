@@ -18,7 +18,11 @@ export default function ProductCard({ product }) {
       </div>
       <div className="flex justify-between items-center pt-3.5 mx-6 border-t-2 border-dashed border-plum-900/15">
         <span className="font-display font-bold text-[16px] text-pink-700">
-          ${product.price.toFixed(2)} <small className="font-sans text-[11px] text-text-light font-normal">NZD</small>
+          {product.price != null ? (
+            <>${product.price.toFixed(2)} <small className="font-sans text-[11px] text-text-light font-normal">NZD</small></>
+          ) : (
+            <span className="text-sm font-sans font-semibold">Price on enquiry</span>
+          )}
         </span>
         {product.inStock ? (
           <a

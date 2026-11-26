@@ -6,7 +6,7 @@ const productSchema = new mongoose.Schema(
     brand: { type: String, default: '' },
     category: { type: String, default: 'Hair Care' },
     description: { type: String, default: '' },
-    price: { type: Number, required: true },
+    price: { type: Number, default: null }, // null = "price on enquiry"
     image: { type: String, default: '' },
     inStock: { type: Boolean, default: true },
     isActive: { type: Boolean, default: true },

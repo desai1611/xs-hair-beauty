@@ -26,7 +26,7 @@ export default function BeautyServices() {
         title="Threading, waxing, facials & premium packages"
         image="/images/stock/facial-glow.jpg"
         imagePosition="50% 45%"
-        subtitle="Clean, comfortable beauty treatments plus elevated facials, glow treatments, and bespoke bridal & party packages — all in one place."
+        subtitle="Clean, comfortable beauty treatments plus elevated facials, glow treatments, and bridal & party packages on request — all in one place."
       />
 
       {/* EVERYDAY BEAUTY SERVICES */}
@@ -110,15 +110,15 @@ export default function BeautyServices() {
             )}
           </div>
           <div>
-            <span className="eyebrow">Bridal</span>
-            <h2 className="text-3xl mb-3">Bridal Package</h2>
-            <p className="text-text-light mb-6">A complete beauty experience for your big day — trial session, bridal hair styling, makeup, glow facial, and touch-ups for the bridal party.</p>
+            <span className="eyebrow">Bridal · on request</span>
+            <h2 className="text-3xl mb-3">Bridal packages, on request</h2>
+            <p className="text-text-light mb-6">Getting married? Tell us your date and what you have in mind, and we'll put together a package from our hair, facial, threading and waxing services for you and your bridal party. Bridal packages are arranged on request.</p>
             <ul className="mb-6">
-              {['Bridal hair styling & trial', 'Pre-wedding glow facial', 'Bridal party threading & grooming', 'On-the-day touch-up kit'].map((item, i, arr) => (
+              {['Hair styling and colour', 'Pre-wedding facial and skin treatments', 'Threading, waxing and brow shaping', 'Bridal party bookings welcome'].map((item, i, arr) => (
                 <li key={item} className={`py-2 ${i < arr.length - 1 ? 'border-b border-dashed border-pink-200' : ''}`}>✔ {item}</li>
               ))}
             </ul>
-            <a href={waLink('Hi! I would like to enquire about a bridal package.')} target="_blank" rel="noopener noreferrer" className="btn btn-gold">Enquire About Bridal Packages</a>
+            <a href={waLink('Hi! I would like to enquire about a bridal package.')} target="_blank" rel="noopener noreferrer" className="btn btn-gold">Ask About Bridal Packages</a>
           </div>
         </div>
       </section>
@@ -127,15 +127,15 @@ export default function BeautyServices() {
       <section className="py-20 px-6">
         <div className="max-w-[1180px] mx-auto grid lg:grid-cols-2 gap-11 items-center">
           <div className="lg:order-2">
-            <span className="eyebrow">Party &amp; Occasion</span>
-            <h2 className="text-3xl mb-3">Party Package</h2>
-            <p className="text-text-light mb-6">Get glam-ready for birthdays, graduations, and celebrations with a styling, glow facial, and threading combo designed to fit your schedule.</p>
+            <span className="eyebrow">Party &amp; Occasion · on request</span>
+            <h2 className="text-3xl mb-3">Party packages, on request</h2>
+            <p className="text-text-light mb-6">Birthdays, graduations or a special night out? Ask us about a custom combination of styling, a facial and brow or face threading. Party packages are arranged on request: message us with your date and we'll confirm what's possible.</p>
             <ul className="mb-6">
-              {['Event hair styling', 'Express glow facial', 'Brow & face threading touch-up'].map((item, i, arr) => (
+              {['Hair styling for your event', 'Express facial', 'Brow & face threading touch-up'].map((item, i, arr) => (
                 <li key={item} className={`py-2 ${i < arr.length - 1 ? 'border-b border-dashed border-pink-200' : ''}`}>✔ {item}</li>
               ))}
             </ul>
-            <a href={waLink('Hi! I would like to enquire about a party package.')} target="_blank" rel="noopener noreferrer" className="btn btn-gold">Enquire About Party Packages</a>
+            <a href={waLink('Hi! I would like to enquire about a party package.')} target="_blank" rel="noopener noreferrer" className="btn btn-gold">Ask About Party Packages</a>
           </div>
           <div className="lg:order-1 rounded-[32px] aspect-[4/3] overflow-hidden">
             {partyImage ? (
@@ -168,7 +168,7 @@ export default function BeautyServices() {
         </div>
       </section>
 
-      <CtaBand title="Plan your treatment" subtitle="Threading, waxing, a facial, or a bridal/party package — send us a message and we'll find a time that works." />
+      <CtaBand title="Plan your treatment" subtitle="Threading, waxing, a facial, or a bridal/party package — send us a message and we'll find a time that works. Bridal & party packages are available on request." />
     </>
   );
 }

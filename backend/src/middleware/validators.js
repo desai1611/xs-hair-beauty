@@ -32,7 +32,7 @@ const serviceUpdateValidator = serviceCreateValidator.map((chain) => chain.optio
 
 const productCreateValidator = [
   body('name').trim().notEmpty().withMessage('Name is required').isLength({ max: 150 }).withMessage('Name is too long'),
-  body('price').isFloat({ min: 0 }).withMessage('Price must be a positive number'),
+  body('price').optional({ nullable: true, checkFalsy: true }).isFloat({ min: 0 }).withMessage('Price must be a positive number'),
   body('brand').optional({ checkFalsy: true }).trim().isLength({ max: 100 }),
   body('category').optional({ checkFalsy: true }).trim().isLength({ max: 100 }),
   body('description').optional({ checkFalsy: true }).trim().isLength({ max: 2000 }),

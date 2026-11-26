@@ -1,0 +1,12 @@
+{
+  "source": "Products visible on the salon's own shelves (photo supplied by the owner, 26 Nov 2026). No prices are listed - customers enquire for them.",
+  "products": [
+    { "name": "Protein Brazilian Shampoo & Conditioner", "brand": "", "category": "Hair Care", "description": "Protein Brazilian shampoo and conditioner in black boxes, available in the salon. Ask our team what it is best for.", "image": "/images/products/protein-brazilian.jpg" },
+    { "name": "Collagen Hair Care", "brand": "", "category": "Hair Care", "description": "Collagen range in gold boxes, available in the salon. Ask our team how to use it.", "image": "/images/products/collagen.jpg" },
+    { "name": "9+3 Hair Treatment", "brand": "", "category": "Hair Care", "description": "9+3 hair treatment in green boxes, available in the salon. Ask us whether it suits your hair.", "image": "/images/products/nine-plus-three.jpg" },
+    { "name": "Argan Oil Shampoo & Mask", "brand": "", "category": "Hair Care", "description": "Argan oil shampoo and hair masks, available in the salon.", "image": "/images/products/argan-oil.jpg" },
+    { "name": "Purple Shampoo & Conditioner", "brand": "", "category": "Hair Care", "description": "Purple-label shampoo and conditioner, available in the salon. Ask our team what it is best for.", "image": "/images/products/purple-shampoo.jpg" },
+    { "name": "Keune Care Range", "brand": "Keune", "category": "Hair Care", "description": "Keune Care shampoos, conditioners and leave-in sprays, available in the salon.", "image": "/images/products/keune-care.jpg" },
+    { "name": "Silver Bullet Keratin 230 Titanium Straightener", "brand": "Silver Bullet", "category": "Styling", "description": "Professional titanium straightening iron.", "image": "/images/products/silver-bullet.jpg" }
+  ]
+}

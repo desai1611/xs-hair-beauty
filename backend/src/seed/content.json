@@ -1456,128 +1456,149 @@
   "products": [
     {
       "_id": {
-        "$oid": "6a999133eedabe722e8cfbe0"
+        "$oid": "6b078988ad0cca7defbcb8ec"
       },
-      "name": "Nourishing Argan Shampoo",
+      "name": "Protein Brazilian Shampoo & Conditioner",
       "brand": "",
       "category": "Hair Care",
-      "description": "Sulphate-free shampoo for dry and damaged hair.",
-      "price": 28,
-      "image": "/uploads/1789690133634-869874632.jpg",
+      "description": "Protein Brazilian shampoo and conditioner in black boxes, available in the salon. Ask our team what it is best for.",
+      "price": null,
+      "image": "/images/products/protein-brazilian.jpg",
       "inStock": true,
       "isActive": true,
       "order": 1,
       "__v": 0,
       "createdAt": {
-        "$date": "2026-09-03T15:24:35.320Z"
+        "$date": "2026-11-26T01:21:12.857Z"
       },
       "updatedAt": {
-        "$date": "2026-09-18T00:08:53.714Z"
+        "$date": "2026-11-26T01:21:12.857Z"
       }
     },
     {
       "_id": {
-        "$oid": "6a999133eedabe722e8cfbe1"
+        "$oid": "6b078988ad0cca7defbcb8ed"
       },
-      "name": "Repair Conditioner",
+      "name": "Collagen Hair Care",
       "brand": "",
       "category": "Hair Care",
-      "description": "Deep conditioning treatment for silky, manageable hair.",
-      "price": 30,
-      "image": "/uploads/1789690133641-675897987.jpg",
+      "description": "Collagen range in gold boxes, available in the salon. Ask our team how to use it.",
+      "price": null,
+      "image": "/images/products/collagen.jpg",
       "inStock": true,
       "isActive": true,
       "order": 2,
       "__v": 0,
       "createdAt": {
-        "$date": "2026-09-03T15:24:35.321Z"
+        "$date": "2026-11-26T01:21:12.858Z"
       },
       "updatedAt": {
-        "$date": "2026-09-18T00:08:53.755Z"
+        "$date": "2026-11-26T01:21:12.858Z"
       }
     },
     {
       "_id": {
-        "$oid": "6a999133eedabe722e8cfbe2"
+        "$oid": "6b078988ad0cca7defbcb8ee"
       },
-      "name": "Keratin Smoothing Serum",
+      "name": "9+3 Hair Treatment",
       "brand": "",
       "category": "Hair Care",
-      "description": "Lightweight serum for frizz control and shine.",
-      "price": 34,
-      "image": "/uploads/1789690133648-697209329.jpg",
+      "description": "9+3 hair treatment in green boxes, available in the salon. Ask us whether it suits your hair.",
+      "price": null,
+      "image": "/images/products/nine-plus-three.jpg",
       "inStock": true,
       "isActive": true,
       "order": 3,
       "__v": 0,
       "createdAt": {
-        "$date": "2026-09-03T15:24:35.321Z"
+        "$date": "2026-11-26T01:21:12.858Z"
       },
       "updatedAt": {
-        "$date": "2026-09-18T00:08:53.761Z"
+        "$date": "2026-11-26T01:21:12.858Z"
       }
     },
     {
       "_id": {
-        "$oid": "6a999133eedabe722e8cfbe3"
+        "$oid": "6b078988ad0cca7defbcb8ef"
       },
-      "name": "Heat Protectant Spray",
+      "name": "Argan Oil Shampoo & Mask",
       "brand": "",
-      "category": "Styling",
-      "description": "Protects hair from heat styling up to 220°C.",
-      "price": 24,
-      "image": "/uploads/1789690133656-968023766.jpg",
+      "category": "Hair Care",
+      "description": "Argan oil shampoo and hair masks, available in the salon.",
+      "price": null,
+      "image": "/images/products/argan-oil.jpg",
       "inStock": true,
       "isActive": true,
       "order": 4,
       "__v": 0,
       "createdAt": {
-        "$date": "2026-09-03T15:24:35.321Z"
+        "$date": "2026-11-26T01:21:12.859Z"
       },
       "updatedAt": {
-        "$date": "2026-09-18T00:08:53.769Z"
+        "$date": "2026-11-26T01:21:12.859Z"
       }
     },
     {
       "_id": {
-        "$oid": "6a999133eedabe722e8cfbe4"
+        "$oid": "6b078988ad0cca7defbcb8f0"
       },
-      "name": "Curl Defining Cream",
+      "name": "Purple Shampoo & Conditioner",
       "brand": "",
-      "category": "Styling",
-      "description": "Defines curls while reducing frizz and flyaways.",
-      "price": 26,
-      "image": "/uploads/1789690133662-841173360.jpg",
+      "category": "Hair Care",
+      "description": "Purple-label shampoo and conditioner, available in the salon. Ask our team what it is best for.",
+      "price": null,
+      "image": "/images/products/purple-shampoo.jpg",
       "inStock": true,
       "isActive": true,
       "order": 5,
       "__v": 0,
       "createdAt": {
-        "$date": "2026-09-03T15:24:35.321Z"
+        "$date": "2026-11-26T01:21:12.859Z"
       },
       "updatedAt": {
-        "$date": "2026-09-18T00:08:53.775Z"
+        "$date": "2026-11-26T01:21:12.859Z"
       }
     },
     {
       "_id": {
-        "$oid": "6a999133eedabe722e8cfbe5"
+        "$oid": "6b078988ad0cca7defbcb8f1"
       },
-      "name": "Hydrating Face Mist",
-      "brand": "",
-      "category": "Skin Care",
-      "description": "Refreshing facial mist for an instant glow.",
-      "price": 20,
-      "image": "/uploads/1789690133671-390658887.jpg",
+      "name": "Keune Care Range",
+      "brand": "Keune",
+      "category": "Hair Care",
+      "description": "Keune Care shampoos, conditioners and leave-in sprays, available in the salon.",
+      "price": null,
+      "image": "/images/products/keune-care.jpg",
       "inStock": true,
       "isActive": true,
       "order": 6,
       "__v": 0,
       "createdAt": {
-        "$date": "2026-09-03T15:24:35.321Z"
+        "$date": "2026-11-26T01:21:12.859Z"
       },
       "updatedAt": {
-        "$date": "2026-09-18T00:08:53.781Z"
+        "$date": "2026-11-26T01:21:12.859Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6b078988ad0cca7defbcb8f2"
+      },
+      "name": "Silver Bullet Keratin 230 Titanium Straightener",
+      "brand": "Silver Bullet",
+      "category": "Styling",
+      "description": "Professional titanium straightening iron.",
+      "price": null,
+      "image": "/images/products/silver-bullet.jpg",
+      "inStock": true,
+      "isActive": true,
+      "order": 7,
+      "__v": 0,
+      "createdAt": {
+        "$date": "2026-11-26T01:21:12.859Z"
+      },
+      "updatedAt": {
+        "$date": "2026-11-26T01:21:12.859Z"
       }
     }
   ],
